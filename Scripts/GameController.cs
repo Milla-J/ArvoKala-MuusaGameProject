@@ -3,6 +3,9 @@ using System;
 
 public partial class GameController : Node
 {
+	[ExportCategory("References")]
+	[Export] private Minigame _minigame;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,6 +18,6 @@ public partial class GameController : Node
 
 	public void StartMinigame()
 	{
-
+		_minigame.StartMinigame();
 	}
 }
