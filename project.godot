@@ -14,10 +14,15 @@ config/name="NoNameStudios-MuusaGameProject"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[display]
+
+window/canvas_textures/default_texture_filter=0
+
 [dotnet]
 
 project/assembly_name="NoNameStudios-MuusaGameProject"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
