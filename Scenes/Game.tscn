@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
-[ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Primitive-shapes/Circle.png" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Placeholders/Primitive-shapes/Circle.png" id="2_gl6un"]
 
 [node name="Game" type="Node2D"]
 
