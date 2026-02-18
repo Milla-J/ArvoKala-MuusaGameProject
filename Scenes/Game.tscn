@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=3 format=3 uid="uid://7og14qr88huk"]
+
+[ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
+[ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Primitive-shapes/Circle.png" id="2_gl6un"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Fish" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_iukft")]
+position = Vector2(538, 283)
+_target = NodePath("../Node2D")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(538, 99)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_gl6un")
