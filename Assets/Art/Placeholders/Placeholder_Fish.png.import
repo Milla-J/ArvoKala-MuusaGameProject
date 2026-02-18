@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdjkfullx4f1t"
-path="res://.godot/imported/Capsule.png-4a1229396c8cdb9b7c75936c1bb7a8fd.ctex"
+uid="uid://bykjcboqa7qa5"
+path="res://.godot/imported/Placeholder_Fish.png-3f84ec0e4404c61949cf933af1a713a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Primitive-shapes/Capsule.png"
-dest_files=["res://.godot/imported/Capsule.png-4a1229396c8cdb9b7c75936c1bb7a8fd.ctex"]
+source_file="res://Assets/Art/Placeholders/Placeholder_Fish.png"
+dest_files=["res://.godot/imported/Placeholder_Fish.png-3f84ec0e4404c61949cf933af1a713a9.ctex"]
 
 [params]
 
