@@ -9,13 +9,17 @@ public partial class GameController : Node
     [Export] private PackedScene _fishScene;
     [Export] private bool _testBool = false;
     [Export] private Node2D _hook;
+    [Export] private Control _spawnArea;
+
+    private Rect2 _screenRect;
 
     private List<Fish> _fishies = new List<Fish>();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
     {
-        SpawnFish();
+        _screenRect = _spawnArea.GetRect();
+        SpawnFish(10);
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +27,7 @@ public partial class GameController : Node
     {
         if(_testBool)
         {
-            SpawnFish();
+            _fishies[GD.RandRange(0, _fishies.Count - 1)]._isTargeting = true;
             _testBool = false;
         }
     }
@@ -34,11 +38,20 @@ public partial class GameController : Node
         _minigame.StartMinigame();
 	}
 
-    public void SpawnFish()
+    public void SpawnFish(int fishAmount)
     {
-        Fish fish = _fishScene.Instantiate<Fish>();
-        fish.SetTarget(_hook);
-        AddChild(fish);
-        _fishies.Add(fish);
+        for (int i = 0; i < fishAmount; i++)
+        {
+            // spawn the fish and add it to the fishies list
+            Fish fish = _fishScene.Instantiate<Fish>();
+            fish.SetTarget(_hook);
+            AddChild(fish);
+            _fishies.Add(fish);
+
+            // set the fishes position to a random spot on the screen
+            int horizontalPosition = (int)GD.RandRange(_screenRect.Position.X, _screenRect.End.X);
+            int verticalPosition = (int)GD.RandRange(_screenRect.Position.Y, _screenRect.End.Y);
+            fish.GlobalPosition = new Vector2(horizontalPosition, verticalPosition);
+        }
     }
 }

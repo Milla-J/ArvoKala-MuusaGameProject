@@ -8,11 +8,10 @@ radius = 17.0
 height = 66.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
+collision_mask = 2
 gravity_scale = 0.0
 linear_damp = 1.5
 script = ExtResource("1_6orkv")
-_movementDelay = 2.5
-_maximumVerticalAngle = 0.2
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

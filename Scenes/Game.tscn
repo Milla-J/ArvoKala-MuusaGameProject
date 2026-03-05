@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cdegkouy7rsu5" path="res://Assets/Art/Placeholders/Primitive-shapes/Square.png" id="4_kldst"]
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("MinigamePlaceholder")
 _fishScene = ExtResource("1_iukft")
 _hook = NodePath("Bobber/Hook")
+_spawnArea = NodePath("CanvasLayer/ColorRect")
 
 [node name="Fish" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_iukft")]
 position = Vector2(538, 283)
@@ -33,3 +34,17 @@ position = Vector2(556.00006, 215.00003)
 scale = Vector2(5.3125, 0.3671875)
 texture = ExtResource("4_kldst")
 script = ExtResource("5_b2bpf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 140.0
+offset_right = -61.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
