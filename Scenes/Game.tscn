@@ -1,20 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=6 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
-[ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Primitive-shapes/Circle.png" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Placeholders/Primitive-shapes/Circle.png" id="2_gl6un"]
+[ext_resource type="Texture2D" uid="uid://cdegkouy7rsu5" path="res://Assets/Art/Placeholders/Primitive-shapes/Square.png" id="4_kldst"]
+[ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook")]
 script = ExtResource("1_j5yw3")
+_minigame = NodePath("MinigamePlaceholder")
+_fishScene = ExtResource("1_iukft")
+_hook = NodePath("Bobber/Hook")
 
 [node name="Fish" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_iukft")]
 position = Vector2(538, 283)
-_target = NodePath("../Node2D")
+_target = NodePath("../Bobber/Hook")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Bobber" type="Node2D" parent="."]
 position = Vector2(538, 99)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 self_modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_gl6un")
+
+[node name="Hook" type="Node2D" parent="Bobber"]
+position = Vector2(0, 89)
+
+[node name="MinigamePlaceholder" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(556.00006, 215.00003)
+scale = Vector2(5.3125, 0.3671875)
+texture = ExtResource("4_kldst")
+script = ExtResource("5_b2bpf")

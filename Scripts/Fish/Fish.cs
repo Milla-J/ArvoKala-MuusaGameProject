@@ -10,10 +10,7 @@ public partial class Fish : RigidBody2D
 	[ExportCategory("Movement veriables")]
 	[Export] private float _speed = 100; // how fast/far movements are
 	[Export] private float _movementDelay = 2.5f; // delay between movements
-	/// <summary>
-	/// Should always be between 0 and 1
-	/// </summary>
-	[Export] private float _maximumVerticalAngle = 0.2f;
+	[Export] private float _maximumVerticalAngle = 0.2f; // should be between 0 and 1
 	[Export] private bool _isTargeting; // whether the fish is swimming towards the hook or just randomly around
 	[Export] private Node2D _target; // reference to the target hook
 	[Export] private int _stoppingDistanceFromHook = 50; // how many pixels away from the hook does the fish stop moving
@@ -57,6 +54,7 @@ public partial class Fish : RigidBody2D
 		if (GlobalPosition.DistanceTo(_target.GlobalPosition) < 50)
 		{
 			_moving = false;
+            GD.Print("Fish caught on hook");
 		}
 	}
 
@@ -82,4 +80,9 @@ public partial class Fish : RigidBody2D
 		await ToSignal(GetTree().CreateTimer(delay), "timeout");
 		_move = true;
 	}
+
+    public void SetTarget(Node2D target)
+    {
+        _target = target;
+    }
 }
