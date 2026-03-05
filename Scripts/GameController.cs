@@ -11,6 +11,9 @@ public partial class GameController : Node
     [Export] private Node2D _hook;
     [Export] private Control _spawnArea;
 
+    [ExportCategory("Fish lists")]
+    [Export] private PackedScene[] _fishScenes = new PackedScene[2];
+
     private Rect2 _screenRect;
 
     private List<Fish> _fishies = new List<Fish>();
@@ -43,7 +46,8 @@ public partial class GameController : Node
         for (int i = 0; i < fishAmount; i++)
         {
             // spawn the fish and add it to the fishies list
-            Fish fish = _fishScene.Instantiate<Fish>();
+            //Fish fish = _fishScene.Instantiate<Fish>();
+            Fish fish = _fishScenes[GD.RandRange(0, _fishScenes.Length - 1)].Instantiate<Fish>();
             fish.SetTarget(_hook);
             AddChild(fish);
             _fishies.Add(fish);

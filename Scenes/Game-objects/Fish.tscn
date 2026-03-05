@@ -12,6 +12,8 @@ collision_mask = 2
 gravity_scale = 0.0
 linear_damp = 1.5
 script = ExtResource("1_6orkv")
+_valueName = "Hyväksyntä"
+_valueText = "Teksti"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

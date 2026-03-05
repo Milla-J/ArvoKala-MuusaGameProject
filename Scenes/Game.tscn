@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=7 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Placeholders/Primitive-shapes/Circle.png" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://btb2apwvowgaj" path="res://Scenes/Game-objects/Fish2.tscn" id="3_7lihs"]
 [ext_resource type="Texture2D" uid="uid://cdegkouy7rsu5" path="res://Assets/Art/Placeholders/Primitive-shapes/Square.png" id="4_kldst"]
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
 
@@ -12,6 +13,7 @@ _minigame = NodePath("MinigamePlaceholder")
 _fishScene = ExtResource("1_iukft")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("CanvasLayer/ColorRect")
+_fishScenes = [ExtResource("1_iukft"), ExtResource("3_7lihs")]
 
 [node name="Fish" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_iukft")]
 position = Vector2(538, 283)
