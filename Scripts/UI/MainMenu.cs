@@ -18,14 +18,14 @@ public partial class MainMenu : Control
 	private void OnSettingsPressed()
 	{
 		GD.Print("Settings pressed");
-		GetTree().ChangeSceneToFile("res://Scenes/UI/SettingsMenu.tscn");
+		GetTree().ChangeSceneToFile("Scenes/UI/settings_menu.tscn");
 
 	}
 
 	private void OnCreditsPressed()
 	{
 		GD.Print("Credits pressed");
-		GetTree().ChangeSceneToFile("res://Scenes/UI/CreditsMenu.tscn");
+		GetTree().ChangeSceneToFile("res://Scenes/UI/credits_menu.tscn");
 		
 		
 	}
