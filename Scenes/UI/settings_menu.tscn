@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjf7t58cbvg6j"]
+
+[ext_resource type="Script" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kfh4b")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 164.0
+offset_right = 1152.0
+offset_bottom = 614.0
+
+[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MainVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MainVolSlider"]
+custom_minimum_size = Vector2(239, 45)
+layout_mode = 0
+offset_top = -8.0
+offset_right = 239.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 30
+text = "MAIN VOLUME"
+horizontal_alignment = 1
+
+[node name="MusicVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MusicVolSlider"]
+custom_minimum_size = Vector2(239, 45)
+layout_mode = 0
+offset_top = -8.0
+offset_right = 239.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 30
+text = "MUSIC VOLUME"
+horizontal_alignment = 1
+
+[node name="FXVolSlider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/FXVolSlider"]
+custom_minimum_size = Vector2(239, 45)
+layout_mode = 0
+offset_top = -8.0
+offset_right = 239.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 30
+text = "EFFECTS VOLUME"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(239, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "BACK
+"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 100
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/SettingsMenu/Back" to="." method="OnBackPressed"]

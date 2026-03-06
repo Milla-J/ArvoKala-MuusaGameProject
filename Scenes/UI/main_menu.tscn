@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://6lhw8uwis3tm"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5wsvm")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 100
+text = "Fishing Filosophy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 164.0
+offset_right = 1152.0
+offset_bottom = 614.0
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Play" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "PLAY
+"
+
+[node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS
+"
+
+[node name="Credits" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "CREDITS
+"
+
+[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT
+"
+
+[connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Credits" to="." method="OnCreditsPressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="OnQuitPressed"]

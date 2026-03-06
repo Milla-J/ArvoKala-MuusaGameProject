@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxfib502uuamt"]
+
+[ext_resource type="Script" path="res://Scripts/UI/CreditsMenu.cs" id="1_j0wxj"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0wxj")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 100
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 164.0
+offset_right = 1152.0
+offset_bottom = 614.0
+
+[node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/CreditsMenu"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Programming: 
+Milla Jerohin, Kalle Karhu, Janika Viitanen
+Art: 
+Laura Soppi, Tiia Korkalainen
+Music & Audio: 
+Kalle Karhu
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="CenterContainer/CreditsMenu"]
+custom_minimum_size = Vector2(239, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "BACK
+"
+
+[connection signal="pressed" from="CenterContainer/CreditsMenu/Back" to="." method="OnBackPressed"]
