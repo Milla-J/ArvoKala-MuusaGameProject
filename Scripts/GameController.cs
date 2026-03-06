@@ -89,4 +89,11 @@ public partial class GameController : Node
         _fishPool = tempArray;
         GD.Print(_fishPool);
     }
+
+    private void OnPausePressed()
+	{
+		GD.Print("Pause pressed");
+		GetTree().Paused = true;
+       
+	}
 }

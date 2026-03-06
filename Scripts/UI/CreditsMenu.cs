@@ -8,7 +8,6 @@ public partial class CreditsMenu : Control
 	{
 		GD.Print("Back Pressed");
 		GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
-
 	}
 
 }
