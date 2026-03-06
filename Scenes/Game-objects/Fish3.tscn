@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ye3xem67c48o"]
+[gd_scene load_steps=4 format=3 uid="uid://d64if7dxkdbt"]
 
-[ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_6orkv"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_6orkv"]
+[ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_g1emk"]
+[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_ax5qi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
 radius = 17.0
@@ -11,14 +11,14 @@ height = 66.0
 collision_mask = 2
 gravity_scale = 0.0
 linear_damp = 1.5
-script = ExtResource("1_6orkv")
+script = ExtResource("1_g1emk")
 _valueName = "Hyväksyntä"
 _valueText = "Teksti"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0.76933956, 0.86337847, 1)
-texture = ExtResource("2_6orkv")
+self_modulate = Color(0.9601124, 0.7404371, 1.1551381e-06, 1)
+texture = ExtResource("2_ax5qi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

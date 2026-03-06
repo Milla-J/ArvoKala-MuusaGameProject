@@ -16,6 +16,7 @@ _valueText = "Text"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.5979172, 0.71430165, 1)
 texture = ExtResource("2_kttbj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
