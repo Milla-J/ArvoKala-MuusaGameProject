@@ -44,7 +44,6 @@ texture = ExtResource("4_kldst")
 
 [node name="Indicator" type="Sprite2D" parent="MinigamePlaceholder"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(0, 1.335144e-05)
 scale = Vector2(0.03, 1.0158728)
 texture = ExtResource("4_kldst")
 
