@@ -3,19 +3,15 @@ using System;
 
 public partial class Minigame : Node2D
 {
+    [Export] private Sprite2D _indicator;
     [Export] private bool _testBool;
 	private bool _minigameGoing;
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		if (_minigameGoing)
-		{
-			if (_testBool)
-            {
-                StopMinigame();
-            }
-		}
+		Vector2 movementOffset = new Vector2(Input.GetAccelerometer().X, 0);
+        _indicator.Translate(movementOffset);
 	}
 
 	public void StartMinigame()

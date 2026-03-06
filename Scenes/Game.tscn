@@ -28,12 +28,25 @@ texture = ExtResource("2_gl6un")
 [node name="Hook" type="Node2D" parent="Bobber"]
 position = Vector2(0, 89)
 
-[node name="MinigamePlaceholder" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(556.00006, 215.00003)
-scale = Vector2(5.3125, 0.3671875)
+[node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_indicator")]
+self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
+position = Vector2(587, 226)
+scale = Vector2(5.3125, 0.24609391)
 texture = ExtResource("4_kldst")
 script = ExtResource("5_b2bpf")
+_indicator = NodePath("Indicator")
+
+[node name="SafeArea" type="Sprite2D" parent="MinigamePlaceholder"]
+self_modulate = Color(0.49433446, 0.8282563, 0.548639, 1)
+position = Vector2(-1.4117746, 0)
+scale = Vector2(0.55147064, 1)
+texture = ExtResource("4_kldst")
+
+[node name="Indicator" type="Sprite2D" parent="MinigamePlaceholder"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 1.335144e-05)
+scale = Vector2(0.03, 1.0158728)
+texture = ExtResource("4_kldst")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

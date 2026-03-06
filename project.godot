@@ -11,18 +11,26 @@ config_version=5
 [application]
 
 config/name="NoNameStudios-MuusaGameProject"
+run/main_scene="uid://7og14qr88huk"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/canvas_textures/default_texture_filter=0
 
 [dotnet]
 
 project/assembly_name="NoNameStudios-MuusaGameProject"
 
+[input_devices]
+
+sensors/enable_accelerometer=true
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
