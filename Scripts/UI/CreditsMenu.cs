@@ -3,6 +3,7 @@ using System;
 
 public partial class CreditsMenu : Control
 {
+    //When button pressed: calls the main menu scene
 	private void OnBackPressed()
 	{
 		GD.Print("Back Pressed");
