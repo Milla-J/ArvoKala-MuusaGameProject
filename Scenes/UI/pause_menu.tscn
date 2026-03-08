@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://cndxerx4vvy4a"]
+
+[ext_resource type="Script" uid="uid://b3pj3n5gvxmmw" path="res://PauseMenu.cs" id="1_rrvs5"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rrvs5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Label" type="Label" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "RESUME
+"
+
+[node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS
+"
+
+[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT
+"
+
+[connection signal="pressed" from="CenterContainer/MainButtons/Resume" to="." method="OnResumePressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="OnQuitPressed"]
