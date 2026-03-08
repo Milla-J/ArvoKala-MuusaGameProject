@@ -24,6 +24,8 @@ public partial class PauseMenu : Control
 	private void OnQuitPressed()
 	{
 		GD.Print("Quit pressed");
-		GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");	
+		GetTree().Paused = false;	
+		GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
+		
 	}
 }
