@@ -8,6 +8,7 @@ public partial class GameController : Node
 	[Export] private Minigame _minigame;
     [Export] private Node2D _hook;
     [Export] private Sprite2D _spawnArea;
+    [Export] private ValueCloud _cloud;
 
     [ExportCategory("Fish list")]
     [Export] private PackedScene[] _fishPool;
@@ -24,6 +25,7 @@ public partial class GameController : Node
     [Export] private float _delayBetweenFish;
     private bool _fishTargetingActive = false;
     private bool _gameGoing = true;
+    [Export] private TextureRect _fishSpot;
 
 
     private Rect2 _screenRect;
@@ -63,9 +65,10 @@ public partial class GameController : Node
 
     public void WinMinigame()
     {
-        _spawnedFish[_currentFishIndex].QueueFree();
-        _spawnedFish.RemoveAt(_currentFishIndex);
-        _fishTargetingActive = false;
+        _cloud.Visible = true;
+        _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);
+        _fishSpot.Texture = _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture;
+        //_fishSpot.Size =_fishSpot.Size * 2;
     }
 
     public void LoseMinigame()
@@ -101,6 +104,13 @@ public partial class GameController : Node
                                                         (_screenRect.End.Y * _spawnArea.Scale.Y) + _spawnArea.Position.Y);
             fish.GlobalPosition = new Vector2(horizontalPosition, verticalPosition);
         }
+    }
+
+    public void DespawnFish()
+    {
+        _spawnedFish[_currentFishIndex].QueueFree();
+        _spawnedFish.RemoveAt(_currentFishIndex);
+        _fishTargetingActive = false;
     }
 
     private void RemoveFishFromPool(int index)
