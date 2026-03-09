@@ -11,12 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish5.tscn" id="6_dahhg"]
 [ext_resource type="PackedScene" uid="uid://cndxerx4vvy4a" path="res://Scenes/UI/pause_menu.tscn" id="10_71axn"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_pauseMenu")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("MinigamePlaceholder")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("CanvasLayer/ColorRect")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
+_pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Bobber" type="Node2D" parent="."]
 position = Vector2(538, 99)
@@ -60,25 +61,17 @@ offset_right = -61.0
 offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0)
+color = Color(0.6117647, 0.6117647, 0.6117647, 0.6)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer2"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1150.0
-offset_top = 2.0
-offset_right = -995.0
-offset_bottom = 74.0
-grow_horizontal = 0
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
 
-[node name="Pause" type="Button" parent="CanvasLayer2/AspectRatioContainer"]
-layout_mode = 2
+[node name="Pause" type="Button" parent="CanvasLayer2"]
+offset_left = 43.5
+offset_top = 2.0
+offset_right = 115.5
+offset_bottom = 74.0
 text = "PAUSE"
 
-[node name="PauseMenu" parent="CanvasLayer2/AspectRatioContainer" instance=ExtResource("10_71axn")]
-layout_mode = 2
-
-[connection signal="pressed" from="CanvasLayer2/AspectRatioContainer/Pause" to="." method="OnPausePressed"]
+[connection signal="pressed" from="CanvasLayer2/Pause" to="." method="OnPausePressed"]

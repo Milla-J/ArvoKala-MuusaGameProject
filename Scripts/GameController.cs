@@ -15,8 +15,8 @@ public partial class GameController : Node
     private List<Fish> _spawnedFish = new List<Fish>();
     private int _fishPoolCount;
 
-    //UI
-    private PauseMenu _pauseMenu;
+    [ExportCategory("UI")]
+    [Export] private PauseMenu _pauseMenu;
 
 
     private Rect2 _screenRect;
@@ -27,8 +27,6 @@ public partial class GameController : Node
         _fishPoolCount = _fishPool.Length;
         _screenRect = _spawnArea.GetRect();
         SpawnFish(5);
-
-         _pauseMenu = GetNode<PauseMenu>("CanvasLayer2/AspectRatioContainer/PauseMenu");
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -101,7 +99,7 @@ public partial class GameController : Node
 		GD.Print("Pause pressed");
         _pauseMenu.Visible = true;
 		GetTree().Paused = true;
-        
-       
+
+
 	}
 }
