@@ -19,13 +19,12 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_pauseMenu")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("MinigamePlaceholder")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("Water")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
-_pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -44,8 +43,11 @@ self_modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_gl6un")
 
-[node name="Hook" type="Node2D" parent="Bobber"]
+[node name="Hook" type="Sprite2D" parent="Bobber"]
+self_modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 89)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kldst")
 
 [node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_indicator")]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
@@ -55,6 +57,7 @@ scale = Vector2(5.3125, 0.24609391)
 texture = ExtResource("4_kldst")
 script = ExtResource("5_b2bpf")
 _indicator = NodePath("Indicator")
+_winningPointAmount = 8
 
 [node name="SafeArea" type="Sprite2D" parent="MinigamePlaceholder"]
 self_modulate = Color(0.49433446, 0.8282563, 0.548639, 1)
@@ -66,18 +69,6 @@ texture = ExtResource("4_kldst")
 self_modulate = Color(0, 0, 0, 1)
 scale = Vector2(0.03, 1.0158728)
 texture = ExtResource("4_kldst")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
-visible = false
-
-[node name="Pause" type="Button" parent="CanvasLayer2"]
-offset_left = 43.5
-offset_top = 2.0
-offset_right = 115.5
-offset_bottom = 74.0
-text = "PAUSE"
 
 [node name="World boundaries" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -101,5 +92,17 @@ shape = SubResource("WorldBoundaryShape2D_3so38")
 position = Vector2(0, -63)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_3cx6b")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
+visible = false
+
+[node name="Pause" type="Button" parent="CanvasLayer2"]
+offset_left = 43.5
+offset_top = 2.0
+offset_right = 115.5
+offset_bottom = 74.0
+text = "PAUSE"
 
 [connection signal="pressed" from="CanvasLayer2/Pause" to="." method="OnPausePressed"]

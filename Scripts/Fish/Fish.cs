@@ -20,6 +20,14 @@ public partial class Fish : RigidBody2D
 	[ExportCategory("Graphics veriables")]
 	[Export] private Sprite2D _sprite; // reference to the sprite
 
+    //Game controller and minigame veriables
+    private GameController _gameController;
+
+    public void SetGameController(GameController gameController)
+    {
+        _gameController = gameController;
+    }
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -54,6 +62,8 @@ public partial class Fish : RigidBody2D
 		if (GlobalPosition.DistanceTo(_target.GlobalPosition) < 50 && _isTargeting)
 		{
 			_moving = false;
+            _gameController.StartMinigame();
+            _isTargeting = false;
 		}
 	}
 

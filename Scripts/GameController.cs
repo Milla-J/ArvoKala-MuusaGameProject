@@ -41,7 +41,6 @@ public partial class GameController : Node
 
 	public void StartMinigame()
 	{
-		_minigame.Visible = true;
         _minigame.StartMinigame();
 	}
 
@@ -58,6 +57,7 @@ public partial class GameController : Node
             int index = GD.RandRange(0, _fishPoolCount - 1);
             // spawn the fish and add it to the fishies list
             Fish fish = _fishPool[index].Instantiate<Fish>();
+            fish.SetGameController(this);
             RemoveFishFromPool(index);
 
             fish.SetTarget(_hook);
