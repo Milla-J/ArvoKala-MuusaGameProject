@@ -31,8 +31,8 @@ public partial class Minigame : Sprite2D
         _rightEdge = area.End.X;
 
         Sprite2D safeArea = GetChild<Sprite2D>(0);
-        _safeAreaLeftEdge = safeArea.GetRect().Position.X * safeArea.Scale.X;
-        _safeAreaRightEdge = safeArea.GetRect().End.X * safeArea.Scale.X;
+        _safeAreaLeftEdge = safeArea.GetRect().Position.X * safeArea.GlobalScale.X;
+        _safeAreaRightEdge = safeArea.GetRect().End.X * safeArea.GlobalScale.X;
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -85,11 +85,9 @@ public partial class Minigame : Sprite2D
 	{
         Visible = true;
         _pointCounter = _winningPointAmount / 2f;
+        GD.Print(_pointCounter);
 		_minigameGoing = true;
         GD.Print("Game started");
-
-        GD.Print(_indicator.Position.X);
-        GD.Print($"{_safeAreaLeftEdge} : {_safeAreaRightEdge}");
 	}
 
 	public void StopMinigame()
@@ -97,6 +95,7 @@ public partial class Minigame : Sprite2D
 		_minigameGoing = false;
         GD.Print("Game ended");
         Visible = false;
+        _indicator.SetPosition(new Vector2(0, 0));
 	}
 
     private void MoveIndicator()
