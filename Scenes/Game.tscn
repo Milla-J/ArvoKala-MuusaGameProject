@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=16 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish5.tscn" id="6_dahhg"]
 [ext_resource type="PackedScene" uid="uid://cndxerx4vvy4a" path="res://Scenes/UI/pause_menu.tscn" id="10_71axn"]
+[ext_resource type="Script" uid="uid://mxpissbsx442" path="res://Scripts/ValueCloud.cs" id="10_dahhg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_71axn"]
 
@@ -19,13 +20,16 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_pauseMenu")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_fishSpot")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("MinigamePlaceholder")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("Water")
+_cloud = NodePath("CanvasLayer2/Cloud")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
+_delayBetweenFish = 3.0
+_fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -54,22 +58,22 @@ texture = ExtResource("4_kldst")
 visible = false
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
 z_index = 2
-position = Vector2(-1.0000001, -162)
-scale = Vector2(5.3125, 0.24609391)
+position = Vector2(7.1054274e-15, -142)
+scale = Vector2(5.313, 0.15)
 texture = ExtResource("4_kldst")
 script = ExtResource("5_b2bpf")
 _indicator = NodePath("Indicator")
 _winningPointAmount = 8
+_indicatorSensitivity = 3.0
 
 [node name="SafeArea" type="Sprite2D" parent="MinigamePlaceholder"]
 self_modulate = Color(0.49433446, 0.8282563, 0.548639, 1)
-position = Vector2(-1.4117746, 0)
-scale = Vector2(0.55147064, 1)
+scale = Vector2(0.4, 1)
 texture = ExtResource("4_kldst")
 
 [node name="Indicator" type="Sprite2D" parent="MinigamePlaceholder"]
 self_modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.03, 1.0158728)
+scale = Vector2(0.01, 1.016)
 texture = ExtResource("4_kldst")
 
 [node name="World boundaries" type="StaticBody2D" parent="."]
@@ -97,6 +101,103 @@ shape = SubResource("WorldBoundaryShape2D_3cx6b")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
+[node name="Cloud" type="TextureRect" parent="CanvasLayer2" node_paths=PackedStringArray("_valueDiscription")]
+visible = false
+self_modulate = Color(1, 1, 1, 0.5372549)
+z_index = -5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 166.0
+offset_top = -239.5
+offset_right = 466.0
+offset_bottom = -39.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gl6un")
+script = ExtResource("10_dahhg")
+_valueDiscription = NodePath("Label")
+
+[node name="FishSpot" type="TextureRect" parent="CanvasLayer2/Cloud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VeryImportant" type="Button" parent="CanvasLayer2/Cloud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.0
+offset_top = 62.0
+offset_right = -62.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Erittäin tärkeä"
+
+[node name="SomewhatImportant" type="Button" parent="CanvasLayer2/Cloud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = 50.0
+offset_right = 57.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jonkin
+verran tärkeä"
+
+[node name="NotImportant" type="Button" parent="CanvasLayer2/Cloud"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 176.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vähän tärkeä
+"
+
+[node name="Label" type="Label" parent="CanvasLayer2/Cloud"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -69.0
+offset_right = 90.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Something went wrong"
+horizontal_alignment = 1
+
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
 visible = false
 
@@ -107,4 +208,10 @@ offset_right = 115.5
 offset_bottom = 74.0
 text = "PAUSE"
 
+[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="DespawnFish"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="." method="DespawnFish"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="." method="DespawnFish"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Pause" to="." method="OnPausePressed"]
