@@ -51,7 +51,7 @@ public partial class Fish : RigidBody2D
 			Timer(_movementDelay);
 		}
 
-		if (GlobalPosition.DistanceTo(_target.GlobalPosition) < 50)
+		if (GlobalPosition.DistanceTo(_target.GlobalPosition) < 50 && _isTargeting)
 		{
 			_moving = false;
 		}
