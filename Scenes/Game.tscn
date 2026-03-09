@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=15 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
@@ -11,18 +11,33 @@
 [ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish5.tscn" id="6_dahhg"]
 [ext_resource type="PackedScene" uid="uid://cndxerx4vvy4a" path="res://Scenes/UI/pause_menu.tscn" id="10_71axn"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_71axn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dahhg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3so38"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_pauseMenu")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("MinigamePlaceholder")
 _hook = NodePath("Bobber/Hook")
-_spawnArea = NodePath("CanvasLayer/ColorRect")
+_spawnArea = NodePath("Water")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Water" type="Sprite2D" parent="."]
+self_modulate = Color(1.5209317e-05, 0.91218, 0.9611458, 0.49019608)
+z_index = 1
+position = Vector2(0, 104)
+scale = Vector2(8.40625, 2.625)
+texture = ExtResource("4_kldst")
+
 [node name="Bobber" type="Node2D" parent="."]
-position = Vector2(1, -91)
+position = Vector2(0, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 self_modulate = Color(1, 0, 0, 1)
@@ -34,6 +49,7 @@ position = Vector2(0, 89)
 
 [node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_indicator")]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
+z_index = 2
 position = Vector2(-1.0000001, -162)
 scale = Vector2(5.3125, 0.24609391)
 texture = ExtResource("4_kldst")
@@ -51,20 +67,6 @@ self_modulate = Color(0, 0, 0, 1)
 scale = Vector2(0.03, 1.0158728)
 texture = ExtResource("4_kldst")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 140.0
-offset_right = -61.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.6117647, 0.6117647, 0.6117647, 0)
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
@@ -76,5 +78,28 @@ offset_top = 2.0
 offset_right = 115.5
 offset_bottom = 74.0
 text = "PAUSE"
+
+[node name="World boundaries" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World boundaries"]
+position = Vector2(0, 272)
+shape = SubResource("WorldBoundaryShape2D_71axn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World boundaries"]
+position = Vector2(-538, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_dahhg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="World boundaries"]
+position = Vector2(537, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_3so38")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="World boundaries"]
+position = Vector2(0, -63)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_3cx6b")
 
 [connection signal="pressed" from="CanvasLayer2/Pause" to="." method="OnPausePressed"]

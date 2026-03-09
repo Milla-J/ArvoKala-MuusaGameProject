@@ -8,7 +8,7 @@ public partial class GameController : Node
 	[Export] private Minigame _minigame;
     [Export] private bool _testBool = false;
     [Export] private Node2D _hook;
-    [Export] private Control _spawnArea;
+    [Export] private Sprite2D _spawnArea;
 
     [ExportCategory("Fish lists")]
     [Export] private PackedScene[] _fishPool;
@@ -56,7 +56,6 @@ public partial class GameController : Node
         for (int i = 0; i < fishAmount; i++)
         {
             int index = GD.RandRange(0, _fishPoolCount - 1);
-            GD.Print($"{index} : {_fishPoolCount}");
             // spawn the fish and add it to the fishies list
             Fish fish = _fishPool[index].Instantiate<Fish>();
             RemoveFishFromPool(index);
@@ -66,8 +65,10 @@ public partial class GameController : Node
             _spawnedFish.Add(fish);
 
             // set the fishes position to a random spot on the screen
-            int horizontalPosition = (int)GD.RandRange(_screenRect.Position.X, _screenRect.End.X);
-            int verticalPosition = (int)GD.RandRange(_screenRect.Position.Y, _screenRect.End.Y);
+            int horizontalPosition = (int)GD.RandRange(_screenRect.Position.X * _spawnArea.Scale.X,
+                                                        _screenRect.End.X * _spawnArea.Scale.X);
+            int verticalPosition = (int)GD.RandRange((_screenRect.Position.Y * _spawnArea.Scale.Y) + _spawnArea.Position.Y,
+                                                        (_screenRect.End.Y * _spawnArea.Scale.Y) + _spawnArea.Position.Y);
             fish.GlobalPosition = new Vector2(horizontalPosition, verticalPosition);
         }
     }
@@ -91,7 +92,6 @@ public partial class GameController : Node
             }
         }
         _fishPool = tempArray;
-        GD.Print(_fishPool);
     }
 
     private void OnPausePressed()
@@ -99,7 +99,5 @@ public partial class GameController : Node
 		GD.Print("Pause pressed");
         _pauseMenu.Visible = true;
 		GetTree().Paused = true;
-
-
 	}
 }

@@ -9,6 +9,7 @@ height = 34.0
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
 gravity_scale = 0.0
+lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_s5txb")
 _valueName = "Hyväksyntä"
