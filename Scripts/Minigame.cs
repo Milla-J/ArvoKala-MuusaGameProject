@@ -3,12 +3,16 @@ using System;
 
 public partial class Minigame : Sprite2D
 {
+    [ExportCategory("References")]
+    [Export] private GameController _gameController;
     [Export] private Sprite2D _indicator;
 	private bool _minigameGoing;
     private bool _inSafeArea;
 
+    [ExportCategory("Minigame veriables")]
     [Export] private int _winningPointAmount;
     private float _pointCounter;
+    [Export] float _indicatorSensitivity;
 
     // local X coordinate of the right edge of the minigame slider
     private float _rightEdge;
@@ -97,7 +101,7 @@ public partial class Minigame : Sprite2D
 
     private void MoveIndicator()
     {
-        Vector2 movementOffset = new Vector2(Input.GetAccelerometer().X, 0);
+        Vector2 movementOffset = new Vector2(Input.GetAccelerometer().X, 0) * _indicatorSensitivity;
         if (movementOffset.X < 0 && _indicator.Position.X > _leftEdge ||
             movementOffset.X > 0 && _indicator.Position.X < _rightEdge)
         {
@@ -109,11 +113,13 @@ public partial class Minigame : Sprite2D
     {
         GD.Print("You won!");
         StopMinigame();
+        _gameController.WinMinigame();
     }
 
     private void LoseMinigame()
     {
         GD.Print("You lost :(");
         StopMinigame();
+        _gameController.LoseMinigame();
     }
 }

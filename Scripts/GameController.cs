@@ -13,7 +13,10 @@ public partial class GameController : Node
     [ExportCategory("Fish lists")]
     [Export] private PackedScene[] _fishPool;
     private List<Fish> _spawnedFish = new List<Fish>();
+    // the amount of available fish in the spawning pool
     private int _fishPoolCount;
+    // index of the fish currently being cought in the game
+    private int _currentFishIndex;
 
     [ExportCategory("UI")]
     [Export] private PauseMenu _pauseMenu;
@@ -34,7 +37,8 @@ public partial class GameController : Node
     {
         if(_testBool)
         {
-            _spawnedFish[GD.RandRange(0, _spawnedFish.Count - 1)]._isTargeting = true;
+            _currentFishIndex = GD.RandRange(0, _spawnedFish.Count - 1);
+            _spawnedFish[_currentFishIndex].IsTargeting = true;
             _testBool = false;
         }
     }
@@ -43,6 +47,17 @@ public partial class GameController : Node
 	{
         _minigame.StartMinigame();
 	}
+
+    public void WinMinigame()
+    {
+        _spawnedFish[_currentFishIndex].QueueFree();
+        _spawnedFish.RemoveAt(_currentFishIndex);
+    }
+
+    public void LoseMinigame()
+    {
+        _spawnedFish[_currentFishIndex].CanMove = true;
+    }
 
     public void SpawnFish(int fishAmount)
     {

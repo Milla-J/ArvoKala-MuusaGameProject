@@ -4,17 +4,17 @@ using System;
 public partial class Fish : RigidBody2D
 {
 	[ExportCategory("Public veriables")]
-	[Export] public string _valueName;
-	[Export] public string _valueText;
+	[Export] public string ValueName;
+	[Export] public string ValueDescription;
 
 	[ExportCategory("Movement veriables")]
 	[Export] private float _speed = 100; // how fast/far movements are
 	[Export] private float _movementDelay = 2.5f; // delay between movements
 	[Export] private float _maximumVerticalAngle = 0.2f; // should be between 0 and 1
-	[Export] public bool _isTargeting; // whether the fish is swimming towards the hook or just randomly around
+	[Export] public bool IsTargeting; // whether the fish is swimming towards the hook or just randomly around
 	[Export] private Node2D _target; // reference to the target hook
 	[Export] private int _stoppingDistanceFromHook = 50; // how many pixels away from the hook does the fish stop moving
-	private bool _moving = true; // if the fish is allowed to move or not
+	public bool CanMove = true; // if the fish is allowed to move or not
 	private bool _move = false; // boolean to control movement
 
 	[ExportCategory("Graphics veriables")]
@@ -39,10 +39,10 @@ public partial class Fish : RigidBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (_moving && _move)
+		if (CanMove && _move)
 		{
 			Vector2 movementDirection;
-			if (_isTargeting)
+			if (IsTargeting)
 			{
 				movementDirection = (_target.GlobalPosition - GlobalPosition).Normalized();
 				GD.Print(GlobalPosition.DistanceTo(_target.GlobalPosition));
@@ -59,11 +59,11 @@ public partial class Fish : RigidBody2D
 			Timer(_movementDelay);
 		}
 
-		if (GlobalPosition.DistanceTo(_target.GlobalPosition) < 50 && _isTargeting)
+		if (GlobalPosition.DistanceTo(_target.GlobalPosition) < 50 && IsTargeting)
 		{
-			_moving = false;
+			CanMove = false;
             _gameController.StartMinigame();
-            _isTargeting = false;
+            IsTargeting = false;
 		}
 	}
 
