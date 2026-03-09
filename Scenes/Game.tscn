@@ -19,8 +19,10 @@ _spawnArea = NodePath("CanvasLayer/ColorRect")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="Bobber" type="Node2D" parent="."]
-position = Vector2(538, 99)
+position = Vector2(1, -91)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 self_modulate = Color(1, 0, 0, 1)
@@ -32,7 +34,7 @@ position = Vector2(0, 89)
 
 [node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_indicator")]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
-position = Vector2(587, 226)
+position = Vector2(-1.0000001, -162)
 scale = Vector2(5.3125, 0.24609391)
 texture = ExtResource("4_kldst")
 script = ExtResource("5_b2bpf")
@@ -61,11 +63,12 @@ offset_right = -61.0
 offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6117647, 0.6117647, 0.6117647, 0.6)
+color = Color(0.6117647, 0.6117647, 0.6117647, 0)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
+visible = false
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
 offset_left = 43.5
