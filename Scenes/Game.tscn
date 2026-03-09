@@ -19,12 +19,14 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_pauseMenu")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("MinigamePlaceholder")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("Water")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
+_delayBetweenFish = 3.0
+_pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -50,6 +52,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_kldst")
 
 [node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_gameController", "_indicator")]
+visible = false
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
 z_index = 2
 position = Vector2(-1.0000001, -162)

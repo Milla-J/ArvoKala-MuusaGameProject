@@ -6,11 +6,10 @@ public partial class GameController : Node
 {
 	[ExportCategory("References")]
 	[Export] private Minigame _minigame;
-    [Export] private bool _testBool = false;
     [Export] private Node2D _hook;
     [Export] private Sprite2D _spawnArea;
 
-    [ExportCategory("Fish lists")]
+    [ExportCategory("Fish list")]
     [Export] private PackedScene[] _fishPool;
     private List<Fish> _spawnedFish = new List<Fish>();
     // the amount of available fish in the spawning pool
@@ -20,6 +19,11 @@ public partial class GameController : Node
 
     [ExportCategory("UI")]
     [Export] private PauseMenu _pauseMenu;
+
+    [ExportCategory("Misc")]
+    [Export] private float _delayBetweenFish;
+    private bool _fishTargetingActive = false;
+    private bool _gameGoing = true;
 
 
     private Rect2 _screenRect;
@@ -35,11 +39,20 @@ public partial class GameController : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
-        if(_testBool)
+        if (!_gameGoing)
         {
-            _currentFishIndex = GD.RandRange(0, _spawnedFish.Count - 1);
-            _spawnedFish[_currentFishIndex].IsTargeting = true;
-            _testBool = false;
+            return;
+        }
+
+        if (_spawnedFish.Count == 0)
+        {
+            _gameGoing = false;
+        }
+
+        if(!_fishTargetingActive)
+        {
+            FishTimer(_delayBetweenFish);
+            _fishTargetingActive = true;
         }
     }
 
@@ -52,11 +65,13 @@ public partial class GameController : Node
     {
         _spawnedFish[_currentFishIndex].QueueFree();
         _spawnedFish.RemoveAt(_currentFishIndex);
+        _fishTargetingActive = false;
     }
 
     public void LoseMinigame()
     {
         _spawnedFish[_currentFishIndex].CanMove = true;
+        _fishTargetingActive = false;
     }
 
     public void SpawnFish(int fishAmount)
@@ -109,10 +124,22 @@ public partial class GameController : Node
         _fishPool = tempArray;
     }
 
+    private void ActivateFishTrageting()
+    {
+        _currentFishIndex = GD.RandRange(0, _spawnedFish.Count - 1);
+        _spawnedFish[_currentFishIndex].IsTargeting = true;
+    }
+
     private void OnPausePressed()
 	{
 		GD.Print("Pause pressed");
         _pauseMenu.Visible = true;
 		GetTree().Paused = true;
+	}
+
+    private async void FishTimer(float delay)
+	{
+		await ToSignal(GetTree().CreateTimer(delay), "timeout");
+        ActivateFishTrageting();
 	}
 }
