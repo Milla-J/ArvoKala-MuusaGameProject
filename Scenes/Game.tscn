@@ -25,7 +25,6 @@ _minigame = NodePath("MinigamePlaceholder")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("Water")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
-_delayBetweenFish = 3.0
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -51,7 +50,7 @@ position = Vector2(0, 89)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_kldst")
 
-[node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_gameController", "_indicator")]
+[node name="MinigamePlaceholder" type="Sprite2D" parent="." node_paths=PackedStringArray("_indicator")]
 visible = false
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
 z_index = 2
@@ -59,10 +58,8 @@ position = Vector2(-1.0000001, -162)
 scale = Vector2(5.3125, 0.24609391)
 texture = ExtResource("4_kldst")
 script = ExtResource("5_b2bpf")
-_gameController = NodePath("..")
 _indicator = NodePath("Indicator")
 _winningPointAmount = 8
-_indicatorSensitivity = 1.0
 
 [node name="SafeArea" type="Sprite2D" parent="MinigamePlaceholder"]
 self_modulate = Color(0.49433446, 0.8282563, 0.548639, 1)
