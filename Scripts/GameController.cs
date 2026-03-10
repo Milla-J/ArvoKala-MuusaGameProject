@@ -68,7 +68,7 @@ public partial class GameController : Node
         _cloud.Visible = true;
         _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);
         _fishSpot.Texture = _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture;
-        //_fishSpot.Size =_fishSpot.Size * 2;
+        _spawnedFish[_currentFishIndex].Visible = false;
     }
 
     public void LoseMinigame()
