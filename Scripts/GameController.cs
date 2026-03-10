@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public partial class GameController : Node
 {
@@ -26,6 +27,8 @@ public partial class GameController : Node
     private bool _fishTargetingActive = false;
     private bool _gameGoing = true;
     [Export] private TextureRect _fishSpot;
+    private int _importantValueCount;
+    private ConfigFile _config = new ConfigFile();
 
 
     private Rect2 _screenRect;
@@ -41,17 +44,13 @@ public partial class GameController : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
-        if (!_gameGoing)
-        {
-            return;
-        }
-
-        if (_spawnedFish.Count == 0)
+        if (_spawnedFish.Count == 0 && _gameGoing)
         {
             _gameGoing = false;
+            PrintOutFish();
         }
 
-        if(!_fishTargetingActive)
+        if(!_fishTargetingActive && _gameGoing)
         {
             FishTimer(_delayBetweenFish);
             _fishTargetingActive = true;
@@ -138,6 +137,35 @@ public partial class GameController : Node
     {
         _currentFishIndex = GD.RandRange(0, _spawnedFish.Count - 1);
         _spawnedFish[_currentFishIndex].IsTargeting = true;
+    }
+
+    private void SaveFishToValues()
+    {
+        _importantValueCount++;
+        _config.SetValue("Fish" + _importantValueCount, "ValueName", _spawnedFish[_currentFishIndex].ValueName);
+        _config.SetValue("Fish" + _importantValueCount, "ValueDescription", _spawnedFish[_currentFishIndex].ValueDescription);
+        _config.SetValue("Fish" + _importantValueCount, "FishTexture", _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture);
+        _config.Save("user://valueFish.cfg");
+
+        DespawnFish();
+    }
+
+    private void PrintOutFish()
+    {
+        Error err = _config.Load("user://valueFish.cfg");
+
+        if (err != Error.Ok)
+        {
+            GD.Print("We done fucked up");
+            return;
+        }
+
+        foreach (String fish in _config.GetSections())
+        {
+            var valueName = (String)_config.GetValue(fish, "ValueName");
+            var ValueDescription = (String)_config.GetValue(fish, "ValueDescription");
+            GD.Print($"{valueName} : {ValueDescription}");
+        }
     }
 
     private void OnPausePressed()

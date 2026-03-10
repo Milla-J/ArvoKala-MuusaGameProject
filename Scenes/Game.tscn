@@ -206,9 +206,9 @@ offset_right = 115.5
 offset_bottom = 74.0
 text = "PAUSE"
 
-[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="DespawnFish"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
-[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="." method="DespawnFish"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="." method="DespawnFish"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
