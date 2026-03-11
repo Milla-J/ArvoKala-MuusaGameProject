@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6lhw8uwis3tm"]
+[gd_scene load_steps=3 format=3 uid="uid://6lhw8uwis3tm"]
 
 [ext_resource type="Script" uid="uid://42s8dopbhcms" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
+[ext_resource type="AudioStream" uid="uid://cqjdbj5x1k5fv" path="res://Audio/main menu music v5.wav" id="2_i2xx2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -72,6 +73,9 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "QUIT
 "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i2xx2")
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="OnPlayPressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="OnSettingsPressed"]
