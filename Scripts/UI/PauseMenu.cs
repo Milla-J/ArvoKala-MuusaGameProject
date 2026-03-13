@@ -14,6 +14,8 @@ public partial class PauseMenu : Control
 		GD.Print("Resume pressed");
 		GetTree().Paused = false;
 		Visible = false;
+
+		GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(false);
 	}
 
 	private void OnSettingsPressed()
@@ -24,7 +26,8 @@ public partial class PauseMenu : Control
 	private void OnQuitPressed()
 	{
 		GD.Print("Quit pressed");
-		GetTree().Paused = false;	
+		GetTree().Paused = false;
+		GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(false);	
 		GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
 		
 	}

@@ -10,7 +10,7 @@ stream_count = 2
 stream_0/stream = ExtResource("3_r1463")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("4_kcgc6")
-stream_1/volume = -10.46
+stream_1/volume = -60.0
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic")]
 process_mode = 3
@@ -20,8 +20,10 @@ _mainGameMusic = NodePath("MainGameMusic")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_anrdn")
+volume_db = -4.771
 bus = &"Music"
 
 [node name="MainGameMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_paayw")
+volume_db = -5.049
 bus = &"Music"

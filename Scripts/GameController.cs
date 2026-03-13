@@ -149,6 +149,8 @@ public partial class GameController : Node
 		GD.Print("Pause pressed");
         _pauseMenu.Visible = true;
 		GetTree().Paused = true;
+
+        GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(true);
 	}
 
     private async void FishTimer(float delay)
