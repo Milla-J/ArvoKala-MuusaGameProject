@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsxjep8l3o1cm"
+path="res://.godot/imported/game music tension.wav-780e55f7daba2830135a972e8bd2ce8d.sample"
+
+[deps]
+
+source_file="res://Audio/game music tension.wav"
+dest_files=["res://.godot/imported/game music tension.wav-780e55f7daba2830135a972e8bd2ce8d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

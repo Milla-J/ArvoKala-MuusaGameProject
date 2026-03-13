@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=6 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://cqjdbj5x1k5fv" path="res://Audio/main menu music v5.wav" id="2_anrdn"]
+[ext_resource type="AudioStream" uid="uid://b0ito15xyfenx" path="res://Audio/Game music main.wav" id="3_r1463"]
+[ext_resource type="AudioStream" uid="uid://dsxjep8l3o1cm" path="res://Audio/game music tension.wav" id="4_kcgc6"]
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic")]
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_paayw"]
+stream_count = 2
+stream_0/stream = ExtResource("3_r1463")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("4_kcgc6")
+stream_1/volume = -10.46
+
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic")]
 process_mode = 3
 script = ExtResource("1_whaik")
 _menuMusic = NodePath("MenuMusic")
+_mainGameMusic = NodePath("MainGameMusic")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_anrdn")
+bus = &"Music"
+
+[node name="MainGameMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_paayw")
 bus = &"Music"

@@ -3,6 +3,10 @@ using System;
 
 public partial class MainMenu : Control
 {
+	public override void _Ready()
+	{
+    	GetNode<AudioManager>("/root/AudioManager").PlayMenuMusic();
+	}
 	//When button pressed: calls the game scene
 	private void OnPlayPressed()
 	{

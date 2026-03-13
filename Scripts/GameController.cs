@@ -27,6 +27,7 @@ public partial class GameController : Node
     private bool _gameGoing = true;
     [Export] private TextureRect _fishSpot;
 
+    
 
     private Rect2 _screenRect;
 
@@ -36,6 +37,9 @@ public partial class GameController : Node
         _fishPoolCount = _fishPool.Length;
         _screenRect = _spawnArea.GetRect();
         SpawnFish(5);
+        //Calls the audio manager when scene loads
+        GetNode<AudioManager>("/root/AudioManager").PlayGameMusic();
+    
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
