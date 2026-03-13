@@ -1,39 +1,27 @@
 using Godot;
 using System;
 
-public partial class Minigame : Sprite2D
+public partial class Minigame : Node2D
 {
     [ExportCategory("References")]
     [Export] private GameController _gameController;
-    [Export] private Sprite2D _indicator;
+    [Export] private Area2D _safeArea;
+    [Export] private MinigameIndicator _indicator;
 	private bool _minigameGoing;
-    private bool _inSafeArea;
+    private bool _inSafeArea = true;
 
     [ExportCategory("Minigame veriables")]
+    [Export] float _indicatorSpeedMultiplier = 50f;
     [Export] private int _winningPointAmount;
     private float _pointCounter;
-    [Export] float _indicatorSensitivity;
+    [Export] private float _safeAreaMovementSpeed = 10;
+    private int _safeAreaMovementDirection = 1;
 
-    // local X coordinate of the right edge of the minigame slider
-    private float _rightEdge;
-    // local X coordinate of the left edge of the minigame slider
-    private float _leftEdge;
-    // global X coordinate of the right edge of the minigame slider
-    private float _safeAreaRightEdge;
-    // global X coordinate of the right edge of the minigame slider
-    private float _safeAreaLeftEdge;
-
-    // Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-    {
-        Rect2 area = GetRect();
-        _leftEdge = area.Position.X;
-        _rightEdge = area.End.X;
-
-        Sprite2D safeArea = GetChild<Sprite2D>(0);
-        _safeAreaLeftEdge = safeArea.GetRect().Position.X * safeArea.GlobalScale.X;
-        _safeAreaRightEdge = safeArea.GetRect().End.X * safeArea.GlobalScale.X;
-    }
+    public override void _EnterTree()
+	{
+		_safeArea.BodyEntered += OnSafeAreaEntered;
+        _safeArea.BodyExited += OnSafeAreaExit;
+	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -41,15 +29,6 @@ public partial class Minigame : Sprite2D
         if (!_minigameGoing)
         {
             return;
-        }
-
-        if (_indicator.GlobalPosition.X > _safeAreaLeftEdge && _indicator.GlobalPosition.X < _safeAreaRightEdge)
-        {
-            _inSafeArea = true;
-        }
-        else
-        {
-            _inSafeArea = false;
         }
 
         if (_pointCounter >= _winningPointAmount)
@@ -69,7 +48,8 @@ public partial class Minigame : Sprite2D
             return;
         }
 
-		MoveIndicator();
+        MoveIndicator();
+        MoveSafeArea((float)delta);
 
         if (_inSafeArea)
         {
@@ -90,30 +70,36 @@ public partial class Minigame : Sprite2D
         GD.Print("Game started");
 	}
 
-	public void StopMinigame()
-	{
-		_minigameGoing = false;
-        GD.Print("Game ended");
-        Visible = false;
-        _indicator.SetPosition(new Vector2(0, 0));
-	}
+    private void OnSafeAreaEntered(Node2D body)
+    {
+        if (body.IsInGroup("MinigameIndicator"))
+        {
+            _inSafeArea = true;
+        }
+        if (body is StaticBody2D)
+        {
+            _safeAreaMovementDirection = 0 -_safeAreaMovementDirection;
+        }
+    }
+
+    private void OnSafeAreaExit(Node2D body)
+    {
+        if (body.IsInGroup("MinigameIndicator"))
+        {
+            _inSafeArea = false;
+        }
+    }
 
     private void MoveIndicator()
     {
-        Vector2 movementOffset = new Vector2(Input.GetAccelerometer().X, 0) * _indicatorSensitivity;
-        if (movementOffset.X < 0 && _indicator.Position.X > _leftEdge ||
-            movementOffset.X > 0 && _indicator.Position.X < _rightEdge)
-        {
-            _indicator.Translate(movementOffset);
-            if (_indicator.Position.X < _leftEdge)
-            {
-                _indicator.SetPosition(new Vector2(_leftEdge, 0));
-            }
-            if (_indicator.Position.X > _rightEdge)
-            {
-                _indicator.SetPosition(new Vector2(_rightEdge, 0));
-            }
-        }
+        Vector2 movementOffset = new Vector2(Input.GetAccelerometer().X, 0) * _indicatorSpeedMultiplier;
+        _indicator.ApplyCentralForce(movementOffset);
+    }
+
+    private void MoveSafeArea(float deltaTime)
+    {
+        Vector2 offset = new Vector2(_safeAreaMovementDirection, 0) * _safeAreaMovementSpeed * deltaTime;
+        _safeArea.Translate(offset);
     }
 
     private void WinMinigame()
@@ -129,4 +115,15 @@ public partial class Minigame : Sprite2D
         StopMinigame();
         _gameController.LoseMinigame();
     }
+
+    public void StopMinigame()
+	{
+		_minigameGoing = false;
+        GD.Print("Game ended");
+        Visible = false;
+        _safeArea.SetPosition(new Vector2());
+        _indicator.reset = true;
+        _indicator.LinearVelocity = new Vector2();
+        _indicator.AngularVelocity = 0;
+	}
 }
