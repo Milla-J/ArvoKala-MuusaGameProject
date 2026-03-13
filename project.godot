@@ -15,6 +15,10 @@ run/main_scene="uid://6lhw8uwis3tm"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioManager="*res://Scenes/Audio/AudioManager.tscn"
+
 [display]
 
 window/size/viewport_width=990

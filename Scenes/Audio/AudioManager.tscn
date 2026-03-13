@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvrfy1pi3n4wr"]
+
+[ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
+[ext_resource type="AudioStream" uid="uid://cqjdbj5x1k5fv" path="res://Audio/main menu music v5.wav" id="2_anrdn"]
+
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic")]
+process_mode = 3
+script = ExtResource("1_whaik")
+_menuMusic = NodePath("MenuMusic")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_anrdn")
+bus = &"Music"
