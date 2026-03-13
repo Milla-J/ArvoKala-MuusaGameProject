@@ -105,6 +105,14 @@ public partial class Minigame : Sprite2D
             movementOffset.X > 0 && _indicator.Position.X < _rightEdge)
         {
             _indicator.Translate(movementOffset);
+            if (_indicator.Position.X < _leftEdge)
+            {
+                _indicator.SetPosition(new Vector2(_leftEdge, 0));
+            }
+            if (_indicator.Position.X > _rightEdge)
+            {
+                _indicator.SetPosition(new Vector2(_rightEdge, 0));
+            }
         }
     }
 
