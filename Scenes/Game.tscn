@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=21 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ddad1s0eltkfk" path="res://Scenes/Game-objects/Fish4.tscn" id="5_71axn"]
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish5.tscn" id="6_dahhg"]
+[ext_resource type="Texture2D" uid="uid://bdjkfullx4f1t" path="res://Assets/Art/Placeholders/Primitive-shapes/Capsule.png" id="8_3cx6b"]
 [ext_resource type="Script" uid="uid://rq6y4ffs3wwd" path="res://Scripts/MinigameIndicator.cs" id="10_3so38"]
 [ext_resource type="PackedScene" uid="uid://cndxerx4vvy4a" path="res://Scenes/UI/pause_menu.tscn" id="10_71axn"]
 [ext_resource type="Script" uid="uid://mxpissbsx442" path="res://Scripts/ValueCloud.cs" id="10_dahhg"]
@@ -43,6 +44,29 @@ _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Peir" type="Sprite2D" parent="Environment"]
+modulate = Color(0.5959495, 0.49187118, 0.39422944, 1)
+position = Vector2(-283.5, -95)
+scale = Vector2(3.9765623, 0.09375)
+texture = ExtResource("4_kldst")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Peir"]
+position = Vector2(51.6778, 2005.3333)
+scale = Vector2(0.01571713, 30.833334)
+texture = ExtResource("4_kldst")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment/Peir"]
+position = Vector2(-47.402756, 2005.3336)
+scale = Vector2(0.01571713, 30.833334)
+texture = ExtResource("4_kldst")
+
+[node name="Cat" type="Sprite2D" parent="Environment"]
+position = Vector2(-169.00002, -148)
+scale = Vector2(0.41015637, 0.41015637)
+texture = ExtResource("8_3cx6b")
+
 [node name="Water" type="Sprite2D" parent="."]
 self_modulate = Color(1.5209317e-05, 0.91218, 0.9611458, 0.49019608)
 z_index = 1
@@ -51,7 +75,7 @@ scale = Vector2(8.40625, 2.625)
 texture = ExtResource("4_kldst")
 
 [node name="Bobber" type="Node2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(143, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 self_modulate = Color(1, 0, 0, 1)
@@ -66,14 +90,14 @@ texture = ExtResource("4_kldst")
 
 [node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator")]
 visible = false
-position = Vector2(0, -152)
+position = Vector2(0, -167)
 script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
 _indicator = NodePath("Indicator")
-_indicatorSpeedMultiplier = 80.0
-_winningPointAmount = 8
-_safeAreaMovementSpeed = 60.0
+_indicatorSpeedMultiplier = 120.0
+_winningPointAmount = 12
+_safeAreaMovementSpeed = 80.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
