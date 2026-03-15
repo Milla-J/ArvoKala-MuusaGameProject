@@ -20,6 +20,7 @@ public partial class AudioManager : Node
 
         // Start in "normal gameplay" state
         _lowPass.CutoffHz = 20000.0f;
+		_reverb.Wet = 0.0f;
         AudioServer.SetBusEffectEnabled(_musicBus, 0, true);   // keep LPF on
         AudioServer.SetBusEffectEnabled(_musicBus, 1, true);  //turn reverb on
 	}
@@ -56,7 +57,7 @@ public partial class AudioManager : Node
 		}
 		else
 		{
-			// Restore normal sound
+			// Raise the frequencies gradually back to normal
 			tween.TweenProperty(_lowPass, "cutoff_hz", 20000.0f, 0.7f);
 
 			// Fade reverb back out
