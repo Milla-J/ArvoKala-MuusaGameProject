@@ -50,7 +50,7 @@ public partial class AudioManager : Node
 		if (paused)
 		{
 			// Gradually muffle music
-			tween.TweenProperty(_lowPass, "cutoff_hz", 700.0f, 0.3f);
+			tween.TweenProperty(_lowPass, "cutoff_hz", 1200.0f, 0.3f);
 
 			// Gradually increase reverb
 			tween.TweenProperty(_reverb, "wet", 0.55f, 0.7f);
