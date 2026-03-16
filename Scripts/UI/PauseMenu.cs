@@ -3,6 +3,7 @@ using System;
 
 public partial class PauseMenu : Control
 {
+	[Export] private Button _pauseButton;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -14,6 +15,7 @@ public partial class PauseMenu : Control
 		GD.Print("Resume pressed");
 		GetTree().Paused = false;
 		Visible = false;
+		_pauseButton.Visible = true;
 
 		GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(false);
 	}

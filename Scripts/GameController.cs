@@ -21,6 +21,7 @@ public partial class GameController : Node
 
     [ExportCategory("UI")]
     [Export] private PauseMenu _pauseMenu;
+    [Export] private Button _pauseButton;
 
     [ExportCategory("Misc")]
     [Export] private float _delayBetweenFish;
@@ -176,10 +177,12 @@ public partial class GameController : Node
 	{
 		GD.Print("Pause pressed");
         _pauseMenu.Visible = true;
+        _pauseButton.Visible = false;
 		GetTree().Paused = true;
-
+        
         GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(true);
 	}
+    
 
     private async void FishTimer(float delay)
 	{
