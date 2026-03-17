@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cndxerx4vvy4a"]
+[gd_scene load_steps=4 format=3 uid="uid://cndxerx4vvy4a"]
 
 [ext_resource type="Script" uid="uid://b3pj3n5gvxmmw" path="res://Scripts/UI/PauseMenu.cs" id="1_rrvs5"]
+[ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="2_8rf44"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2i2h"]
+shader = ExtResource("2_8rf44")
+shader_parameter/lod = 3.1610001501475
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -11,6 +16,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rrvs5")
+
+[node name="Darkening" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.24313726)
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r2i2h")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39607844)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
