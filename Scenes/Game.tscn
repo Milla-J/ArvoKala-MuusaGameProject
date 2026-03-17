@@ -31,7 +31,7 @@ size = Vector2(2.258628, 220.00003)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_fishSpot")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
 _minigame = NodePath("Minigame")
 _hook = NodePath("Bobber/Hook")
@@ -39,6 +39,7 @@ _spawnArea = NodePath("Water")
 _cloud = NodePath("CanvasLayer2/Cloud")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
+_pauseButton = NodePath("CanvasLayer2/Pause")
 _delayBetweenFish = 3.0
 _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
@@ -95,9 +96,8 @@ script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
 _indicator = NodePath("Indicator")
-_indicatorSpeedMultiplier = 120.0
+_indicatorSpeedMultiplier = 80.0
 _winningPointAmount = 12
-_safeAreaMovementSpeed = 80.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
@@ -278,8 +278,9 @@ grow_vertical = 2
 text = "Something went wrong"
 horizontal_alignment = 1
 
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
+[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("_pauseButton") instance=ExtResource("10_71axn")]
 visible = false
+_pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
 offset_left = 43.5
