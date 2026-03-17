@@ -65,4 +65,21 @@ public partial class AudioManager : Node
 		}	
 		
 	}
+
+	public void SetTensionAmount(float amount)
+	{
+		var syncStream = _mainGameMusic.Stream as AudioStreamSynchronized;
+
+		if (syncStream == null)
+		{
+			GD.PrintErr("Main game music is not using AudioStreamSynchronized.");
+			return;
+		}
+
+		amount = Mathf.Clamp(amount, 0f, 1f);
+		float volumeDb = Mathf.Lerp(-30.0f, 0.0f, amount);
+
+		syncStream.SetSyncStreamVolume(1, volumeDb);
+	}
+
 }

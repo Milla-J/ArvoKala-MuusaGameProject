@@ -10,7 +10,7 @@ stream_count = 2
 stream_0/stream = ExtResource("3_r1463")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("4_kcgc6")
-stream_1/volume = -23.34
+stream_1/volume = -31.19
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic")]
 process_mode = 3

@@ -59,6 +59,21 @@ public partial class GameController : Node
             FishTimer(_delayBetweenFish);
             _fishTargetingActive = true;
         }
+
+        //Audio code
+        if (_fishTargetingActive && _spawnedFish.Count > 0)
+        {
+        Fish fish = _spawnedFish[_currentFishIndex];
+
+        float distance = fish.GlobalPosition.DistanceTo(_hook.GlobalPosition);
+
+        float maxDistance = 500f;
+
+        float amount = 1 - (distance / maxDistance);
+        amount = Mathf.Clamp(amount, 0f, 1f);
+
+        GetNode<AudioManager>("/root/AudioManager").SetTensionAmount(amount);
+        }
     }
 
 	public void StartMinigame()
@@ -68,6 +83,7 @@ public partial class GameController : Node
 
     public void WinMinigame()
     {
+
         _cloud.Visible = true;
         _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);
         _fishSpot.Texture = _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture;
@@ -76,6 +92,8 @@ public partial class GameController : Node
 
     public void LoseMinigame()
     {
+
+
         _spawnedFish[_currentFishIndex].CanMove = true;
         _fishTargetingActive = false;
     }
