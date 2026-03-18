@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://dbyaky5yv6g54"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://dbyaky5yv6g54"]
 
 [sub_resource type="AudioEffectEQ" id="AudioEffectEQ_j3pel"]
 resource_name = "EQ"
@@ -24,6 +24,10 @@ room_size = 0.13
 hipass = 0.34
 wet = 0.79
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_g28q7"]
+resource_name = "LowPassFilter"
+cutoff_hz = 20500.0
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectEQ_j3pel")
 bus/0/effect/0/enabled = false
@@ -45,3 +49,5 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectLowPassFilter_g28q7")
+bus/2/effect/0/enabled = true
