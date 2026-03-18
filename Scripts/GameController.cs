@@ -31,8 +31,6 @@ public partial class GameController : Node
     private int _importantValueCount;
     private ConfigFile _config = new ConfigFile();
 
-    
-
     private Rect2 _screenRect;
 
 	// Called when the node enters the scene tree for the first time.
@@ -43,7 +41,6 @@ public partial class GameController : Node
         SpawnFish(5);
         //Calls the audio manager when scene loads
         GetNode<AudioManager>("/root/AudioManager").PlayGameMusic();
-    
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,7 +49,8 @@ public partial class GameController : Node
         if (_spawnedFish.Count == 0 && _gameGoing)
         {
             _gameGoing = false;
-            PrintOutFish();
+            //PrintOutFish();
+            GetTree().ChangeSceneToFile("Scenes/ValueProfile.tscn");
         }
 
         if(!_fishTargetingActive && _gameGoing)
@@ -179,10 +177,10 @@ public partial class GameController : Node
         _pauseMenu.Visible = true;
         _pauseButton.Visible = false;
 		GetTree().Paused = true;
-        
+
         GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(true);
 	}
-    
+
 
     private async void FishTimer(float delay)
 	{

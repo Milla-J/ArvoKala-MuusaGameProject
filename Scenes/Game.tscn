@@ -1,14 +1,14 @@
 [gd_scene load_steps=21 format=3 uid="uid://7og14qr88huk"]
 
-[ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
+[ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Placeholders/Primitive-shapes/Circle.png" id="2_gl6un"]
-[ext_resource type="PackedScene" uid="uid://btb2apwvowgaj" path="res://Scenes/Game-objects/Fish2.tscn" id="3_7lihs"]
-[ext_resource type="PackedScene" uid="uid://d64if7dxkdbt" path="res://Scenes/Game-objects/Fish3.tscn" id="4_bf53h"]
+[ext_resource type="PackedScene" uid="uid://btb2apwvowgaj" path="res://Scenes/Game-objects/Fish/Fish2.tscn" id="3_7lihs"]
+[ext_resource type="PackedScene" uid="uid://d64if7dxkdbt" path="res://Scenes/Game-objects/Fish/Fish3.tscn" id="4_bf53h"]
 [ext_resource type="Texture2D" uid="uid://cdegkouy7rsu5" path="res://Assets/Art/Placeholders/Primitive-shapes/Square.png" id="4_kldst"]
-[ext_resource type="PackedScene" uid="uid://ddad1s0eltkfk" path="res://Scenes/Game-objects/Fish4.tscn" id="5_71axn"]
+[ext_resource type="PackedScene" uid="uid://ddad1s0eltkfk" path="res://Scenes/Game-objects/Fish/Fish4.tscn" id="5_71axn"]
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
-[ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish5.tscn" id="6_dahhg"]
+[ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish/Fish5.tscn" id="6_dahhg"]
 [ext_resource type="Texture2D" uid="uid://bdjkfullx4f1t" path="res://Assets/Art/Placeholders/Primitive-shapes/Capsule.png" id="8_3cx6b"]
 [ext_resource type="Script" uid="uid://rq6y4ffs3wwd" path="res://Scripts/MinigameIndicator.cs" id="10_3so38"]
 [ext_resource type="PackedScene" uid="uid://cndxerx4vvy4a" path="res://Scenes/UI/pause_menu.tscn" id="10_71axn"]
@@ -99,7 +99,7 @@ _indicator = NodePath("Indicator")
 _indicatorSpeedMultiplier = 65
 _indicatorMaxVelocity = 200.0
 _winningPointAmount = 12
-_safeAreaMovementSpeed = 80.0
+_safeAreaMovementSpeed = 1.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
