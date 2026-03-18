@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nv8fy2b78b38" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -12,6 +12,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kfh4b")
+_muteMusic = NodePath("CenterContainer/SettingsMenu/MuteMusic")
+_muteSFX = NodePath("CenterContainer/SettingsMenu/MuteSFX")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -21,9 +23,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -495.0
-offset_top = -104.5
+offset_top = -113.5
 offset_right = 493.0
-offset_bottom = 225.0
+offset_bottom = 228.75
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -31,24 +33,36 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUSIC"
+horizontal_alignment = 1
+
 [node name="MuteMusic" type="Button" parent="CenterContainer/SettingsMenu"]
-custom_minimum_size = Vector2(239, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "MUTE  MUSIC
+text = "ON
 "
 
+[node name="Label2" type="Label" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+horizontal_alignment = 1
+
 [node name="MuteSFX" type="Button" parent="CenterContainer/SettingsMenu"]
-custom_minimum_size = Vector2(239, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "MUTE SFX
+text = "ON
 "
 
 [node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
-custom_minimum_size = Vector2(239, 0)
+custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=7 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://cqjdbj5x1k5fv" path="res://Audio/main menu music v5.wav" id="2_anrdn"]
 [ext_resource type="AudioStream" uid="uid://b0ito15xyfenx" path="res://Audio/Game music main.wav" id="3_r1463"]
 [ext_resource type="AudioStream" uid="uid://dsxjep8l3o1cm" path="res://Audio/game music tension.wav" id="4_kcgc6"]
+[ext_resource type="AudioStream" uid="uid://dyku1xwseabr7" path="res://Audio/nature ambience.wav" id="5_kcgc6"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_paayw"]
 stream_count = 2
@@ -33,5 +34,9 @@ bus = &"Music"
 [node name="Ambience" type="Node" parent="."]
 
 [node name="GameAmbience" type="AudioStreamPlayer" parent="Ambience"]
+stream = ExtResource("5_kcgc6")
+volume_db = -7.068
+autoplay = true
+bus = &"SFX"
 
 [node name="SFX" type="Node" parent="."]
