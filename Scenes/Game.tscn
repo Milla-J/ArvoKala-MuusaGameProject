@@ -40,7 +40,7 @@ _cloud = NodePath("CanvasLayer2/Cloud")
 _fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 _pauseButton = NodePath("CanvasLayer2/Pause")
-_delayBetweenFish = 3.0
+_delayBetweenFish = 1.5
 _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -96,8 +96,10 @@ script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
 _indicator = NodePath("Indicator")
-_indicatorSpeedMultiplier = 80.0
+_indicatorSpeedMultiplier = 65
+_indicatorMaxVelocity = 200.0
 _winningPointAmount = 12
+_safeAreaMovementSpeed = 80.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
