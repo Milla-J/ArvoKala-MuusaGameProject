@@ -15,15 +15,23 @@ stream_1/volume = -31.19
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic")]
 process_mode = 3
 script = ExtResource("1_whaik")
-_menuMusic = NodePath("MenuMusic")
-_mainGameMusic = NodePath("MainGameMusic")
+_menuMusic = NodePath("Music/MenuMusic")
+_mainGameMusic = NodePath("Music/MainGameMusic")
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="Node" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_anrdn")
 volume_db = -4.771
 bus = &"Music"
 
-[node name="MainGameMusic" type="AudioStreamPlayer" parent="."]
+[node name="MainGameMusic" type="AudioStreamPlayer" parent="Music"]
 stream = SubResource("AudioStreamSynchronized_paayw")
 volume_db = -5.049
 bus = &"Music"
+
+[node name="Ambience" type="Node" parent="."]
+
+[node name="GameAmbience" type="AudioStreamPlayer" parent="Ambience"]
+
+[node name="SFX" type="Node" parent="."]

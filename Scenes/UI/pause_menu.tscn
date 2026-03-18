@@ -5,7 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2i2h"]
 shader = ExtResource("2_8rf44")
-shader_parameter/lod = 3.1610001501475
+shader_parameter/lod = 1.95600009291
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
