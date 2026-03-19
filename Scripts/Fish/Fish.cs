@@ -8,7 +8,7 @@ public partial class Fish : RigidBody2D
 	[Export] public string ValueDescription;
 
 	[ExportCategory("Movement veriables")]
-	[Export] private float _speed = 100; // how fast/far movements are
+	[Export] private float _speed = 150; // how fast/far movements are
 	[Export] private float _movementDelay = 2.5f; // delay between movements
 	[Export] private float _maximumVerticalAngle = 0.2f; // should be between 0 and 1
 	[Export] public bool IsTargeting; // whether the fish is swimming towards the hook or just randomly around

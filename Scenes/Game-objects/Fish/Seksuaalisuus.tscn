@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://btb2apwvowgaj"]
+[gd_scene load_steps=4 format=3 uid="uid://c7gdt7f870u5r"]
 
-[ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_kttbj"]
-[ext_resource type="Texture2D" uid="uid://cfmxmoc0ellwu" path="res://Assets/Art/Placeholders/Placeholder_Fishy_Smol.png" id="2_kttbj"]
+[ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_37m6e"]
+[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_dfb5g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-height = 32.0
+radius = 17.0
+height = 66.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.5
-script = ExtResource("1_kttbj")
+script = ExtResource("1_37m6e")
 ValueName = "Seksuaalisuus"
-ValueDescription = "Testi testi"
+ValueDescription = "Ilmaisen ja vaalin omaa seksuaalisuuttani"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0.5979172, 0.71430165, 1)
-texture = ExtResource("2_kttbj")
+texture = ExtResource("2_dfb5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
