@@ -11,14 +11,17 @@ public partial class GameController : Node
     [Export] private Node2D _hook;
     [Export] private Sprite2D _spawnArea;
     [Export] private ValueCloud _cloud;
+    [Export] private Label _UIFishCounter;
 
     [ExportCategory("Fish list")]
     [Export] private PackedScene[] _fishPool;
     private List<Fish> _spawnedFish = new List<Fish>();
     // the amount of available fish in the spawning pool
     private int _fishPoolCount;
-    // index of the fish currently being cought in the game
+    // index of the fish currently being caught in the game
     private int _currentFishIndex;
+    // how many fish the player has caught this game
+    private int _caughtFishCount;
 
     [ExportCategory("UI")]
     [Export] private PauseMenu _pauseMenu;
@@ -75,6 +78,9 @@ public partial class GameController : Node
         _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);
         _fishSpot.Texture = _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture;
         _spawnedFish[_currentFishIndex].Visible = false;
+
+        _caughtFishCount++;
+        _UIFishCounter.Text = "Caught fish: " + _caughtFishCount;
     }
 
     public void LoseMinigame()
