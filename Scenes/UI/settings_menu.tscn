@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjf7t58cbvg6j"]
+[gd_scene load_steps=4 format=3 uid="uid://cjf7t58cbvg6j"]
 
 [ext_resource type="Script" uid="uid://nv8fy2b78b38" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
+[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_gus5t"]
 
-[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqryc"]
+texture = ExtResource("2_gus5t")
+region_rect = Rect2(476, 235, 212, 74)
+
+[node name="SettingsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -12,8 +17,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kfh4b")
-_muteMusic = NodePath("CenterContainer/SettingsMenu/MuteMusic")
-_muteSFX = NodePath("CenterContainer/SettingsMenu/MuteSFX")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -61,11 +64,20 @@ theme_override_font_sizes/font_size = 40
 text = "ON
 "
 
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/SettingsMenu/MuteSFX"]
+layout_mode = 0
+offset_left = -236.0
+offset_top = -135.125
+offset_right = -89.0
+offset_bottom = 17.875
+text = "MUSIC"
+
 [node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
-custom_minimum_size = Vector2(192, 0)
+custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_lqryc")
 text = "BACK
 "
 

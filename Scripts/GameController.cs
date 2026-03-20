@@ -68,7 +68,7 @@ public partial class GameController : Node
 
         float distance = fish.GlobalPosition.DistanceTo(_hook.GlobalPosition);
 
-        float maxDistance = 500f;
+        float maxDistance = 800f;
 
         float amount = 1 - (distance / maxDistance);
         amount = Mathf.Clamp(amount, 0f, 1f);

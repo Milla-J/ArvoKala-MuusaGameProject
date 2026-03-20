@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=25 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
@@ -34,7 +34,15 @@ size = Vector2(2.258628, 220.00003)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acvyw"]
 texture = ExtResource("14_wxwew")
-region_rect = Rect2(161, 151, 77, 73)
+region_rect = Rect2(160, 151, 78, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wxwew"]
+texture = ExtResource("14_wxwew")
+region_rect = Rect2(160, 239, 82, 82)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alh3a"]
+texture = ExtResource("14_wxwew")
+region_rect = Rect2(160, 151, 78, 78)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
@@ -293,6 +301,8 @@ offset_top = 3.0
 offset_right = 80.0
 offset_bottom = 75.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_acvyw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wxwew")
+theme_override_styles/hover = SubResource("StyleBoxTexture_alh3a")
 
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
