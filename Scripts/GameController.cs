@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 public partial class GameController : Node
 {
 	[ExportCategory("References")]
+    [Export] private AnimationPlayer _animPlayer;
 	[Export] private Minigame _minigame;
     [Export] private Node2D _hook;
     [Export] private Sprite2D _spawnArea;
@@ -41,6 +42,9 @@ public partial class GameController : Node
         SpawnFish(5);
         //Calls the audio manager when scene loads
         GetNode<AudioManager>("/root/AudioManager").PlayGameMusic();
+
+        _animPlayer.AnimationSetNext("CastLine", "Float");
+        _animPlayer.Play("CastLine");
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=51 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -38,6 +38,118 @@
 [ext_resource type="PackedScene" uid="uid://dub4c6ptjklx5" path="res://Scenes/Game-objects/Fish/VapausJaRiippumattomuus.tscn" id="29_8ekww"]
 [ext_resource type="PackedScene" uid="uid://bpksj7n5fdjae" path="res://Scenes/Game-objects/Fish/Vastuullisuus.tscn" id="30_dwhu0"]
 [ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
+[ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
+
+[sub_resource type="Animation" id="Animation_lmarx"]
+resource_name = "CastLine"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0, 3),
+"points": PackedFloat32Array(-147, 0, 0, 0.016666666, 14.166667, 59, -0.033333346, -31, 0.033333346, 31, 128, 0, 0, 0.034389526, 17, 143, -0.03187552, -4, 0.03187552, 4),
+"times": PackedFloat32Array(0, 0.19999999, 0.3, 0.49959838)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-150, 0, 0, 0.1, -78, -64, 0, 0, 0.03333333, 9, -64, -0.09959838, 1, 0.06706828, 1),
+"times": PackedFloat32Array(0, 0.3, 0.49959838)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hook:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.4820754e-05, 0.0051417174, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_khy6b"]
+resource_name = "Float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(143, -64), Vector2(143, -60), Vector2(143, -64)]
+}
+
+[sub_resource type="Animation" id="Animation_pti6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(143, -64)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(143, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hook:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pti6k"]
+_data = {
+&"CastLine": SubResource("Animation_lmarx"),
+&"Float": SubResource("Animation_khy6b"),
+&"RESET": SubResource("Animation_pti6k")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cx6b"]
 size = Vector2(22.209677, 133.33334)
@@ -56,14 +168,16 @@ size = Vector2(2.258628, 220.00003)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_fishSpot")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
+_animPlayer = NodePath("Bobber/AnimationPlayer")
 _minigame = NodePath("Minigame")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("Water")
 _cloud = NodePath("CanvasLayer2/Cloud")
 _fishPool = [ExtResource("2_18uti"), ExtResource("2_3so38"), ExtResource("4_khy6b"), ExtResource("5_pti6k"), ExtResource("3_3cx6b"), ExtResource("4_wxwew"), ExtResource("8_lmarx"), ExtResource("9_7av8l"), ExtResource("10_dctr5"), ExtResource("11_mi7vx"), ExtResource("12_t2joc"), ExtResource("13_audqb"), ExtResource("14_7w24h"), ExtResource("15_6okg5"), ExtResource("16_e2w45"), ExtResource("17_oo65k"), ExtResource("18_smnwb"), ExtResource("19_lkuj1"), ExtResource("20_lklsk"), ExtResource("21_34hf4"), ExtResource("5_acvyw"), ExtResource("23_jamva"), ExtResource("24_m15vq"), ExtResource("25_a05uw"), ExtResource("26_n2ugt"), ExtResource("27_n24vg"), ExtResource("28_ym08v"), ExtResource("29_8ekww"), ExtResource("30_dwhu0"), ExtResource("31_nojon")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
+_pauseButton = NodePath("CanvasLayer2/Pause")
 _delayBetweenFish = 1.5
 _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
@@ -103,15 +217,18 @@ texture = ExtResource("4_kldst")
 position = Vector2(143, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
-self_modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_gl6un")
+texture = ExtResource("34_khy6b")
 
 [node name="Hook" type="Sprite2D" parent="Bobber"]
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 89)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_kldst")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bobber"]
+libraries = {
+&"": SubResource("AnimationLibrary_pti6k")
+}
 
 [node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator")]
 visible = false
@@ -303,8 +420,9 @@ grow_vertical = 2
 text = "Something went wrong"
 horizontal_alignment = 1
 
-[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("10_71axn")]
+[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("_pauseButton") instance=ExtResource("10_71axn")]
 visible = false
+_pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
 offset_left = 43.5
