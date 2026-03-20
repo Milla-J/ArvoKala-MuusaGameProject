@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://6lhw8uwis3tm"]
+[gd_scene load_steps=3 format=3 uid="uid://6lhw8uwis3tm"]
 
 [ext_resource type="Script" uid="uid://42s8dopbhcms" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
+[ext_resource type="Theme" uid="uid://da5r4bb1af2b7" path="res://DefaultTheme.tres" id="2_i2xx2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -51,25 +52,29 @@ theme_override_constants/separation = 13
 
 [node name="Play" type="Button" parent="CenterContainer/MainButtons"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("2_i2xx2")
+theme_override_font_sizes/font_size = 49
 text = "PLAY
 "
 
 [node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("2_i2xx2")
+theme_override_font_sizes/font_size = 49
 text = "SETTINGS
 "
 
 [node name="Credits" type="Button" parent="CenterContainer/MainButtons"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("2_i2xx2")
+theme_override_font_sizes/font_size = 49
 text = "CREDITS
 "
 
 [node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("2_i2xx2")
+theme_override_font_sizes/font_size = 49
 text = "QUIT
 "
 
