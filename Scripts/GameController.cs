@@ -30,7 +30,7 @@ public partial class GameController : Node
     [ExportCategory("Misc")]
     [Export] private float _delayBetweenFish;
     private bool _fishTargetingActive = false;
-    private bool _gameGoing = true;
+    private bool _gameGoing = false;
     [Export] private TextureRect _fishSpot;
     private int _importantValueCount;
     private ConfigFile _config = new ConfigFile();
@@ -45,17 +45,23 @@ public partial class GameController : Node
         SpawnFish(5);
         //Calls the audio manager when scene loads
         GetNode<AudioManager>("/root/AudioManager").PlayGameMusic();
-
-        _animPlayer.AnimationSetNext("CastLine", "Float");
-        _animPlayer.Play("CastLine");
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
+        if (!_gameGoing && Input.IsActionPressed("CastLine"))
+        {
+            if(_cloud.Visible == false)
+            {
+                _gameGoing = true;
+                _animPlayer.AnimationSetNext("CastLine", "Float");
+                _animPlayer.Play("CastLine");
+            }
+        }
+
         if (_spawnedFish.Count == 0 && _gameGoing)
         {
-            _gameGoing = false;
             //PrintOutFish();
             GetTree().ChangeSceneToFile("Scenes/ValueProfile.tscn");
         }
@@ -81,12 +87,18 @@ public partial class GameController : Node
 
         _caughtFishCount++;
         _UIFishCounter.Text = "Caught fish: " + _caughtFishCount;
+
+        _animPlayer.Play("RESET");
+        _gameGoing = false;
     }
 
     public void LoseMinigame()
     {
         _spawnedFish[_currentFishIndex].CanMove = true;
         _fishTargetingActive = false;
+
+        _animPlayer.Play("RESET");
+        _gameGoing = false;
     }
 
     public void SpawnFish(int fishAmount)

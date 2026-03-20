@@ -77,6 +77,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, false, false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_khy6b"]
 resource_name = "Float"
@@ -141,7 +153,19 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pti6k"]
@@ -215,12 +239,14 @@ scale = Vector2(8.40625, 2.625)
 texture = ExtResource("4_kldst")
 
 [node name="Bobber" type="Node2D" parent="."]
+visible = false
 position = Vector2(143, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
 texture = ExtResource("34_khy6b")
 
 [node name="Hook" type="Sprite2D" parent="Bobber"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 89)
 scale = Vector2(0.1, 0.1)
