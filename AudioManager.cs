@@ -11,6 +11,7 @@ public partial class AudioManager : Node
     private AudioEffectLowPassFilter _lowPass;
 	private AudioEffectLowPassFilter _lowPass2;
 	 private AudioEffectReverb _reverb;
+	 private Tween _tensionTween;
 	
 
 	public override void _Ready()
@@ -48,6 +49,8 @@ public partial class AudioManager : Node
 
 		if (!_mainGameMusic.Playing)
 			_mainGameMusic.Play();
+
+		SetTensionAmount(0f);
 	}
 
 	public void SetPausedAudio(bool paused)
@@ -88,9 +91,26 @@ public partial class AudioManager : Node
 		}
 
 		amount = Mathf.Clamp(amount, 0f, 1f);
-		float volumeDb = Mathf.Lerp(-30.0f, 0.0f, amount);
+		float targetVolumeDb = Mathf.Lerp(-20.0f, 0.0f, amount);
 
-		syncStream.SetSyncStreamVolume(1, volumeDb);
+		// Stop the previous tween if one is still running
+		if (_tensionTween != null && _tensionTween.IsValid())
+		{
+			_tensionTween.Kill();
+		}
+
+		float currentVolumeDb = syncStream.GetSyncStreamVolume(1);
+
+		_tensionTween = CreateTween();
+		_tensionTween.TweenMethod(
+			Callable.From<float>(value => syncStream.SetSyncStreamVolume(1, value)),
+			currentVolumeDb,
+			targetVolumeDb,
+			0.30f
+		);
+		
 	}
+
+	
 
 }
