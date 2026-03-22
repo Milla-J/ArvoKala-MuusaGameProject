@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ofl0ksvf6neh"]
+
+[ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_n285r"]
+[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_v5l2l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
+radius = 17.0
+height = 66.0
+
+[node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
+collision_mask = 2
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 1.5
+script = ExtResource("1_n285r")
+ValueName = "Tukeminen"
+ValueDescription = "Olen tukea-antava, avulias, rohkaiseva ja autan itseäni ja muita"
+_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v5l2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_6orkv")

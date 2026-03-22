@@ -6,32 +6,36 @@ using System.ComponentModel.DataAnnotations.Schema;
 public partial class GameController : Node
 {
 	[ExportCategory("References")]
+    [Export] private AnimationPlayer _animPlayer;
 	[Export] private Minigame _minigame;
     [Export] private Node2D _hook;
     [Export] private Sprite2D _spawnArea;
     [Export] private ValueCloud _cloud;
+    [Export] private Label _UIFishCounter;
 
     [ExportCategory("Fish list")]
     [Export] private PackedScene[] _fishPool;
     private List<Fish> _spawnedFish = new List<Fish>();
     // the amount of available fish in the spawning pool
     private int _fishPoolCount;
-    // index of the fish currently being cought in the game
+    // index of the fish currently being caught in the game
     private int _currentFishIndex;
+    // how many fish the player has caught this game
+    private int _caughtFishCount;
 
     [ExportCategory("UI")]
     [Export] private PauseMenu _pauseMenu;
     [Export] private Button _pauseButton;
 
     [ExportCategory("Misc")]
+    [Export] private int _amountOfFishInGame = 5;
+    [Export] private int _startingFishAmount = 5;
     [Export] private float _delayBetweenFish;
     private bool _fishTargetingActive = false;
-    private bool _gameGoing = true;
+    private bool _gameGoing = false;
     [Export] private TextureRect _fishSpot;
     private int _importantValueCount;
     private ConfigFile _config = new ConfigFile();
-
-    
 
     private Rect2 _screenRect;
 
@@ -40,19 +44,28 @@ public partial class GameController : Node
     {
         _fishPoolCount = _fishPool.Length;
         _screenRect = _spawnArea.GetRect();
-        SpawnFish(5);
+        SpawnFish(_startingFishAmount);
         //Calls the audio manager when scene loads
         GetNode<AudioManager>("/root/AudioManager").PlayGameMusic();
-    
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
-        if (_spawnedFish.Count == 0 && _gameGoing)
+        if (!_gameGoing && Input.IsActionPressed("CastLine"))
         {
-            _gameGoing = false;
-            PrintOutFish();
+            if(_cloud.Visible == false)
+            {
+                _gameGoing = true;
+                _animPlayer.AnimationSetNext("CastLine", "Float");
+                _animPlayer.Play("CastLine");
+            }
+        }
+
+        if (_caughtFishCount == _amountOfFishInGame && _gameGoing)
+        {
+            //PrintOutFish();
+            GetTree().ChangeSceneToFile("Scenes/ValueProfile.tscn");
         }
 
         if(!_fishTargetingActive && _gameGoing)
@@ -89,6 +102,16 @@ public partial class GameController : Node
         _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);
         _fishSpot.Texture = _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture;
         _spawnedFish[_currentFishIndex].Visible = false;
+
+        if(_caughtFishCount + _startingFishAmount < _amountOfFishInGame)
+        {
+            SpawnFish(1);
+        }
+        _caughtFishCount++;
+        _UIFishCounter.Text = "Caught fish: " + _caughtFishCount;
+
+        _animPlayer.Play("RESET");
+        _gameGoing = false;
     }
 
     public void LoseMinigame()
@@ -97,13 +120,16 @@ public partial class GameController : Node
 
         _spawnedFish[_currentFishIndex].CanMove = true;
         _fishTargetingActive = false;
+
+        _animPlayer.Play("RESET");
+        _gameGoing = false;
     }
 
     public void SpawnFish(int fishAmount)
     {
         if (fishAmount > _fishPoolCount)
         {
-            GD.PrintErr("Attempted to spawn too many fish");
+            GD.PrintErr("Not enough fish in spawning pool");
             return;
         }
 
@@ -126,6 +152,12 @@ public partial class GameController : Node
                                                         (_screenRect.End.Y * _spawnArea.Scale.Y) + _spawnArea.Position.Y);
             fish.GlobalPosition = new Vector2(horizontalPosition, verticalPosition);
         }
+    }
+
+    private void ActivateFishTrageting()
+    {
+        _currentFishIndex = GD.RandRange(0, _spawnedFish.Count - 1);
+        _spawnedFish[_currentFishIndex].IsTargeting = true;
     }
 
     public void DespawnFish()
@@ -154,12 +186,6 @@ public partial class GameController : Node
             }
         }
         _fishPool = tempArray;
-    }
-
-    private void ActivateFishTrageting()
-    {
-        _currentFishIndex = GD.RandRange(0, _spawnedFish.Count - 1);
-        _spawnedFish[_currentFishIndex].IsTargeting = true;
     }
 
     private void SaveFishToValues()
@@ -197,10 +223,10 @@ public partial class GameController : Node
         _pauseMenu.Visible = true;
         _pauseButton.Visible = false;
 		GetTree().Paused = true;
-        
+
         GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(true);
 	}
-    
+
 
     private async void FishTimer(float delay)
 	{
