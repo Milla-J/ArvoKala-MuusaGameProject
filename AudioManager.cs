@@ -106,7 +106,7 @@ public partial class AudioManager : Node
 			Callable.From<float>(value => syncStream.SetSyncStreamVolume(1, value)),
 			currentVolumeDb,
 			targetVolumeDb,
-			0.30f
+			0.7f
 		);
 		
 	}

@@ -5,8 +5,33 @@ public partial class SettingsMenu : Control
 {
 	[Export] private Button _muteMusic;
 	[Export] private Button _muteSFX;
-	
 
+
+	public override void _Ready()
+	{
+		var _musicBus = AudioServer.GetBusIndex("Music");
+		if (AudioServer.IsBusMute(_musicBus))
+		{
+			_muteMusic.Text = "OFF";
+		}
+		else
+		{
+			_muteMusic.Text = "ON";	
+		}
+
+		var _sfxBus = AudioServer.GetBusIndex("SFX");
+		if (AudioServer.IsBusMute(_sfxBus))
+		{
+			_muteSFX.Text = "OFF";
+		}
+		else
+		{
+			_muteSFX.Text = "ON";	
+		}
+
+
+
+	}
 	private void OnMuteMusicPressed()
 	{
 		GD.Print("Mute music Pressed");

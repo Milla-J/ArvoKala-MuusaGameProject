@@ -7,7 +7,7 @@
 texture = ExtResource("2_gus5t")
 region_rect = Rect2(476, 235, 212, 74)
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,6 +17,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kfh4b")
+_muteMusic = NodePath("CenterContainer/SettingsMenu/MusicOnOff/MuteMusic")
+_muteSFX = NodePath("CenterContainer/SettingsMenu/SFXOnOff/MuteSFX")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
