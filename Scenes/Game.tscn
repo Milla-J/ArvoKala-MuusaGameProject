@@ -193,15 +193,15 @@ size = Vector2(2.258628, 220.00003)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acvyw"]
-texture = ExtResource("14_wxwew")
+texture = ExtResource("4_kldst")
 region_rect = Rect2(160, 151, 78, 78)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wxwew"]
-texture = ExtResource("14_wxwew")
+texture = ExtResource("4_kldst")
 region_rect = Rect2(160, 239, 82, 82)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_alh3a"]
-texture = ExtResource("14_wxwew")
+texture = ExtResource("4_kldst")
 region_rect = Rect2(160, 151, 78, 78)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
