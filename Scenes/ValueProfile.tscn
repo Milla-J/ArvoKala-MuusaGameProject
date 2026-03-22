@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh27ymi56t35e"]
+
+[ext_resource type="Script" uid="uid://cm1rfs7xufinb" path="res://Scripts/ValueProfile.cs" id="1_o1ktb"]
+[ext_resource type="PackedScene" uid="uid://cmk42ypqqeguo" path="res://Scenes/Game-objects/value_fish.tscn" id="2_eakbh"]
+
+[node name="ValueProfile" type="Node2D" node_paths=PackedStringArray("_parent")]
+script = ExtResource("1_o1ktb")
+_valueFishScene = ExtResource("2_eakbh")
+_parent = NodePath("CanvasLayer/ScrollContainer/HBoxContainer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ScrollContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+alignment = 1

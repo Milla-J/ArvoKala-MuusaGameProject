@@ -11,7 +11,8 @@ public partial class Minigame : Node2D
     private bool _inSafeArea = true;
 
     [ExportCategory("Minigame veriables")]
-    [Export] float _indicatorSpeedMultiplier = 50f;
+    [Export] int _indicatorSpeedMultiplier = 60;
+    [Export] float _indicatorMaxVelocity = 100f;
     [Export] private int _winningPointAmount;
     private float _pointCounter;
     [Export] private float _safeAreaMovementSpeed = 10;
@@ -78,7 +79,7 @@ public partial class Minigame : Node2D
         }
         if (body is StaticBody2D)
         {
-            _safeAreaMovementDirection = 0 -_safeAreaMovementDirection;
+            _safeAreaMovementDirection = 0 - _safeAreaMovementDirection;
         }
     }
 
@@ -92,7 +93,13 @@ public partial class Minigame : Node2D
 
     private void MoveIndicator()
     {
-        Vector2 movementOffset = new Vector2(Input.GetAccelerometer().X, 0) * _indicatorSpeedMultiplier;
+        int horizontalDirection = 1;
+        if (Input.GetAccelerometer().X < 0)
+        {
+            horizontalDirection = -1;
+        }
+        float horizontalVelocity = Mathf.Min(Math.Abs(Input.GetAccelerometer().X) * _indicatorSpeedMultiplier, _indicatorMaxVelocity);
+        Vector2 movementOffset = new Vector2(horizontalVelocity * horizontalDirection, 0);
         _indicator.ApplyCentralForce(movementOffset);
     }
 

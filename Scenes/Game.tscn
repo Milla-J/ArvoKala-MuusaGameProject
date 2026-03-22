@@ -1,19 +1,179 @@
-[gd_scene load_steps=25 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=51 format=3 uid="uid://7og14qr88huk"]
 
-[ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
+[ext_resource type="PackedScene" uid="uid://dk1ctjt2gpxpn" path="res://Scenes/Game-objects/Fish/Ahkeruus.tscn" id="2_18uti"]
 [ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Placeholders/Primitive-shapes/Circle.png" id="2_gl6un"]
-[ext_resource type="PackedScene" uid="uid://btb2apwvowgaj" path="res://Scenes/Game-objects/Fish2.tscn" id="3_7lihs"]
-[ext_resource type="PackedScene" uid="uid://d64if7dxkdbt" path="res://Scenes/Game-objects/Fish3.tscn" id="4_bf53h"]
+[ext_resource type="PackedScene" uid="uid://5y0s4pdogdoq" path="res://Scenes/Game-objects/Fish/Hyvaksynta.tscn" id="3_3cx6b"]
+[ext_resource type="PackedScene" uid="uid://c7ilfv7c7ab7s" path="res://Scenes/Game-objects/Fish/Anteeksiantavuus.tscn" id="4_khy6b"]
 [ext_resource type="Texture2D" uid="uid://cdegkouy7rsu5" path="res://Assets/Art/Placeholders/Primitive-shapes/Square.png" id="4_kldst"]
-[ext_resource type="PackedScene" uid="uid://ddad1s0eltkfk" path="res://Scenes/Game-objects/Fish4.tscn" id="5_71axn"]
+[ext_resource type="PackedScene" uid="uid://deh7s7gehyqxa" path="res://Scenes/Game-objects/Fish/Jamakkyys.tscn" id="4_wxwew"]
+[ext_resource type="PackedScene" uid="uid://c0dge1w3xppvm" path="res://Scenes/Game-objects/Fish/Seikkailunhalu.tscn" id="5_acvyw"]
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
-[ext_resource type="PackedScene" uid="uid://dh4h3doct0v0x" path="res://Scenes/Game-objects/Fish5.tscn" id="6_dahhg"]
+[ext_resource type="PackedScene" uid="uid://c1sdlkok1vtrh" path="res://Scenes/Game-objects/Fish/HauskuusJaHuumori.tscn" id="5_pti6k"]
 [ext_resource type="Texture2D" uid="uid://bdjkfullx4f1t" path="res://Assets/Art/Placeholders/Primitive-shapes/Capsule.png" id="8_3cx6b"]
+[ext_resource type="PackedScene" uid="uid://rka4luorxj2k" path="res://Scenes/Game-objects/Fish/Jarjestys.tscn" id="8_lmarx"]
+[ext_resource type="PackedScene" uid="uid://pmavabt5qs6u" path="res://Scenes/Game-objects/Fish/Joustavuus.tscn" id="9_7av8l"]
 [ext_resource type="Script" uid="uid://rq6y4ffs3wwd" path="res://Scripts/MinigameIndicator.cs" id="10_3so38"]
 [ext_resource type="PackedScene" uid="uid://cndxerx4vvy4a" path="res://Scenes/UI/pause_menu.tscn" id="10_71axn"]
 [ext_resource type="Script" uid="uid://mxpissbsx442" path="res://Scripts/ValueCloud.cs" id="10_dahhg"]
-[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="14_wxwew"]
+[ext_resource type="PackedScene" uid="uid://v3m0vk40xs10" path="res://Scenes/Game-objects/Fish/Kunnioitus.tscn" id="10_dctr5"]
+[ext_resource type="PackedScene" uid="uid://ftou5ylwy7ap" path="res://Scenes/Game-objects/Fish/KunnonYllapito.tscn" id="11_mi7vx"]
+[ext_resource type="PackedScene" uid="uid://be2ystmu7rat" path="res://Scenes/Game-objects/Fish/Laheisyys.tscn" id="12_t2joc"]
+[ext_resource type="PackedScene" uid="uid://dmkf4dp3tyas" path="res://Scenes/Game-objects/Fish/Lasnaolo.tscn" id="13_audqb"]
+[ext_resource type="PackedScene" uid="uid://cv3jqj3na4p7h" path="res://Scenes/Game-objects/Fish/Luottamus.tscn" id="14_7w24h"]
+[ext_resource type="PackedScene" uid="uid://d1w53q07jubui" path="res://Scenes/Game-objects/Fish/Luovuus.tscn" id="15_6okg5"]
+[ext_resource type="PackedScene" uid="uid://qgdyrsj0e8ik" path="res://Scenes/Game-objects/Fish/Myotatunto.tscn" id="16_e2w45"]
+[ext_resource type="PackedScene" uid="uid://fcc6yki1pjq4" path="res://Scenes/Game-objects/Fish/Oikeudenmukaisuus.tscn" id="17_oo65k"]
+[ext_resource type="PackedScene" uid="uid://cwh1itmhh3bxw" path="res://Scenes/Game-objects/Fish/Rakkaus.tscn" id="18_smnwb"]
+[ext_resource type="PackedScene" uid="uid://c26lbv5fhxvvg" path="res://Scenes/Game-objects/Fish/Rehellisyys.tscn" id="19_lkuj1"]
+[ext_resource type="PackedScene" uid="uid://c8hjdwyfltgsp" path="res://Scenes/Game-objects/Fish/Rohkaisevuus.tscn" id="20_lklsk"]
+[ext_resource type="PackedScene" uid="uid://br8v6rrwhxpid" path="res://Scenes/Game-objects/Fish/Rohkeus.tscn" id="21_34hf4"]
+[ext_resource type="PackedScene" uid="uid://c7gdt7f870u5r" path="res://Scenes/Game-objects/Fish/Seksuaalisuus.tscn" id="23_jamva"]
+[ext_resource type="PackedScene" uid="uid://jt581ybpywkc" path="res://Scenes/Game-objects/Fish/Sinnikkyys.tscn" id="24_m15vq"]
+[ext_resource type="PackedScene" uid="uid://bucnpwfvypi6f" path="res://Scenes/Game-objects/Fish/Taidokkuus.tscn" id="25_a05uw"]
+[ext_resource type="PackedScene" uid="uid://ofl0ksvf6neh" path="res://Scenes/Game-objects/Fish/Tukeminen.tscn" id="26_n2ugt"]
+[ext_resource type="PackedScene" uid="uid://b6nouhfqlvymg" path="res://Scenes/Game-objects/Fish/Turvallisuus.tscn" id="27_n24vg"]
+[ext_resource type="PackedScene" uid="uid://deay12jl3ll81" path="res://Scenes/Game-objects/Fish/Uteliaisuus.tscn" id="28_ym08v"]
+[ext_resource type="PackedScene" uid="uid://dub4c6ptjklx5" path="res://Scenes/Game-objects/Fish/VapausJaRiippumattomuus.tscn" id="29_8ekww"]
+[ext_resource type="PackedScene" uid="uid://bpksj7n5fdjae" path="res://Scenes/Game-objects/Fish/Vastuullisuus.tscn" id="30_dwhu0"]
+[ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
+[ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
+
+[sub_resource type="Animation" id="Animation_lmarx"]
+resource_name = "CastLine"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0, 3),
+"points": PackedFloat32Array(-147, 0, 0, 0.016666666, 14.166667, 59, -0.033333346, -31, 0.033333346, 31, 128, 0, 0, 0.034389526, 17, 143, -0.03187552, -4, 0.03187552, 4),
+"times": PackedFloat32Array(0, 0.19999999, 0.3, 0.49959838)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-150, 0, 0, 0.1, -78, -64, 0, 0, 0.03333333, 9, -64, -0.09959838, 1, 0.06706828, 1),
+"times": PackedFloat32Array(0, 0.3, 0.49959838)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hook:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.4820754e-05, 0.0051417174, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_khy6b"]
+resource_name = "Float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(143, -64), Vector2(143, -60), Vector2(143, -64)]
+}
+
+[sub_resource type="Animation" id="Animation_pti6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(143, -64)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(143, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hook:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pti6k"]
+_data = {
+&"CastLine": SubResource("Animation_lmarx"),
+&"Float": SubResource("Animation_khy6b"),
+&"RESET": SubResource("Animation_pti6k")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cx6b"]
 size = Vector2(22.209677, 133.33334)
@@ -44,16 +204,19 @@ region_rect = Rect2(160, 239, 82, 82)
 texture = ExtResource("14_wxwew")
 region_rect = Rect2(160, 151, 78, 78)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_minigame", "_hook", "_spawnArea", "_cloud", "_pauseMenu", "_pauseButton", "_fishSpot")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
+_animPlayer = NodePath("Bobber/AnimationPlayer")
 _minigame = NodePath("Minigame")
 _hook = NodePath("Bobber/Hook")
 _spawnArea = NodePath("Water")
 _cloud = NodePath("CanvasLayer2/Cloud")
-_fishPool = [ExtResource("1_iukft"), ExtResource("3_7lihs"), ExtResource("4_bf53h"), ExtResource("5_71axn"), ExtResource("6_dahhg")]
+_UIFishCounter = NodePath("CanvasLayer2/CaughtFishText")
+_fishPool = [ExtResource("2_18uti"), ExtResource("2_3so38"), ExtResource("4_khy6b"), ExtResource("5_pti6k"), ExtResource("3_3cx6b"), ExtResource("4_wxwew"), ExtResource("8_lmarx"), ExtResource("9_7av8l"), ExtResource("10_dctr5"), ExtResource("11_mi7vx"), ExtResource("12_t2joc"), ExtResource("13_audqb"), ExtResource("14_7w24h"), ExtResource("15_6okg5"), ExtResource("16_e2w45"), ExtResource("17_oo65k"), ExtResource("18_smnwb"), ExtResource("19_lkuj1"), ExtResource("20_lklsk"), ExtResource("21_34hf4"), ExtResource("5_acvyw"), ExtResource("23_jamva"), ExtResource("24_m15vq"), ExtResource("25_a05uw"), ExtResource("26_n2ugt"), ExtResource("27_n24vg"), ExtResource("28_ym08v"), ExtResource("29_8ekww"), ExtResource("30_dwhu0"), ExtResource("31_nojon")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 _pauseButton = NodePath("CanvasLayer2/Pause")
-_delayBetweenFish = 3.0
+_startingFishAmount = 3
+_delayBetweenFish = 1.5
 _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -89,18 +252,23 @@ scale = Vector2(8.40625, 2.625)
 texture = ExtResource("4_kldst")
 
 [node name="Bobber" type="Node2D" parent="."]
+visible = false
 position = Vector2(143, -64)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bobber"]
-self_modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_gl6un")
+texture = ExtResource("34_khy6b")
 
 [node name="Hook" type="Sprite2D" parent="Bobber"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 89)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_kldst")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bobber"]
+libraries = {
+&"": SubResource("AnimationLibrary_pti6k")
+}
 
 [node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator")]
 visible = false
@@ -109,8 +277,9 @@ script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
 _indicator = NodePath("Indicator")
-_indicatorSpeedMultiplier = 80.0
+_indicatorSpeedMultiplier = 65
 _winningPointAmount = 12
+_safeAreaMovementSpeed = 1.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
@@ -296,13 +465,25 @@ visible = false
 _pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
-offset_left = 7.0
-offset_top = 3.0
-offset_right = 80.0
-offset_bottom = 75.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_acvyw")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wxwew")
-theme_override_styles/hover = SubResource("StyleBoxTexture_alh3a")
+offset_left = 43.5
+offset_top = 2.0
+offset_right = 115.5
+offset_bottom = 74.0
+text = "PAUSE"
+
+[node name="CaughtFishText" type="Label" parent="CanvasLayer2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 9.0
+offset_right = 79.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Caught fish: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
