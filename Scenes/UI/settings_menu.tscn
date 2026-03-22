@@ -36,41 +36,58 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="CenterContainer/SettingsMenu"]
+[node name="MusicOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MusicOnOff"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "MUSIC"
 horizontal_alignment = 1
 
-[node name="MuteMusic" type="Button" parent="CenterContainer/SettingsMenu"]
-custom_minimum_size = Vector2(130, 0)
+[node name="MuteMusic" type="Button" parent="CenterContainer/SettingsMenu/MusicOnOff"]
+custom_minimum_size = Vector2(116, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "ON
 "
 
-[node name="Label2" type="Label" parent="CenterContainer/SettingsMenu"]
+[node name="SFXOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="CenterContainer/SettingsMenu/SFXOnOff"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "SFX"
+text = "   SFX   "
 horizontal_alignment = 1
 
-[node name="MuteSFX" type="Button" parent="CenterContainer/SettingsMenu"]
-custom_minimum_size = Vector2(130, 0)
+[node name="MuteSFX" type="Button" parent="CenterContainer/SettingsMenu/SFXOnOff"]
+custom_minimum_size = Vector2(116, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "ON
 "
 
-[node name="CheckButton" type="CheckButton" parent="CenterContainer/SettingsMenu/MuteSFX"]
-layout_mode = 0
-offset_left = -236.0
-offset_top = -135.125
-offset_right = -89.0
-offset_bottom = 17.875
-text = "MUSIC"
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="Button" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+custom_minimum_size = Vector2(134, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "SUOMI"
+
+[node name="Button2" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+custom_minimum_size = Vector2(134, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ENGLISH"
 
 [node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
 custom_minimum_size = Vector2(212, 74)
@@ -99,6 +116,6 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="CenterContainer/SettingsMenu/MuteMusic" to="." method="OnMuteMusicPressed"]
-[connection signal="pressed" from="CenterContainer/SettingsMenu/MuteSFX" to="." method="OnMuteSFXPressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/MusicOnOff/MuteMusic" to="." method="OnMuteMusicPressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/SFXOnOff/MuteSFX" to="." method="OnMuteSFXPressed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/Back" to="." method="OnBackPressed"]
