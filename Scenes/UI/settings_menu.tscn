@@ -64,7 +64,6 @@ size_flags_horizontal = 4
 [node name="Label2" type="Label" parent="CenterContainer/SettingsMenu/SFXOnOff"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "   SFX   "
 horizontal_alignment = 1
 
 [node name="MuteSFX" type="Button" parent="CenterContainer/SettingsMenu/SFXOnOff"]

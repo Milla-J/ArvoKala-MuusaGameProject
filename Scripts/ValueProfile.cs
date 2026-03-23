@@ -51,4 +51,9 @@ public partial class ValueProfile : Node2D
             _parent.AddChild(valueFish);
         }
     }
+
+    private void OnExitPressed()
+    {
+        GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
+    }
 }

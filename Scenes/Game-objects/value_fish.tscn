@@ -3,16 +3,31 @@
 [ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="1_2g36b"]
 
 [node name="ValueFish" type="Control"]
-custom_minimum_size = Vector2(150, 300)
+custom_minimum_size = Vector2(800, 250)
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -125.0
+offset_right = 400.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="ValueName" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_left = 32.0
+offset_top = 18.5
+offset_right = -514.5
+offset_bottom = 41.5
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
 text = "Arvo"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -25,28 +40,34 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = -271.0
+offset_top = -19.5
+offset_right = -207.0
+offset_bottom = 44.5
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 1.5707964
 scale = Vector2(3, 3)
 pivot_offset = Vector2(32, 32)
+mouse_filter = 2
 texture = ExtResource("1_2g36b")
 stretch_mode = 4
 
 [node name="ValueDiscription" type="Label" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -23.0
+offset_left = 409.0
+offset_top = -166.0
+offset_right = -35.0
+offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 16
 text = "Test test test test"
 horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
+max_lines_visible = 2

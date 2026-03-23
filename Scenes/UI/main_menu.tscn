@@ -61,7 +61,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
-text = "PLAY
+text = "PELAA
 "
 
 [node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
@@ -70,7 +70,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
-text = "SETTINGS
+text = "ASETUKSET
 "
 
 [node name="Credits" type="Button" parent="CenterContainer/MainButtons"]
@@ -79,7 +79,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
-text = "CREDITS
+text = "TEKIJÄT
 "
 
 [node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
@@ -88,7 +88,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
-text = "QUIT
+text = "POISTU
 "
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="OnPlayPressed"]
