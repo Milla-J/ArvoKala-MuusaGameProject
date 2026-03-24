@@ -18,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_rrvs5")
 
 [node name="Darkening" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1200, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,6 +29,7 @@ color = Color(0, 0, 0, 0.24313726)
 
 [node name="Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_r2i2h")
+custom_minimum_size = Vector2(1200, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
