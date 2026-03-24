@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=56 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bpksj7n5fdjae" path="res://Scenes/Game-objects/Fish/Vastuullisuus.tscn" id="30_dwhu0"]
 [ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
 [ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
+[ext_resource type="Texture2D" uid="uid://bl5au8qhpj2hn" path="res://Assets/Art/Placeholders/Hook.png" id="35_lmarx"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="40_pti6k"]
 
 [sub_resource type="Animation" id="Animation_lmarx"]
@@ -261,10 +262,8 @@ texture = ExtResource("34_khy6b")
 
 [node name="Hook" type="Sprite2D" parent="Bobber"]
 visible = false
-self_modulate = Color(0, 0, 0, 1)
 position = Vector2(0, 89)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_kldst")
+texture = ExtResource("35_lmarx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bobber"]
 libraries = {
