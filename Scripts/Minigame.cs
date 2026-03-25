@@ -7,16 +7,22 @@ public partial class Minigame : Node2D
     [Export] private GameController _gameController;
     [Export] private Area2D _safeArea;
     [Export] private MinigameIndicator _indicator;
-	private bool _minigameGoing;
-    private bool _inSafeArea = true;
+    [Export] private Control _tutorial;
+
 
     [ExportCategory("Minigame veriables")]
-    [Export] int _indicatorSpeedMultiplier = 60;
-    [Export] float _indicatorMaxVelocity = 100f;
+    [Export] private float _tiltThreshold = 5;
+    [Export] private int _indicatorSpeedMultiplier = 60;
+    [Export] private float _indicatorMaxVelocity = 100f;
     [Export] private int _winningPointAmount;
     private float _pointCounter;
     [Export] private float _safeAreaMovementSpeed = 10;
     private int _safeAreaMovementDirection = 1;
+    private bool _firstMinigame = true;
+    private bool _waitForPlayerInput = false;
+    private bool _minigameGoing;
+    private bool _inSafeArea = true;
+
 
     public override void _EnterTree()
 	{
@@ -27,6 +33,17 @@ public partial class Minigame : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+        if (_waitForPlayerInput)
+        {
+            if (Input.GetAccelerometer().X > _tiltThreshold ||
+                Input.GetAccelerometer().X < (0 -_tiltThreshold))
+            {
+                _waitForPlayerInput = false;
+                _tutorial.Visible = false;
+                _minigameGoing = true;
+            }
+        }
+
         if (!_minigameGoing)
         {
             return;
@@ -67,8 +84,17 @@ public partial class Minigame : Node2D
         Visible = true;
         _pointCounter = _winningPointAmount / 2f;
         GD.Print(_pointCounter);
-		_minigameGoing = true;
-        GD.Print("Game started");
+        if (_firstMinigame)
+        {
+            _tutorial.Visible = true;
+            _waitForPlayerInput = true;
+            _firstMinigame = false;
+        }
+        else
+        {
+            _minigameGoing = true;
+            GD.Print("Game started");
+        }
 	}
 
     private void OnSafeAreaEntered(Node2D body)

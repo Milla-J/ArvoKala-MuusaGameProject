@@ -78,10 +78,10 @@ public partial class GameController : Node
         }
 
         //Audio code
-        if (_fishTargetingActive 
+        if (_fishTargetingActive
             && !_cloud.Visible
-            && _spawnedFish.Count > 0 
-            && _currentFishIndex >= 0 
+            && _spawnedFish.Count > 0
+            && _currentFishIndex >= 0
             && _currentFishIndex < _spawnedFish.Count)
         {
             Fish fish = _spawnedFish[_currentFishIndex];
@@ -102,13 +102,18 @@ public partial class GameController : Node
 
 	public void StartMinigame()
 	{
+        _spawnedFish[_currentFishIndex].LinearVelocity = new Vector2();
+        RemoveChild(_spawnedFish[_currentFishIndex]);
+        _hook.AddChild(_spawnedFish[_currentFishIndex]);
+        _spawnedFish[_currentFishIndex].SetPositioAndRotation(new Vector2(), 30f, true);
+        _animPlayer.Play("Battle");
+
         _minigame.StartMinigame();
 	}
 
     public void WinMinigame()
     {
         GetNode<AudioManager>("/root/AudioManager").SetTensionAmount(0f);
-        
 
         _cloud.Visible = true;
         _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);
@@ -128,7 +133,9 @@ public partial class GameController : Node
 
     public void LoseMinigame()
     {
-
+        _hook.RemoveChild(_spawnedFish[_currentFishIndex]);
+        AddChild(_spawnedFish[_currentFishIndex]);
+        _spawnedFish[_currentFishIndex].SetPositioAndRotation(0);
 
         _spawnedFish[_currentFishIndex].CanMove = true;
         _fishTargetingActive = false;
