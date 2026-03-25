@@ -82,6 +82,19 @@ public partial class Fish : RigidBody2D
 		}
 	}
 
+    public void SetPositioAndRotation(Vector2 position, float rotation, bool flipped)
+    {
+        Position = position;
+        //Rotation = rotation;
+        SetRotationDegrees(rotation);
+        _sprite.FlipH = flipped;
+    }
+
+    public void SetPositioAndRotation(float rotation)
+    {
+        Rotation = rotation;
+    }
+
 	private async void Timer(float delay)
 	{
 		await ToSignal(GetTree().CreateTimer(delay), "timeout");

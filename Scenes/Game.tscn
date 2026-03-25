@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=63 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -171,9 +171,75 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t2joc"]
+resource_name = "Battle"
+length = 0.34
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hook:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(143, -64), Vector2(141, -66), Vector2(142, -62), Vector2(148.00002, -64.00001), Vector2(146.00002, -61.000008), Vector2(145, -60.000004), Vector2(146, -64), Vector2(140, -66), Vector2(144, -64), Vector2(143, -60), Vector2(143, -64)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.31415927]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pti6k"]
 _data = {
+&"Battle": SubResource("Animation_t2joc"),
 &"CastLine": SubResource("Animation_lmarx"),
 &"Float": SubResource("Animation_khy6b"),
 &"RESET": SubResource("Animation_pti6k")
@@ -315,6 +381,7 @@ libraries = {
 }
 
 [node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator", "_tutorial")]
+visible = false
 position = Vector2(0, -167)
 script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
@@ -323,7 +390,7 @@ _indicator = NodePath("Indicator")
 _tutorial = NodePath("../CanvasLayer2/MinigameTutorial")
 _tiltThreshold = 2.0
 _indicatorSpeedMultiplier = 65
-_indicatorMaxVelocity = 120.0
+_indicatorMaxVelocity = 200.0
 _winningPointAmount = 12
 _safeAreaMovementSpeed = 70.0
 
