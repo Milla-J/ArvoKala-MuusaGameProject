@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=62 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -40,7 +40,9 @@
 [ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
 [ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
 [ext_resource type="Texture2D" uid="uid://bl5au8qhpj2hn" path="res://Assets/Art/Placeholders/Hook.png" id="35_lmarx"]
+[ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="40_pti6k"]
+[ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
 
 [sub_resource type="Animation" id="Animation_lmarx"]
 resource_name = "CastLine"
@@ -178,7 +180,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cx6b"]
-size = Vector2(22.209677, 133.33334)
+size = Vector2(33.879166, 133.33334)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dahhg"]
 size = Vector2(6, 20)
@@ -193,6 +195,48 @@ size = Vector2(2.258628, 220.00003)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3so38"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dctr5"]
+shader = ExtResource("40_7av8l")
+shader_parameter/lod = 0.8830000419425
+
+[sub_resource type="Animation" id="Animation_dctr5"]
+resource_name = "MinigameTutorial"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialImg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2617993877991494, 0.0, -0.2617993877991494, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mi7vx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialImg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2joc"]
+_data = {
+&"MinigameTutorial": SubResource("Animation_dctr5"),
+&"RESET": SubResource("Animation_mi7vx")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmarx"]
 texture = ExtResource("40_pti6k")
@@ -270,16 +314,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_pti6k")
 }
 
-[node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator")]
-visible = false
+[node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator", "_tutorial")]
 position = Vector2(0, -167)
 script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
 _indicator = NodePath("Indicator")
+_tutorial = NodePath("../CanvasLayer2/MinigameTutorial")
+_tiltThreshold = 2.0
 _indicatorSpeedMultiplier = 65
+_indicatorMaxVelocity = 120.0
 _winningPointAmount = 12
-_safeAreaMovementSpeed = 1.0
+_safeAreaMovementSpeed = 70.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
@@ -297,12 +343,12 @@ collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Minigame/SafeArea"]
 self_modulate = Color(0.49433446, 0.8282563, 0.548639, 1)
-position = Vector2(-0.0060253143, -1.0609627e-05)
-scale = Vector2(0.1676313, 1.0416669)
+position = Vector2(-0.006025672, -1.0609627e-05)
+scale = Vector2(0.25879917, 1.0416669)
 texture = ExtResource("4_kldst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame/SafeArea"]
-position = Vector2(-0.006025758, 0)
+position = Vector2(-0.0060253986, 0)
 shape = SubResource("RectangleShape2D_3cx6b")
 
 [node name="Indicator" type="RigidBody2D" parent="Minigame" groups=["MinigameIndicator"]]
@@ -473,6 +519,66 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Something went wrong"
 horizontal_alignment = 1
+
+[node name="MinigameTutorial" type="Control" parent="CanvasLayer2"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Darken" type="ColorRect" parent="CanvasLayer2/MinigameTutorial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.1764706)
+
+[node name="Blur" type="ColorRect" parent="CanvasLayer2/MinigameTutorial"]
+material = SubResource("ShaderMaterial_dctr5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39607844)
+
+[node name="TutorialImg" type="ColorRect" parent="CanvasLayer2/MinigameTutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -159.5
+offset_right = 180.0
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 120)
+color = Color(0.7882353, 0.7882353, 0.7882353, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2/MinigameTutorial/TutorialImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("41_dctr5")
+expand_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/MinigameTutorial"]
+libraries = {
+&"": SubResource("AnimationLibrary_t2joc")
+}
+autoplay = "MinigameTutorial"
 
 [node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("_pauseButton") instance=ExtResource("10_71axn")]
 visible = false
