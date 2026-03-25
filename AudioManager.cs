@@ -5,6 +5,7 @@ public partial class AudioManager : Node
 {
 	[Export] private AudioStreamPlayer _menuMusic;
 	[Export] private AudioStreamPlayer _mainGameMusic;
+	[Export] private AudioStreamPlayer _castLine;
 
 	private int _musicBus;
 	private int _sfxBus;
@@ -51,6 +52,14 @@ public partial class AudioManager : Node
 			_mainGameMusic.Play();
 
 		SetTensionAmount(0f);
+	}
+
+	public void PlayCastLine()
+	{
+		if(_castLine.Playing)
+			_castLine.Stop();
+
+		_castLine.Play();
 	}
 
 	public void SetPausedAudio(bool paused)
