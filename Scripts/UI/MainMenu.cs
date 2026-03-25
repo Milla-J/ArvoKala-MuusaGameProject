@@ -8,29 +8,47 @@ public partial class MainMenu : Control
     	GetNode<AudioManager>("/root/AudioManager").PlayMenuMusic();
 	}
 	//When button pressed: calls the game scene
-	private void OnPlayPressed()
+	private async void OnPlayPressed()
 	{
 		GD.Print("Play pressed");
+		var transition = GetNode<SceneTransition>("/root/SceneTransition");
+    	await transition.FadeToBlack();
+		
 		GetTree().ChangeSceneToFile("res://Scenes/Game.tscn");
+
+		await transition.FadeToNormalLong();
 	}
 
 	//When button pressed: calls the settings menu scene
-	private void OnSettingsPressed()
+	private async void OnSettingsPressed()
 	{
 		GD.Print("Settings pressed");
+		var transition = GetNode<SceneTransition>("/root/SceneTransition");
+    	await transition.FadeToBlack();
+
 		GetTree().ChangeSceneToFile("Scenes/UI/settings_menu.tscn");
+
+		await transition.FadeToNormal();
 	}
     //When button pressed: calls the credits menu scene
-	private void OnCreditsPressed()
+	private async void OnCreditsPressed()
 	{
 		GD.Print("Credits pressed");
+		var transition = GetNode<SceneTransition>("/root/SceneTransition");
+    	await transition.FadeToBlack();
+
 		GetTree().ChangeSceneToFile("res://Scenes/UI/credits_menu.tscn");	
+		
+		await transition.FadeToNormal();
 	}
 
     //When button pressed: quits the game
-	private void OnQuitPressed()
+	private async void OnQuitPressed()
 	{
 		GD.Print("Quit pressed");
+		var transition = GetNode<SceneTransition>("/root/SceneTransition");
+    	await transition.FadeToBlack();
+
 		GetTree().Quit();
 	}
 

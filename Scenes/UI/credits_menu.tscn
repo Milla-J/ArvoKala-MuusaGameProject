@@ -75,7 +75,6 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 size_flags_horizontal = 4
-mouse_filter = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_mgje6")
 text = "BACK
