@@ -68,25 +68,32 @@ public partial class GameController : Node
             GetTree().ChangeSceneToFile("Scenes/ValueProfile.tscn");
         }
 
-        if(!_fishTargetingActive && _gameGoing)
+        if(!_fishTargetingActive && _gameGoing && !_cloud.Visible)
         {
             FishTimer(_delayBetweenFish);
             _fishTargetingActive = true;
         }
 
         //Audio code
-        if (_fishTargetingActive && _spawnedFish.Count > 0)
+        if (_fishTargetingActive 
+            && !_cloud.Visible
+            && _spawnedFish.Count > 0 
+            && _currentFishIndex >= 0 
+            && _currentFishIndex < _spawnedFish.Count)
         {
-        Fish fish = _spawnedFish[_currentFishIndex];
+            Fish fish = _spawnedFish[_currentFishIndex];
 
-        float distance = fish.GlobalPosition.DistanceTo(_hook.GlobalPosition);
+            float distance = fish.GlobalPosition.DistanceTo(_hook.GlobalPosition);
+            float maxDistance = 300f;
 
-        float maxDistance = 500f;
+            float amount = 1 - (distance / maxDistance);
+            amount = Mathf.Clamp(amount, 0f, 1f);
 
-        float amount = 1 - (distance / maxDistance);
-        amount = Mathf.Clamp(amount, 0f, 1f);
-
-        GetNode<AudioManager>("/root/AudioManager").SetTensionAmount(amount);
+            GetNode<AudioManager>("/root/AudioManager").SetTensionAmount(amount);
+        }
+        else
+        {
+            GetNode<AudioManager>("/root/AudioManager").SetTensionAmount(0f);
         }
     }
 
@@ -97,6 +104,8 @@ public partial class GameController : Node
 
     public void WinMinigame()
     {
+        GetNode<AudioManager>("/root/AudioManager").SetTensionAmount(0f);
+        
 
         _cloud.Visible = true;
         _cloud.SetValueDiscription(_spawnedFish[_currentFishIndex].ValueDescription);

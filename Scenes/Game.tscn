@@ -1,6 +1,5 @@
-[gd_scene load_steps=51 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=55 format=3 uid="uid://7og14qr88huk"]
 
-[ext_resource type="PackedScene" uid="uid://ye3xem67c48o" path="res://Scenes/Game-objects/Fish.tscn" id="1_iukft"]
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
 [ext_resource type="PackedScene" uid="uid://dk1ctjt2gpxpn" path="res://Scenes/Game-objects/Fish/Ahkeruus.tscn" id="2_18uti"]
@@ -40,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bpksj7n5fdjae" path="res://Scenes/Game-objects/Fish/Vastuullisuus.tscn" id="30_dwhu0"]
 [ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
 [ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
+[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="40_pti6k"]
 
 [sub_resource type="Animation" id="Animation_lmarx"]
 resource_name = "CastLine"
@@ -192,6 +192,18 @@ size = Vector2(2.258628, 220.00003)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3so38"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmarx"]
+texture = ExtResource("40_pti6k")
+region_rect = Rect2(160, 151, 78, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7av8l"]
+texture = ExtResource("40_pti6k")
+region_rect = Rect2(157, 148, 84, 84)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dctr5"]
+texture = ExtResource("40_pti6k")
+region_rect = Rect2(157, 149, 83, 82)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
@@ -355,6 +367,20 @@ shape = SubResource("WorldBoundaryShape2D_3cx6b")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
+[node name="CaughtFishText" type="Label" parent="CanvasLayer2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.0
+offset_top = 9.0
+offset_right = 79.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "Caught fish: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2" node_paths=PackedStringArray("_valueDiscription")]
 visible = false
 self_modulate = Color(1, 1, 1, 0.5372549)
@@ -454,25 +480,13 @@ visible = false
 _pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
-offset_left = 43.5
-offset_top = 2.0
-offset_right = 115.5
-offset_bottom = 74.0
-text = "PAUSE"
-
-[node name="CaughtFishText" type="Label" parent="CanvasLayer2"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -78.0
-offset_top = 9.0
-offset_right = 79.0
-offset_bottom = 43.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 24
-text = "Caught fish: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 86.0
+offset_bottom = 86.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_lmarx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7av8l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dctr5")
 
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]

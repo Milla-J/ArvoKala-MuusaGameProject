@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://6lhw8uwis3tm"]
+[gd_scene load_steps=5 format=3 uid="uid://6lhw8uwis3tm"]
 
 [ext_resource type="Script" uid="uid://42s8dopbhcms" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
+[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_i2xx2"]
+[ext_resource type="FontFile" uid="uid://bjli0c5ipdxuf" path="res://Assets/UI/edit-undo.brk.ttf" id="2_o14dv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7lva"]
+texture = ExtResource("2_i2xx2")
+region_rect = Rect2(476, 235, 212, 74)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -47,30 +53,42 @@ grow_vertical = 2
 
 [node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 4
 
 [node name="Play" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "PLAY
+theme_override_fonts/font = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
+text = "PELAA
 "
 
 [node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "SETTINGS
+theme_override_fonts/font = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
+text = "ASETUKSET
 "
 
 [node name="Credits" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "CREDITS
+theme_override_fonts/font = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
+text = "TEKIJÄT
 "
 
 [node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "QUIT
+theme_override_fonts/font = ExtResource("2_o14dv")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
+text = "POISTU
 "
 
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="OnPlayPressed"]
