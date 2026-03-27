@@ -1,7 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjf7t58cbvg6j"]
+[gd_scene load_steps=5 format=3 uid="uid://cjf7t58cbvg6j"]
 
 [ext_resource type="Script" uid="uid://nv8fy2b78b38" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_gus5t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gus5t"]
+texture = ExtResource("2_gus5t")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(476, 235, 212, 74)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqryc"]
 texture = ExtResource("2_gus5t")
@@ -38,15 +46,34 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_constants/separation = 42
+
+[node name="Button" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_gus5t")
+text = "SUOMI"
+
+[node name="Button2" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_gus5t")
+text = "ENGLISH"
+
 [node name="MusicOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MusicOnOff"]
+custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "MUSIC"
+text = "MUSIIKKI"
 horizontal_alignment = 1
 
 [node name="MuteMusic" type="Button" parent="CenterContainer/SettingsMenu/MusicOnOff"]
@@ -62,8 +89,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Label2" type="Label" parent="CenterContainer/SettingsMenu/SFXOnOff"]
+custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
+text = "ÄÄNITEHOSTEET"
 horizontal_alignment = 1
 
 [node name="MuteSFX" type="Button" parent="CenterContainer/SettingsMenu/SFXOnOff"]
@@ -73,22 +102,6 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "ON
 "
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
-layout_mode = 2
-theme_override_constants/separation = 36
-
-[node name="Button" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
-custom_minimum_size = Vector2(134, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "SUOMI"
-
-[node name="Button2" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
-custom_minimum_size = Vector2(134, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "ENGLISH"
 
 [node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
 custom_minimum_size = Vector2(212, 74)
@@ -112,8 +125,8 @@ offset_right = 576.0
 offset_bottom = -111.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 100
-text = "Settings"
+theme_override_font_sizes/font_size = 65
+text = "ASETUKSET"
 horizontal_alignment = 1
 vertical_alignment = 1
 
