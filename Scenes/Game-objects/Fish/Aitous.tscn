@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://nm6vtl42yfbw"]
 
 [ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_vyo5s"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_uqw3d"]
+[ext_resource type="Texture2D" uid="uid://dq502ck3m6ijt" path="res://Assets/Art/fish/aitous.png" id="2_vyo5s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-radius = 17.0
-height = 66.0
+radius = 16.0
+height = 100.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
@@ -18,7 +18,7 @@ ValueDescription = "Olen oma itseni esittämättä mitään, olen rehellinen its
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_uqw3d")
+texture = ExtResource("2_vyo5s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

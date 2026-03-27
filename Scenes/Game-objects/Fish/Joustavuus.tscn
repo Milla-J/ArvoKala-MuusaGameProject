@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://pmavabt5qs6u"]
 
 [ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_b5net"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_elcho"]
+[ext_resource type="Texture2D" uid="uid://c3ry0hsxxm44v" path="res://Assets/Art/fish/joustavuus.png" id="2_b5net"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-radius = 17.0
-height = 66.0
+radius = 7.0
+height = 92.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
@@ -18,7 +18,7 @@ ValueDescription = "Toimin joustavasti muuttuvissa ja yllättävissäkin tilante
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_elcho")
+texture = ExtResource("2_b5net")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
