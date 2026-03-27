@@ -3,8 +3,10 @@ using System;
 
 public partial class SettingsMenu : Control
 {
-	[Export] private Button _muteMusic;
-	[Export] private Button _muteSFX;
+	[Export] private TextureButton _muteMusic;
+	[Export] private TextureButton _muteSFX;
+	[Export] private Texture2D _onTexture;
+	[Export] private Texture2D _offTexture;
 
 
 	public override void _Ready()
@@ -12,21 +14,21 @@ public partial class SettingsMenu : Control
 		var _musicBus = AudioServer.GetBusIndex("Music");
 		if (AudioServer.IsBusMute(_musicBus))
 		{
-			_muteMusic.Text = "OFF";
+			_muteMusic.TextureNormal = _offTexture;
 		}
 		else
 		{
-			_muteMusic.Text = "ON";	
+			_muteMusic.TextureNormal = _onTexture;
 		}
 
 		var _sfxBus = AudioServer.GetBusIndex("SFX");
 		if (AudioServer.IsBusMute(_sfxBus))
 		{
-			_muteSFX.Text = "OFF";
+			_muteSFX.TextureNormal = _offTexture;
 		}
 		else
 		{
-			_muteSFX.Text = "ON";	
+			_muteSFX.TextureNormal = _onTexture;
 		}
 
 
@@ -40,11 +42,11 @@ public partial class SettingsMenu : Control
 
 		if (AudioServer.IsBusMute(_musicBus))
 		{
-			_muteMusic.Text = "OFF";
+			_muteMusic.TextureNormal = _offTexture;
 		}
 		else
 		{
-			_muteMusic.Text = "ON";	
+			_muteMusic.TextureNormal = _onTexture;
 		}
 	}
 
@@ -56,11 +58,11 @@ public partial class SettingsMenu : Control
 
 		if (AudioServer.IsBusMute(_sfxBus))
 		{
-			_muteSFX.Text = "OFF";
+			_muteSFX.TextureNormal = _offTexture;
 		}
 		else
 		{
-			_muteSFX.Text = "ON";	
+			_muteSFX.TextureNormal = _onTexture;
 		}
 	}
 

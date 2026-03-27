@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjf7t58cbvg6j"]
+[gd_scene load_steps=7 format=3 uid="uid://cjf7t58cbvg6j"]
 
 [ext_resource type="Script" uid="uid://nv8fy2b78b38" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_gus5t"]
+[ext_resource type="Texture2D" uid="uid://cr65wkg8emrwm" path="res://Assets/UI/ON-Button.png" id="2_vrd41"]
+[ext_resource type="Texture2D" uid="uid://bx28wfaybxo7" path="res://Assets/UI/OFF-Button.png" id="3_ynxh7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gus5t"]
 texture = ExtResource("2_gus5t")
@@ -27,6 +29,8 @@ grow_vertical = 2
 script = ExtResource("1_kfh4b")
 _muteMusic = NodePath("CenterContainer/SettingsMenu/MusicOnOff/MuteMusic")
 _muteSFX = NodePath("CenterContainer/SettingsMenu/SFXOnOff/MuteSFX")
+_onTexture = ExtResource("2_vrd41")
+_offTexture = ExtResource("3_ynxh7")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -76,13 +80,10 @@ theme_override_font_sizes/font_size = 24
 text = "MUSIIKKI"
 horizontal_alignment = 1
 
-[node name="MuteMusic" type="Button" parent="CenterContainer/SettingsMenu/MusicOnOff"]
-custom_minimum_size = Vector2(116, 0)
+[node name="MuteMusic" type="TextureButton" parent="CenterContainer/SettingsMenu/MusicOnOff"]
+custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "ON
-"
 
 [node name="SFXOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
 layout_mode = 2
@@ -95,13 +96,10 @@ theme_override_font_sizes/font_size = 24
 text = "ÄÄNITEHOSTEET"
 horizontal_alignment = 1
 
-[node name="MuteSFX" type="Button" parent="CenterContainer/SettingsMenu/SFXOnOff"]
-custom_minimum_size = Vector2(116, 0)
+[node name="MuteSFX" type="TextureButton" parent="CenterContainer/SettingsMenu/SFXOnOff"]
+custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "ON
-"
 
 [node name="Back" type="Button" parent="CenterContainer/SettingsMenu"]
 custom_minimum_size = Vector2(212, 74)
@@ -109,7 +107,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_lqryc")
-text = "BACK
+text = "PALAA
 "
 
 [node name="Title" type="Label" parent="."]
@@ -125,7 +123,7 @@ offset_right = 576.0
 offset_bottom = -111.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 64
 text = "ASETUKSET"
 horizontal_alignment = 1
 vertical_alignment = 1
