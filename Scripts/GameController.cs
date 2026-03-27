@@ -65,6 +65,9 @@ public partial class GameController : Node
                 _gameGoing = true;
                 _animPlayer.AnimationSetNext("CastLine", "Float");
                 _animPlayer.Play("CastLine");
+
+                //Play sound effect
+                GetNode<AudioManager>("/root/AudioManager").PlayCastLine();
             }
         }
 
