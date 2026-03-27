@@ -42,6 +42,10 @@ folder_colors={
 "res://Scripts/": "red"
 }
 
+[gui]
+
+theme/custom_font="uid://bjli0c5ipdxuf"
+
 [input]
 
 CastLine={

@@ -142,10 +142,11 @@ grow_vertical = 0
 custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_23me3")
-text = "POISTU
+text = "POISTU PÄÄVALIKKOON
 "
+autowrap_mode = 2
 
 [node name="CenterContainer3" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(0, 100)
