@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6nouhfqlvymg"]
 
 [ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_lx337"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_ja5wi"]
+[ext_resource type="Texture2D" uid="uid://bkcinki8stwgd" path="res://Assets/Art/fish/turvallisuuskala.png" id="2_lx337"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-radius = 17.0
+radius = 18.0
 height = 66.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
@@ -18,7 +18,7 @@ ValueDescription = "Varmistan, suojelen ja turvaan omaa ja muiden turvallisuutta
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ja5wi")
+texture = ExtResource("2_lx337")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

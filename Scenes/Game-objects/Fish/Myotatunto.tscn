@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://qgdyrsj0e8ik"]
 
 [ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_ix7d4"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_syqva"]
+[ext_resource type="Texture2D" uid="uid://ogg58pjbm1k5" path="res://Assets/Art/fish/myotatuntokalat.png" id="2_ix7d4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-radius = 17.0
-height = 66.0
+radius = 19.0
+height = 76.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
@@ -18,7 +18,7 @@ ValueDescription = "Toimin myötätuntoisesti sellaisia kohtaan, jotka kärsivä
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_syqva")
+texture = ExtResource("2_ix7d4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
