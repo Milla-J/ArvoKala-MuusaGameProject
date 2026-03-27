@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 public partial class GameController : Node
 {
 	[ExportCategory("References")]
+    [Export] private InputAreaRect _inputArea;
     [Export] private AnimationPlayer _animPlayer;
 	[Export] private Minigame _minigame;
     [Export] private Node2D _hook;
@@ -52,7 +53,9 @@ public partial class GameController : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
-        if (!_gameGoing && Input.IsActionPressed("CastLine"))
+        if (!_gameGoing
+            && Input.IsActionPressed("CastLine")
+            && _inputArea.IsMouseEntered)
         {
             if(_cloud.Visible == false)
             {

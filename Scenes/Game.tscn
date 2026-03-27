@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=64 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -40,9 +40,63 @@
 [ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
 [ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
 [ext_resource type="Texture2D" uid="uid://bl5au8qhpj2hn" path="res://Assets/Art/Placeholders/Hook.png" id="35_lmarx"]
+[ext_resource type="Script" uid="uid://c0l5qy02acsbh" path="res://Scripts/UI/InputAreaRect.cs" id="38_mi7vx"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="40_pti6k"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
+
+[sub_resource type="Animation" id="Animation_t2joc"]
+resource_name = "Battle"
+length = 0.34
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hook:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(143, -64), Vector2(141, -66), Vector2(142, -62), Vector2(148.00002, -64.00001), Vector2(146.00002, -61.000008), Vector2(145, -60.000004), Vector2(146, -64), Vector2(140, -66), Vector2(144, -64), Vector2(143, -60), Vector2(143, -64)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.31415927]
+}
 
 [sub_resource type="Animation" id="Animation_lmarx"]
 resource_name = "CastLine"
@@ -184,59 +238,6 @@ tracks/5/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_t2joc"]
-resource_name = "Battle"
-length = 0.34
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hook:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(143, -64), Vector2(141, -66), Vector2(142, -62), Vector2(148.00002, -64.00001), Vector2(146.00002, -61.000008), Vector2(145, -60.000004), Vector2(146, -64), Vector2(140, -66), Vector2(144, -64), Vector2(143, -60), Vector2(143, -64)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.31415927]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pti6k"]
 _data = {
 &"Battle": SubResource("Animation_t2joc"),
@@ -316,8 +317,9 @@ region_rect = Rect2(157, 148, 84, 84)
 texture = ExtResource("40_pti6k")
 region_rect = Rect2(157, 149, 83, 82)
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("_inputArea", "_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
+_inputArea = NodePath("CanvasLayer2/InputArea/InputRect")
 _animPlayer = NodePath("Bobber/AnimationPlayer")
 _minigame = NodePath("Minigame")
 _hook = NodePath("Bobber/Hook")
@@ -479,6 +481,28 @@ shape = SubResource("WorldBoundaryShape2D_3cx6b")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
+[node name="InputArea" type="Control" parent="CanvasLayer2"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InputRect" type="ColorRect" parent="CanvasLayer2/InputArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = 65.0
+offset_right = -95.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("38_mi7vx")
+
 [node name="CaughtFishText" type="Label" parent="CanvasLayer2"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -494,7 +518,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2" node_paths=PackedStringArray("_valueDiscription")]
-visible = false
 self_modulate = Color(1, 1, 1, 0.5372549)
 z_index = -5
 anchors_preset = 1
@@ -516,10 +539,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -128.0
+offset_top = -121.0
+offset_right = 128.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -531,9 +554,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -182.0
-offset_top = 62.0
+offset_top = 82.0
 offset_right = -62.0
-offset_bottom = 93.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Erittäin tärkeä"
@@ -546,9 +569,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -57.0
-offset_top = 50.0
+offset_top = 70.0
 offset_right = 57.0
-offset_bottom = 104.0
+offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Jonkin
@@ -562,9 +585,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
-offset_top = 62.0
+offset_top = 82.0
 offset_right = 176.0
-offset_bottom = 93.0
+offset_bottom = 113.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Vähän tärkeä
@@ -578,14 +601,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = -69.0
-offset_right = 90.0
-offset_bottom = -46.0
+offset_left = -120.0
+offset_top = -81.0
+offset_right = 120.0
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Something went wrong"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="MinigameTutorial" type="Control" parent="CanvasLayer2"]
 visible = false
