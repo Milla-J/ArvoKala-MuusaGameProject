@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=69 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://dub4c6ptjklx5" path="res://Scenes/Game-objects/Fish/VapausJaRiippumattomuus.tscn" id="29_8ekww"]
 [ext_resource type="PackedScene" uid="uid://bpksj7n5fdjae" path="res://Scenes/Game-objects/Fish/Vastuullisuus.tscn" id="30_dwhu0"]
 [ext_resource type="PackedScene" uid="uid://b6lvf5gepj8jl" path="res://Scenes/Game-objects/Fish/Ystavallisyys.tscn" id="31_nojon"]
+[ext_resource type="Texture2D" uid="uid://d3b5tyvnydnkp" path="res://Assets/Art/Background.png" id="32_audqb"]
 [ext_resource type="Texture2D" uid="uid://ljektu7ngps6" path="res://Assets/Art/Placeholders/Bobber.png" id="34_khy6b"]
 [ext_resource type="Texture2D" uid="uid://bl5au8qhpj2hn" path="res://Assets/Art/Placeholders/Hook.png" id="35_lmarx"]
 [ext_resource type="Script" uid="uid://c0l5qy02acsbh" path="res://Scripts/UI/InputAreaRect.cs" id="38_mi7vx"]
@@ -375,21 +376,8 @@ _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
 [node name="Environment" type="Node2D" parent="."]
 
-[node name="Peir" type="Sprite2D" parent="Environment"]
-modulate = Color(0.5959495, 0.49187118, 0.39422944, 1)
-position = Vector2(-283.5, -95)
-scale = Vector2(3.9765623, 0.09375)
-texture = ExtResource("4_kldst")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Peir"]
-position = Vector2(51.6778, 2005.3333)
-scale = Vector2(0.01571713, 30.833334)
-texture = ExtResource("4_kldst")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Environment/Peir"]
-position = Vector2(-47.402756, 2005.3336)
-scale = Vector2(0.01571713, 30.833334)
-texture = ExtResource("4_kldst")
+[node name="Background" type="Sprite2D" parent="Environment"]
+texture = ExtResource("32_audqb")
 
 [node name="Cat" type="Sprite2D" parent="Environment"]
 position = Vector2(-169.00002, -148)
@@ -399,8 +387,8 @@ texture = ExtResource("8_3cx6b")
 [node name="Water" type="Sprite2D" parent="."]
 self_modulate = Color(1.5209317e-05, 0.91218, 0.9611458, 0.49019608)
 z_index = 1
-position = Vector2(0, 104)
-scale = Vector2(8.40625, 2.625)
+position = Vector2(-5.722046e-06, 104)
+scale = Vector2(9.375, 2.625)
 texture = ExtResource("4_kldst")
 
 [node name="Bobber" type="Node2D" parent="."]
@@ -503,12 +491,12 @@ position = Vector2(0, 272)
 shape = SubResource("WorldBoundaryShape2D_71axn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World boundaries"]
-position = Vector2(-538, 0)
+position = Vector2(-600, 0)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_dahhg")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="World boundaries"]
-position = Vector2(537, 0)
+position = Vector2(600, 0)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_3so38")
 
@@ -775,12 +763,12 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_dctr5")
 [connection signal="CastLine" from="." to="CanvasLayer2/PressToStartText" method="Disappear"]
 [connection signal="CastLine" from="." to="CanvasLayer2/PressToContinueText" method="Disappear"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="SaveFishToValues"]
-[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/PressToContinueText" method="Appear"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="." method="SaveFishToValues"]
-[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/PressToContinueText" method="Appear"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="." method="DespawnFish"]
-[connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/PressToContinueText" method="Appear"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
 [connection signal="pressed" from="CanvasLayer2/Pause" to="." method="OnPausePressed"]
