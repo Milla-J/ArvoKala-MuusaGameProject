@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public partial class GameController : Node
 {
-    //Signals
     [Signal]
     public delegate void CastLineEventHandler();
 

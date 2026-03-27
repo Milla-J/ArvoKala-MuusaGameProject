@@ -14,7 +14,7 @@ lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_1tm82")
 ValueName = "Ystävällisyys"
-ValueDescription = "Olen ystävällinen, inhimillinen, huomaavainen ja välittävä itseäni ja muita kohtaan."
+ValueDescription = "Olen ystävällinen, inhimillinen, huomaavainen ja välittävä itseäni ja muita kohtaan"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

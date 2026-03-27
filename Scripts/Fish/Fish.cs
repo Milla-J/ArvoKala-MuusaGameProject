@@ -5,7 +5,9 @@ public partial class Fish : RigidBody2D
 {
 	[ExportCategory("Public veriables")]
 	[Export] public string ValueName;
-	[Export] public string ValueDescription;
+    [Export] private string _valueNameEng;
+	[Export (PropertyHint.MultilineText)] public string ValueDescription;
+    [Export (PropertyHint.MultilineText)] private string _valueDescriptionEng;
 
 	[ExportCategory("Movement veriables")]
 	[Export] private float _speed = 150; // how fast/far movements are
