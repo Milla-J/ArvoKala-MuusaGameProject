@@ -34,6 +34,7 @@ offset_left = -495.0
 offset_right = 495.0
 offset_bottom = 64.0
 grow_horizontal = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/BoxContainer"]
 custom_minimum_size = Vector2(990, 0)
