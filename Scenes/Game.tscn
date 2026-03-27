@@ -49,7 +49,6 @@
 [ext_resource type="Texture2D" uid="uid://o1t7rfv6g4n8" path="res://Assets/Art/Placeholders/BG test/5.png" id="38_34hf4"]
 [ext_resource type="Script" uid="uid://c0l5qy02acsbh" path="res://Scripts/UI/InputAreaRect.cs" id="38_mi7vx"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
-[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="40_pti6k"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
 [ext_resource type="Texture2D" uid="uid://btrqshuu2m7v1" path="res://Assets/Art/Placeholders/BG test/water0.png" id="41_n2ugt"]
 [ext_resource type="Texture2D" uid="uid://c5v4yuikrsis1" path="res://Assets/Art/Placeholders/BG test/water1.png" id="42_n24vg"]
@@ -58,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://c10l6bxfajaqa" path="res://Assets/Art/Placeholders/BG test/water4.png" id="45_dwhu0"]
 [ext_resource type="Script" uid="uid://cmqme7lixdwxs" path="res://Scripts/UI/PromptPlayerInput.cs" id="45_t2joc"]
 [ext_resource type="Texture2D" uid="uid://bwla8qchnuegb" path="res://Assets/Art/Placeholders/BG test/water5.png" id="46_nojon"]
+[ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="58_n2ugt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkuj1"]
 animations = [{
@@ -409,15 +409,15 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lmarx"]
-texture = ExtResource("40_pti6k")
+texture = ExtResource("58_n2ugt")
 region_rect = Rect2(160, 151, 78, 78)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7av8l"]
-texture = ExtResource("40_pti6k")
-region_rect = Rect2(157, 148, 84, 84)
+texture = ExtResource("58_n2ugt")
+region_rect = Rect2(158, 250, 82, 82)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dctr5"]
-texture = ExtResource("40_pti6k")
+texture = ExtResource("58_n2ugt")
 region_rect = Rect2(157, 149, 83, 82)
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_inputArea", "_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
@@ -830,10 +830,10 @@ visible = false
 _pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 86.0
-offset_bottom = 86.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 94.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_lmarx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7av8l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dctr5")

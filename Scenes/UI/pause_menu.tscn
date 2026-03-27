@@ -1,13 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cndxerx4vvy4a"]
+[gd_scene load_steps=12 format=3 uid="uid://cndxerx4vvy4a"]
 
 [ext_resource type="Script" uid="uid://b3pj3n5gvxmmw" path="res://Scripts/UI/PauseMenu.cs" id="1_rrvs5"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="2_8rf44"]
+[ext_resource type="Texture2D" uid="uid://cr65wkg8emrwm" path="res://Assets/UI/ON-Button.png" id="2_kdnb7"]
+[ext_resource type="Texture2D" uid="uid://bx28wfaybxo7" path="res://Assets/UI/OFF-Button.png" id="3_702e2"]
+[ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="5_702e2"]
+[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="5_qyryt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2i2h"]
 shader = ExtResource("2_8rf44")
 shader_parameter/lod = 1.95600009291
 
-[node name="PauseMenu" type="Control"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyryt"]
+texture = ExtResource("5_702e2")
+region_rect = Rect2(295, 149, 78, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_deree"]
+texture = ExtResource("5_702e2")
+region_rect = Rect2(290, 253, 82, 82)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_702e2"]
+texture = ExtResource("5_702e2")
+region_rect = Rect2(293, 147, 82, 82)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23me3"]
+texture = ExtResource("5_qyryt")
+region_rect = Rect2(476, 235, 212, 74)
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +36,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rrvs5")
+_muteMusic = NodePath("CenterContainer/SettingsMenu/MusicOnOff/MuteMusic")
+_muteSFX = NodePath("CenterContainer/SettingsMenu/SFXOnOff/MuteSFX")
+_onTexture = ExtResource("2_kdnb7")
+_offTexture = ExtResource("3_702e2")
 
 [node name="Darkening" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1200, 0)
@@ -25,7 +49,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.24313726)
+mouse_filter = 2
+color = Color(0, 0, 0, 0.36078432)
 
 [node name="Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_r2i2h")
@@ -36,6 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.39607844)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -45,35 +71,99 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
-theme_override_constants/separation = 13
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="CenterContainer/MainButtons"]
+[node name="MusicOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 37
-text = "GAME PAUSED"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/MusicOnOff"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUSIIKKI"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="CenterContainer/MainButtons"]
+[node name="MuteMusic" type="TextureButton" parent="CenterContainer/SettingsMenu/MusicOnOff"]
+custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SFXOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="CenterContainer/SettingsMenu/SFXOnOff"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "ÄÄNITEHOSTEET"
+horizontal_alignment = 1
+
+[node name="MuteSFX" type="TextureButton" parent="CenterContainer/SettingsMenu/SFXOnOff"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Container" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 1
+offset_right = 78.0
+offset_bottom = 78.0
+
+[node name="Resume" type="Button" parent="Container"]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_qyryt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_deree")
+theme_override_styles/hover = SubResource("StyleBoxTexture_702e2")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -74.0
+offset_right = 106.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Quit" type="Button" parent="CenterContainer2"]
+custom_minimum_size = Vector2(212, 74)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "RESUME
+theme_override_styles/normal = SubResource("StyleBoxTexture_23me3")
+text = "POISTU
 "
 
-[node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CenterContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "SETTINGS
-"
+text = "PELI PYSÄYTETTY"
 
-[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "QUIT
-"
-
-[connection signal="pressed" from="CenterContainer/MainButtons/Resume" to="." method="OnResumePressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="OnSettingsPressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/MusicOnOff/MuteMusic" to="." method="OnMuteMusicPressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/SFXOnOff/MuteSFX" to="." method="OnMuteSFXPressed"]
+[connection signal="pressed" from="Container/Resume" to="." method="OnResumePressed"]
+[connection signal="pressed" from="CenterContainer2/Quit" to="." method="OnQuitPressed"]
