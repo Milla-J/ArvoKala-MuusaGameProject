@@ -1,10 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 public partial class GameController : Node
 {
+    //Signals
+    [Signal]
+    public delegate void CastLineEventHandler();
+
 	[ExportCategory("References")]
     [Export] private InputAreaRect _inputArea;
     [Export] private AnimationPlayer _animPlayer;
@@ -59,6 +62,7 @@ public partial class GameController : Node
         {
             if(_cloud.Visible == false)
             {
+                EmitSignal(SignalName.CastLine);
                 _gameGoing = true;
                 _animPlayer.AnimationSetNext("CastLine", "Float");
                 _animPlayer.Play("CastLine");

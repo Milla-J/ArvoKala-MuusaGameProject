@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=68 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -44,6 +44,7 @@
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="40_pti6k"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
+[ext_resource type="Script" uid="uid://cmqme7lixdwxs" path="res://Scripts/UI/PromptPlayerInput.cs" id="45_t2joc"]
 
 [sub_resource type="Animation" id="Animation_t2joc"]
 resource_name = "Battle"
@@ -263,6 +264,43 @@ size = Vector2(2.258628, 220.00003)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3cx6b"]
 
+[sub_resource type="Animation" id="Animation_audqb"]
+resource_name = "Appear"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7w24h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6okg5"]
+_data = {
+&"Appear": SubResource("Animation_audqb"),
+&"RESET": SubResource("Animation_7w24h")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dctr5"]
 shader = ExtResource("40_7av8l")
 shader_parameter/lod = 0.8830000419425
@@ -316,43 +354,6 @@ region_rect = Rect2(157, 148, 84, 84)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dctr5"]
 texture = ExtResource("40_pti6k")
 region_rect = Rect2(157, 149, 83, 82)
-
-[sub_resource type="Animation" id="Animation_audqb"]
-resource_name = "Appear"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_7w24h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6okg5"]
-_data = {
-&"Appear": SubResource("Animation_audqb"),
-&"RESET": SubResource("Animation_7w24h")
-}
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("_inputArea", "_animPlayer", "_minigame", "_hook", "_spawnArea", "_cloud", "_UIFishCounter", "_pauseMenu", "_pauseButton", "_fishSpot")]
 script = ExtResource("1_j5yw3")
@@ -554,6 +555,55 @@ text = "Caught fish: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PressToStartText" type="Label" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -33.5
+offset_right = 312.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Paina näyttöä aloittaaksesi"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("45_t2joc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/PressToStartText"]
+libraries = {
+&"": SubResource("AnimationLibrary_6okg5")
+}
+autoplay = "Appear"
+
+[node name="PressToContinueText" type="Label" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.5
+offset_top = -33.5
+offset_right = 312.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Paina näyttöä jatkaaksesi"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("45_t2joc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/PressToContinueText"]
+libraries = {
+&"": SubResource("AnimationLibrary_6okg5")
+}
+
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2" node_paths=PackedStringArray("_valueDiscription")]
 visible = false
 self_modulate = Color(1, 1, 1, 0.5372549)
@@ -722,34 +772,15 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_lmarx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7av8l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dctr5")
 
-[node name="PressToStartText" type="Label" parent="CanvasLayer2"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -312.5
-offset_top = -33.5
-offset_right = 312.5
-offset_bottom = 33.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 42
-text = "Paina näyttöä aloittaaksesi"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/PressToStartText"]
-libraries = {
-&"": SubResource("AnimationLibrary_6okg5")
-}
-autoplay = "Appear"
-
+[connection signal="CastLine" from="." to="CanvasLayer2/PressToStartText" method="Disappear"]
+[connection signal="CastLine" from="." to="CanvasLayer2/PressToContinueText" method="Disappear"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/VeryImportant" to="CanvasLayer2/PressToContinueText" method="Appear"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="." method="SaveFishToValues"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/SomewhatImportant" to="CanvasLayer2/PressToContinueText" method="Appear"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="." method="DespawnFish"]
 [connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/Cloud" method="HideCloud"]
+[connection signal="pressed" from="CanvasLayer2/Cloud/NotImportant" to="CanvasLayer2/PressToContinueText" method="Appear"]
 [connection signal="pressed" from="CanvasLayer2/Pause" to="." method="OnPausePressed"]
