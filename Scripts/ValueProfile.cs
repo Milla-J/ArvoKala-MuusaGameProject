@@ -52,8 +52,13 @@ public partial class ValueProfile : Node2D
         }
     }
 
-    private void OnExitPressed()
+    private async void OnExitPressed()
     {
+        var transition = GetNode<SceneTransition>("/root/SceneTransition");
+    	await transition.FadeToBlack();
+
         GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
+
+        await transition.FadeToNormal();
     }
 }

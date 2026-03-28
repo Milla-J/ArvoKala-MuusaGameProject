@@ -19,6 +19,12 @@ public partial class SceneTransition : Control
         await ToSignal(_animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
     }
 
+    public async Task FadeToBlackLong()
+    {
+        _animationPlayer.Play("FadeToBlackLong");
+        await ToSignal(_animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
+    }
+
 	public async Task FadeToNormal()
     {
         _animationPlayer.Play("FadeToNormal");

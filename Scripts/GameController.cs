@@ -53,7 +53,7 @@ public partial class GameController : Node
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public async override void _Process(double delta)
     {
         if (!_gameGoing
             && Input.IsActionPressed("CastLine")
@@ -73,8 +73,13 @@ public partial class GameController : Node
 
         if (_caughtFishCount == _amountOfFishInGame && _gameGoing)
         {
+            //Scene transition
+            var transition = GetNode<SceneTransition>("/root/SceneTransition");
+    	    await transition.FadeToBlackLong();
             //PrintOutFish();
             GetTree().ChangeSceneToFile("Scenes/ValueProfile.tscn");
+            //Scene transition
+            await transition.FadeToNormalLong();
         }
 
         if(!_fishTargetingActive && _gameGoing && !_cloud.Visible)
