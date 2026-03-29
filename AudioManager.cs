@@ -6,6 +6,7 @@ public partial class AudioManager : Node
 	[Export] private AudioStreamPlayer _menuMusic;
 	[Export] private AudioStreamPlayer _mainGameMusic;
 	[Export] private AudioStreamPlayer _castLine;
+	[Export] private AudioStreamPlayer _reelingAndSplashing;
 
 	private int _musicBus;
 	private int _sfxBus;
@@ -60,6 +61,20 @@ public partial class AudioManager : Node
 			_castLine.Stop();
 
 		_castLine.Play();
+	}
+
+	public void PlayReelingAndSplashing()
+	{
+		if(_reelingAndSplashing.Playing)
+			_reelingAndSplashing.Stop();
+
+		_reelingAndSplashing.Play();
+	}
+
+	public void StopReelingAndSplashing()
+	{
+		if(_reelingAndSplashing.Playing)
+			_reelingAndSplashing.Stop();
 	}
 
 	public void SetPausedAudio(bool paused)

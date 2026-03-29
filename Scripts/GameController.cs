@@ -120,6 +120,8 @@ public partial class GameController : Node
         _animPlayer.Play("Battle");
 
         _minigame.StartMinigame();
+
+        GetNode<AudioManager>("/root/AudioManager").PlayReelingAndSplashing();
 	}
 
     public void WinMinigame()
@@ -140,6 +142,8 @@ public partial class GameController : Node
 
         _animPlayer.Play("RESET");
         _gameGoing = false;
+
+        GetNode<AudioManager>("/root/AudioManager").PlayReelingAndSplashing();
     }
 
     public void LoseMinigame()
@@ -153,6 +157,8 @@ public partial class GameController : Node
 
         _animPlayer.Play("RESET");
         _gameGoing = false;
+
+        GetNode<AudioManager>("/root/AudioManager").PlayReelingAndSplashing();
     }
 
     public void SpawnFish(int fishAmount)

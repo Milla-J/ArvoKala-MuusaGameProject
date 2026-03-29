@@ -87,6 +87,8 @@ public partial class PauseMenu : Control
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();	
 
+		GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
+
 		GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
 
 		await transition.FadeToNormal();
