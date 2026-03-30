@@ -11,6 +11,8 @@ public partial class MainMenu : Control
 	private async void OnPlayPressed()
 	{
 		GD.Print("Play pressed");
+
+		GetNode<AudioManager>("/root/AudioManager").PlayStartGame();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 		
