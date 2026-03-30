@@ -143,7 +143,7 @@ public partial class GameController : Node
         _animPlayer.Play("RESET");
         _gameGoing = false;
 
-        GetNode<AudioManager>("/root/AudioManager").PlayReelingAndSplashing();
+        GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
     }
 
     public void LoseMinigame()
@@ -158,7 +158,7 @@ public partial class GameController : Node
         _animPlayer.Play("RESET");
         _gameGoing = false;
 
-        GetNode<AudioManager>("/root/AudioManager").PlayReelingAndSplashing();
+        GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
     }
 
     public void SpawnFish(int fishAmount)
