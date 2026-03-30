@@ -494,7 +494,7 @@ _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
 _indicator = NodePath("Indicator")
 _tutorial = NodePath("../CanvasLayer2/MinigameTutorial")
-_tiltThreshold = 2.0
+_tiltThreshold = 3.5
 _indicatorSpeedMultiplier = 65
 _indicatorMaxVelocity = 200.0
 _winningPointAmount = 12
@@ -827,6 +827,8 @@ autoplay = "MinigameTutorial"
 
 [node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("_pauseButton") instance=ExtResource("10_71axn")]
 visible = false
+_onTexture = null
+_offTexture = null
 _pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]
