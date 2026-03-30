@@ -14,7 +14,7 @@ public partial class MainMenu : Control
 
 		GetNode<AudioManager>("/root/AudioManager").PlayStartGame();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
-    	await transition.FadeToBlack();
+    	await transition.FadeToBlackLong2();
 		
 		GetTree().ChangeSceneToFile("res://Scenes/Game.tscn");
 

@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dsxjep8l3o1cm" path="res://Audio/game music tension.wav" id="4_kcgc6"]
 [ext_resource type="AudioStream" uid="uid://dyku1xwseabr7" path="res://Audio/nature ambience.wav" id="5_kcgc6"]
 [ext_resource type="AudioStream" uid="uid://db7pouilkrp47" path="res://Audio/CastLine.wav" id="6_paayw"]
-[ext_resource type="AudioStream" uid="uid://tnxaed0lt6ay" path="res://Audio/ReelingAndSplashing.wav" id="7_4rpru"]
+[ext_resource type="AudioStream" uid="uid://c4sjquubft3eu" path="res://Audio/Splashing.wav" id="7_b5goh"]
 [ext_resource type="AudioStream" uid="uid://d6u7s1eini6y" path="res://Audio/StartGame.wav" id="8_b5goh"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_paayw"]
@@ -54,7 +54,7 @@ pitch_scale = 1.2
 bus = &"SFX"
 
 [node name="ReelingAndSplashing" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("7_4rpru")
+stream = ExtResource("7_b5goh")
 volume_db = -6.679
 bus = &"SFX"
 
