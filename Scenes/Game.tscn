@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c0dge1w3xppvm" path="res://Scenes/Game-objects/Fish/Seikkailunhalu.tscn" id="5_acvyw"]
 [ext_resource type="Script" uid="uid://bfxnhredtp63g" path="res://Scripts/Minigame.cs" id="5_b2bpf"]
 [ext_resource type="PackedScene" uid="uid://c1sdlkok1vtrh" path="res://Scenes/Game-objects/Fish/HauskuusJaHuumori.tscn" id="5_pti6k"]
-[ext_resource type="Texture2D" uid="uid://bdjkfullx4f1t" path="res://Assets/Art/Placeholders/Primitive-shapes/Capsule.png" id="8_3cx6b"]
 [ext_resource type="PackedScene" uid="uid://rka4luorxj2k" path="res://Scenes/Game-objects/Fish/Jarjestys.tscn" id="8_lmarx"]
 [ext_resource type="PackedScene" uid="uid://pmavabt5qs6u" path="res://Scenes/Game-objects/Fish/Joustavuus.tscn" id="9_7av8l"]
 [ext_resource type="Script" uid="uid://rq6y4ffs3wwd" path="res://Scripts/MinigameIndicator.cs" id="10_3so38"]
@@ -48,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://n17ohg7kicfl" path="res://Assets/Art/Placeholders/BG test/4.png" id="37_lklsk"]
 [ext_resource type="Texture2D" uid="uid://o1t7rfv6g4n8" path="res://Assets/Art/Placeholders/BG test/5.png" id="38_34hf4"]
 [ext_resource type="Script" uid="uid://c0l5qy02acsbh" path="res://Scripts/UI/InputAreaRect.cs" id="38_mi7vx"]
+[ext_resource type="Texture2D" uid="uid://dvffarqpq3bfj" path="res://Assets/Art/player/playercat.png" id="39_n2ugt"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
 [ext_resource type="Texture2D" uid="uid://btrqshuu2m7v1" path="res://Assets/Art/Placeholders/BG test/water0.png" id="41_n2ugt"]
@@ -450,9 +450,8 @@ autoplay = "default"
 speed_scale = 0.5
 
 [node name="Cat" type="Sprite2D" parent="Environment"]
-position = Vector2(-169.00002, -148)
-scale = Vector2(0.41015637, 0.41015637)
-texture = ExtResource("8_3cx6b")
+position = Vector2(-169, -163)
+texture = ExtResource("39_n2ugt")
 
 [node name="Water" type="Sprite2D" parent="."]
 visible = false
