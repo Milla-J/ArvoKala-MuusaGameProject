@@ -13,8 +13,8 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_d8o4a")
-ValueName = "Läheisyys"
-ValueDescription = "Olen läheinen psyykkisesti ja fyysisesti, paljastan sisintäni läheisessä ihmissuhteessa"
+ValueName = "LAHEISYYS_00"
+ValueDescription = "LAHEISYYS_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

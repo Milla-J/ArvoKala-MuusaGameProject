@@ -13,8 +13,8 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_rdy3p")
-ValueName = "Kunnon ylläpito"
-ValueDescription = "Pidän yllä ja vaalin hyvää fyysistä ja psyykkistä kuntoa"
+ValueName = "KUNNONYLLAPITO_00"
+ValueDescription = "KUNNONYLLAPITO_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

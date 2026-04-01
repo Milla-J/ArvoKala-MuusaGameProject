@@ -13,8 +13,8 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_wpy1s")
-ValueName = "Kunnioitus"
-ValueDescription = "Kohtelen itseäni ja muita kunnioittavasti, olen kohtelias ja osoitan arvostavaa huomiota"
+ValueName = "KUNNIOITUS_00"
+ValueDescription = "KUNNIOITUS_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

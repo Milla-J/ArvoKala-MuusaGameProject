@@ -11,3 +11,63 @@ PAUSED;Game paused;Peli pysäytetty
 QUITTOMENU;Quit to main menu;Poistu päävalikkoon
 PRESSTOSTART;Press anywere to start game;Paina näyttöä aloittaaksesi pelin
 PRESSTOCONTINUE;Press anywhere to continue;Paina näyttöä jatkaaksesi
+AHKERUUS_00;Ahkeruus eng name;Ahkeruus
+AHKERUUS_01;Ahkeruus eng text;Olen työteliäs, ahkera, uutterasti työskentelevä ja sitoutunut
+AIOTUS_00;Aiotus eng name;Aiotus
+AIOTUS_01;Aioutus eng text;Olen oma itseni esittämättä mitään, olen rehellinen itselleni
+ANTEEKSIANTAVUUS_00;Anteeksiantavuus eng name;Anteeksiantavuus
+ANTEEKSIANTAVUUS_01;Anteeksiantavuus eng text;Annan anteeksi niin itselleni kuin muille
+HAUSKANPITOJAHUUMORI_00;Hauskanpito ja huumori eng name;Hauskanpito ja huumori
+HAUSKANPITOJAHUUMORI_01;Hauskanpito ja huumori eng text;Hauskuuttelen ja keskityn sellaiseen tekemiseen, mikä on hauskaa
+HYVAKSYNTA_00;Hyväksyntä eng name;Hyväksyntä
+HYVAKSYNTA_01;Hyväksyntä eng text;Olen avoin ja hyväksyvä itseäni, muita ja elämää kohtaan
+JAMAKKYYS_00;Jämäkkyys eng name;Jämäkkyys
+JAMAKKYYS_01;Jämäkkyys eng text;Kunnioitan ja puolustan omia oikeuksiani: kieltäydyn ja teen pyyntöjä
+JARJESTYS_00;Järjestys eng name;Järjestys
+JARJESTYS_01;Järjestys eng text;Pidän yllä järjestystä ja selkeyttä
+JOUSTAVUUS_00;Joustavuus eng name;Joustavuus
+JOUSTAVUUS_01;Joustavuus eng text;Toimin joustavasti muuttuvissa ja yllättävissäkin tilanteissa
+KUNNIOITUS_00;Kunnioitus eng name;Kunnioutus
+KUNNIOITUS_01;Kunnioitus eng text;Kohtelen itseäni ja muita kunnioittavasti, olen kohtelias ja osoitan arvostavaa huomiota
+KUNNONYLLAPITO_00;Kunnon ylläpito eng name;Kunnon ylläpito
+KUNNONYLLAPITO_01;Kunnon ylläpito eng text;Pidän yllä ja vaalin hyvää fyysistä ja psyykkistä kuntoa
+LAHEISYYS_00;Läheisyys eng name;Läheisyys
+LAHEISYYS_01;Läheisyys eng text;Olen läheinen psyykkisesti ja fyysisesti, paljastan sisintäni läheisessä ihmissuhteessa
+LASNAOLO_00;Läsnäolo eng name;Läsnäolo
+LASNAOLO_01;Läsnäolo eng text;Olen tietoinen, huomaan omat tässä ja nyt -kokemukseni avoimesti ja läsnäolevasti
+LUOTTAMUS_00;Luottamus eng name;Luottamus
+LUOTTAMUS_01;Luottamus eng text;Olen luotettava, lojaali, uskollinen, rehellinen ja uskottava
+LUOVUUS_00;Luovuus eng name;Luovuus
+LUOVUUS_01;Luovuus eng text;Vaalin luovuutta tai kekseliäisyyttä eri tilanteissa
+MYOTATUNTO_00;Myötätunto eng name;Myötätunto
+MYOTATUNTO_01;Myötätunto eng text;Toimin myötätuntoisesti sellaisia kohtaan, jotka kärsivät, myös itseäni kohtaan
+OIKEUDENMUKAISUUS_00;Oikeudenmukaisuus eng name;Oikeudenmukaisuus
+OIKEUDENMUKAISUUS_01;Oikeudenmukaisuus eng text;Kohtelen itseäni ja muita reilusti ja oikeudenmukaisesti
+RAKKAUS_00;Rakkaus eng name;Rakkaus
+RAKKAUS_01;Rakkaus eng text;Kohtelen itseäni ja muita rakastavasti ja lempeästi
+REHELLISYYS_00;Reellisyys eng name;Rehellisyys
+REHELLISYYS_01;Rehellisyys eng text;Olen rehellinen ja luotettava niin itseäni kuin muita kohtaan
+ROHKAISEVUUS_00;Rohkaisevuus eng name;Rohkaisevuus
+ROHKAISEVUUS_01;Rohkaisevuus eng text;Rohkaisen ja kannustan arvojen mukaisiin tekoihin niin itseäni kuin muita ihmisiä
+ROHKEUS_00;Rohkeus eng name;Rohkeus
+ROHKEUS_01;Rohkeus eng text;Olen rohkea ja urhea, pysyn oikeassa suunnassa peloista ja vaikeuksista huolimatta
+SEIKKAILUNHALU_00;Seikkailunhalu eng name;Seikkailunhalu
+SEIKKAILUNHALU_01;Seikkailunhalu eng text;Etsin aktiivisesti uusia elämyksiä ja jännittäviä kokemuksia
+SEKSUAALISUUS_00;Seksuaalisuus eng name;Seksuaalisuus
+SEKSUAALISUUS_01;SEksuaalisuus eng text;Ilmaisen ja vaalin omaa seksuaalisuuttani
+SINNIKKYYS_00;Sinnikkyys eng name;Sinnikkyys
+SINNIKKYYS_01;Sinnikkyys eng text;Jatkan sitkeästi, vaikka kohtaisin vastoinkäymisiä
+TAIDOKKUUS_00;Taidokkuus eng name;Taidokkuus
+TAIDOKKUUS_01;Taidokkuus eng text;Pyrin kehittämään ja ylläpitämään taitojani ja käyttämään niitä
+TUKEMINEN_00;Tukeminen eng name;Tukeminen
+TUKEMINEN_01;Tukeminen eng text;Olen tukea-antava, avulias, rohkaiseva ja autan itseäni ja muita
+TURVALLISUUS_00;Turvallisuus eng name;Turvallisuus
+TURVALLISUUS_01;Turvallisuus eng text;Varmistan, suojelen ja turvaan omaa ja muiden turvallisuutta
+UTELIAISUUS_00;Uteliaisuus eng name;Uteliaisuus
+UTELIAISUUS_01;Uteliaisuus eng text;Olen utelias, avoin uudelle ja kiinnostunut uusista asioista
+VAPAUSJARIIPPUMATTOMUUS_00;Vapaus ja riippumattomuus eng name;Vapaus ja riippumattomuus
+VAPAUSJARIIPPUMATTOMUUS_01;Vapaus ja riippumattomuus eng text;Elän vapaasti ja valitsen itse, mitä teen, ja kannustan muitakin tekemään niin
+VASTUULLISUUS_00;Vastuullisuus eng name;Vastuullisuus
+VASTUULLISUUS_01;Vastuullisuus eng text;Kannan vastuun omista tekemisistäni
+YSTAVALLISYYS_00;Ystävällisyys eng name;Ystävällisyys
+YSTAVALLISYYS_01;Ystävällisyys eng text;Olen ystävällinen, inhimillinen, huomaavainen ja välittävä itseäni ja muita kohtaan

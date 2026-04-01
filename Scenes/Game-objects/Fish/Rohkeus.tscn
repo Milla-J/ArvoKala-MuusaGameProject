@@ -13,8 +13,8 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_ov8u3")
-ValueName = "Rohkeus"
-ValueDescription = "Olen rohkea ja urhea, pysyn oikeassa suunnassa peloista ja vaikeuksista huolimatta"
+ValueName = "ROHKEUS_00"
+ValueDescription = "ROHKEUS_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

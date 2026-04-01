@@ -13,8 +13,8 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.5
 script = ExtResource("1_cf3s3")
-ValueName = "Taidokkuus"
-ValueDescription = "Pyrin kehittämään ja ylläpitämään taitojani ja käyttämään niitä"
+ValueName = "TAIDOKKUUS_00"
+ValueDescription = "TAIDOKKUUS_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
