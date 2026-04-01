@@ -33,7 +33,7 @@ offset_bottom = -104.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 64
-text = "TEKIJÄT"
+text = "CREDITS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -61,13 +61,7 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "Programming: 
-Milla Jerohin, Kalle Karhu, Janika Viitanen
-Art: 
-Laura Soppi, Tiia Korkalainen
-Music & Audio: 
-Kalle Karhu
-"
+text = "CREDITS_00"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -77,7 +71,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_mgje6")
-text = "PALAA
-"
+text = "BACK"
 
 [connection signal="pressed" from="CenterContainer/CreditsMenu/Back" to="." method="OnBackPressed"]

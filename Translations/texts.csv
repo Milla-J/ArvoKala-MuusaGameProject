@@ -3,6 +3,7 @@ PLAY;play;pelaa
 SETTINGS;settings;asetukset
 MUSIC;music;musiikki
 SOUNDEFFECTS;sound effects; ääniefektit
-CREDITS;credits;tekijät
 QUIT;quit;poistu
 BACK;back;palaa
+CREDITS;credits;tekijät
+CREDITS_00;Programmers:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nArt:\nLaura Soppi, Tiia Korkalainen\n\nMusic & audio:\nKalle Karhu\n;Ohjelmoijat:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nGrafiikka:\nLaura Soppi, Tiia Korkalainen\n\nMusiikki & audio:\nKalle Karhu\n
