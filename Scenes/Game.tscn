@@ -826,6 +826,8 @@ autoplay = "MinigameTutorial"
 
 [node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("_pauseButton") instance=ExtResource("10_71axn")]
 visible = false
+_onTexture = null
+_offTexture = null
 _pauseButton = NodePath("../Pause")
 
 [node name="Pause" type="Button" parent="CanvasLayer2"]

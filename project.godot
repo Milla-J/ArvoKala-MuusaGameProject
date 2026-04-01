@@ -39,7 +39,8 @@ folder_colors={
 "res://Audio/": "purple",
 "res://Design/": "teal",
 "res://Scenes/": "blue",
-"res://Scripts/": "red"
+"res://Scripts/": "red",
+"res://Translations/": "gray"
 }
 
 [gui]
@@ -58,6 +59,10 @@ CastLine={
 
 sensors/enable_accelerometer=true
 pointing/emulate_touch_from_mouse=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translations/texts.en.translation", "res://Translations/texts.fi.translation")
 
 [rendering]
 

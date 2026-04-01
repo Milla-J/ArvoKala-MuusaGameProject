@@ -54,14 +54,14 @@ theme_override_constants/separation = 20
 layout_mode = 2
 theme_override_constants/separation = 42
 
-[node name="Button" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+[node name="FiButton" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_gus5t")
 text = "SUOMI"
 
-[node name="Button2" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
+[node name="EnButton" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
@@ -77,7 +77,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "MUSIIKKI"
+text = "MUSIC"
 horizontal_alignment = 1
 
 [node name="MuteMusic" type="TextureButton" parent="CenterContainer/SettingsMenu/MusicOnOff"]
@@ -93,7 +93,7 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "ÄÄNITEHOSTEET"
+text = "SOUNDEFFECTS"
 horizontal_alignment = 1
 
 [node name="MuteSFX" type="TextureButton" parent="CenterContainer/SettingsMenu/SFXOnOff"]
@@ -107,8 +107,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_lqryc")
-text = "PALAA
-"
+text = "BACK"
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -124,10 +123,12 @@ offset_bottom = -111.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 64
-text = "ASETUKSET"
+text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="CenterContainer/SettingsMenu/VBoxContainer/FiButton" to="." method="OnFiPressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/VBoxContainer/EnButton" to="." method="OnEnPressed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/MusicOnOff/MuteMusic" to="." method="OnMuteMusicPressed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/SFXOnOff/MuteSFX" to="." method="OnMuteSFXPressed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/Back" to="." method="OnBackPressed"]

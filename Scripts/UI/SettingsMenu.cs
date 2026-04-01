@@ -66,6 +66,16 @@ public partial class SettingsMenu : Control
 		}
 	}
 
+    private void OnFiPressed()
+    {
+        TranslationServer.SetLocale("fi");
+    }
+
+    private void OnEnPressed()
+    {
+        TranslationServer.SetLocale("en");
+    }
+
 
     //When button pressed: calls the main menu scene
 	private async void OnBackPressed()
