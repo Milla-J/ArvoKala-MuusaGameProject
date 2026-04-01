@@ -77,6 +77,15 @@ public partial class PauseMenu : Control
 		}
 	}
 
+    private void OnFiPressed()
+    {
+        TranslationServer.SetLocale("fi");
+    }
+
+    private void OnEnPressed()
+    {
+        TranslationServer.SetLocale("en");
+    }
 
 	private async void OnQuitPressed()
 	{
@@ -85,13 +94,13 @@ public partial class PauseMenu : Control
 		GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(false);
 
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
-    	await transition.FadeToBlack();	
+    	await transition.FadeToBlack();
 
 		GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
 
 		GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
 
 		await transition.FadeToNormal();
-		
+
 	}
 }

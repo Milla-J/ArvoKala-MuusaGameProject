@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cndxerx4vvy4a"]
+[gd_scene load_steps=14 format=3 uid="uid://cndxerx4vvy4a"]
 
 [ext_resource type="Script" uid="uid://b3pj3n5gvxmmw" path="res://Scripts/UI/PauseMenu.cs" id="1_rrvs5"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="2_8rf44"]
@@ -25,6 +25,22 @@ region_rect = Rect2(293, 147, 82, 82)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23me3"]
 texture = ExtResource("5_qyryt")
+region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yq7um"]
+texture = ExtResource("5_qyryt")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqqw2"]
+texture = ExtResource("5_qyryt")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 region_rect = Rect2(476, 235, 212, 74)
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
@@ -163,7 +179,39 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "PAUSED"
 
+[node name="FiButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.0
+offset_top = 90.0
+offset_right = -33.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_yq7um")
+text = "SUOMI"
+
+[node name="EnButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 25.0
+offset_top = 90.0
+offset_right = 225.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_nqqw2")
+text = "ENGLISH"
+
 [connection signal="pressed" from="CenterContainer/SettingsMenu/MusicOnOff/MuteMusic" to="." method="OnMuteMusicPressed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/SFXOnOff/MuteSFX" to="." method="OnMuteSFXPressed"]
 [connection signal="pressed" from="Container/Resume" to="." method="OnResumePressed"]
 [connection signal="pressed" from="CenterContainer2/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="FiButton" to="." method="OnFiPressed"]
+[connection signal="pressed" from="EnButton" to="." method="OnEnPressed"]
