@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://6lhw8uwis3tm"]
+[gd_scene load_steps=7 format=3 uid="uid://6lhw8uwis3tm"]
 
 [ext_resource type="Script" uid="uid://42s8dopbhcms" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_i2xx2"]
@@ -6,6 +6,22 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7lva"]
 texture = ExtResource("2_i2xx2")
+region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o14dv"]
+texture = ExtResource("2_i2xx2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mrfpk"]
+texture = ExtResource("2_i2xx2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 region_rect = Rect2(476, 235, 212, 74)
 
 [node name="MainMenu" type="Control"]
@@ -87,7 +103,31 @@ theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxTexture_u7lva")
 text = "QUIT"
 
+[node name="FiButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_left = -267.0
+offset_top = -84.5
+offset_right = -117.0
+offset_bottom = -49.5
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_o14dv")
+text = "SUOMI"
+
+[node name="EnButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+offset_left = 119.0
+offset_top = -84.5
+offset_right = 269.0
+offset_bottom = -49.5
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_mrfpk")
+text = "ENGLISH"
+
 [connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="OnPlayPressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="OnSettingsPressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Credits" to="." method="OnCreditsPressed"]
 [connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="OnQuitPressed"]
+[connection signal="pressed" from="FiButton" to="." method="OnFiPressed"]
+[connection signal="pressed" from="EnButton" to="." method="OnEnPressed"]

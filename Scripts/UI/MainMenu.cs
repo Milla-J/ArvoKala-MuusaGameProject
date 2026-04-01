@@ -7,6 +7,7 @@ public partial class MainMenu : Control
 	{
     	GetNode<AudioManager>("/root/AudioManager").PlayMenuMusic();
 	}
+
 	//When button pressed: calls the game scene
 	private async void OnPlayPressed()
 	{
@@ -15,7 +16,7 @@ public partial class MainMenu : Control
 		GetNode<AudioManager>("/root/AudioManager").PlayStartGame();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlackLong2();
-		
+
 		GetTree().ChangeSceneToFile("res://Scenes/Game.tscn");
 
 		await transition.FadeToNormalLong();
@@ -32,6 +33,7 @@ public partial class MainMenu : Control
 
 		await transition.FadeToNormal();
 	}
+
     //When button pressed: calls the credits menu scene
 	private async void OnCreditsPressed()
 	{
@@ -39,8 +41,8 @@ public partial class MainMenu : Control
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 
-		GetTree().ChangeSceneToFile("res://Scenes/UI/credits_menu.tscn");	
-		
+		GetTree().ChangeSceneToFile("res://Scenes/UI/credits_menu.tscn");
+
 		await transition.FadeToNormal();
 	}
 
@@ -54,7 +56,13 @@ public partial class MainMenu : Control
 		GetTree().Quit();
 	}
 
-	
+	private void OnFiPressed()
+    {
+        TranslationServer.SetLocale("fi");
+    }
 
-	
+    private void OnEnPressed()
+    {
+        TranslationServer.SetLocale("en");
+    }
 }
