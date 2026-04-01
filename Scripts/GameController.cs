@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public partial class GameController : Node
 {
@@ -50,6 +51,10 @@ public partial class GameController : Node
         SpawnFish(_startingFishAmount);
         //Calls the audio manager when scene loads
         GetNode<AudioManager>("/root/AudioManager").PlayGameMusic();
+
+        //Set caught fish text to the correct localized one
+        string localizedFishCounterText = Tr("CAUGHTFISH");
+        _UIFishCounter.Text = string.Format(localizedFishCounterText, _caughtFishCount);
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -138,7 +143,8 @@ public partial class GameController : Node
             SpawnFish(1);
         }
         _caughtFishCount++;
-        _UIFishCounter.Text = "Caught fish: " + _caughtFishCount;
+        string localizedFishCounterText = Tr("CAUGHTFISH");
+        _UIFishCounter.Text = string.Format(localizedFishCounterText, _caughtFishCount);
 
         _animPlayer.Play("RESET");
         _gameGoing = false;

@@ -11,6 +11,10 @@ PAUSED;Game paused;Peli pysäytetty
 QUITTOMENU;Quit to main menu;Poistu päävalikkoon
 PRESSTOSTART;Press anywere to start game;Paina näyttöä aloittaaksesi pelin
 PRESSTOCONTINUE;Press anywhere to continue;Paina näyttöä jatkaaksesi
+CAUGHTFISH;Caught fish: {0};Pyydystetyt kalat: {0}
+VERYIMPORTANT;Strongly agree;Vahvasti samaa mieltä
+SOMEWHATIMPORTANT;Somewhat agree;Jonkin verran samaa mieltä
+NOTIMPORTANT;Disagree;Eri mieltä
 AHKERUUS_00;Ahkeruus eng name;Ahkeruus
 AHKERUUS_01;Ahkeruus eng text;Olen työteliäs, ahkera, uutterasti työskentelevä ja sitoutunut
 AIOTUS_00;Aiotus eng name;Aiotus
