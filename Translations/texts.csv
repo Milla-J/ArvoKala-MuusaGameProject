@@ -7,3 +7,7 @@ QUIT;quit;poistu
 BACK;back;palaa
 CREDITS;credits;tekijät
 CREDITS_00;Programmers:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nArt:\nLaura Soppi, Tiia Korkalainen\n\nMusic & audio:\nKalle Karhu\n;Ohjelmoijat:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nGrafiikka:\nLaura Soppi, Tiia Korkalainen\n\nMusiikki & audio:\nKalle Karhu\n
+PAUSED;Game paused;Peli pysäytetty
+QUITTOMENU;Quit to main menu;Poistu päävalikkoon
+PRESSTOSTART;Press anywere to start game;Paina näyttöä aloittaaksesi pelin
+PRESSTOCONTINUE;Press anywhere to continue;Paina näyttöä jatkaaksesi

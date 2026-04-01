@@ -87,7 +87,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "MUSIIKKI"
+text = "MUSIC"
 horizontal_alignment = 1
 
 [node name="MuteMusic" type="TextureButton" parent="CenterContainer/SettingsMenu/MusicOnOff"]
@@ -103,7 +103,7 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "ÄÄNITEHOSTEET"
+text = "SOUNDEFFECTS"
 horizontal_alignment = 1
 
 [node name="MuteSFX" type="TextureButton" parent="CenterContainer/SettingsMenu/SFXOnOff"]
@@ -144,8 +144,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_23me3")
-text = "POISTU PÄÄVALIKKOON
-"
+text = "QUITTOMENU"
 autowrap_mode = 2
 
 [node name="CenterContainer3" type="CenterContainer" parent="."]
@@ -162,7 +161,7 @@ grow_horizontal = 2
 [node name="Label" type="Label" parent="CenterContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "PELI PYSÄYTETTY"
+text = "PAUSED"
 
 [connection signal="pressed" from="CenterContainer/SettingsMenu/MusicOnOff/MuteMusic" to="." method="OnMuteMusicPressed"]
 [connection signal="pressed" from="CenterContainer/SettingsMenu/SFXOnOff/MuteSFX" to="." method="OnMuteSFXPressed"]
