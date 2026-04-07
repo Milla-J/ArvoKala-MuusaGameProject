@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=84 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -49,6 +49,7 @@
 [ext_resource type="Script" uid="uid://c0l5qy02acsbh" path="res://Scripts/UI/InputAreaRect.cs" id="38_mi7vx"]
 [ext_resource type="Texture2D" uid="uid://dvffarqpq3bfj" path="res://Assets/Art/player/playercat.png" id="39_n2ugt"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
+[ext_resource type="PackedScene" uid="uid://bmnf3a7lqb08g" path="res://Scenes/Game-objects/kelp.tscn" id="40_n24vg"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
 [ext_resource type="Texture2D" uid="uid://btrqshuu2m7v1" path="res://Assets/Art/Placeholders/BG test/water0.png" id="41_n2ugt"]
 [ext_resource type="Texture2D" uid="uid://c5v4yuikrsis1" path="res://Assets/Art/Placeholders/BG test/water1.png" id="42_n24vg"]
@@ -452,6 +453,30 @@ speed_scale = 0.5
 [node name="Cat" type="Sprite2D" parent="Environment"]
 position = Vector2(-169, -163)
 texture = ExtResource("39_n2ugt")
+
+[node name="Kelp" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(-259, 75)
+
+[node name="Kelp2" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(-355, 107)
+
+[node name="Kelp3" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(339, 118)
+
+[node name="Kelp4" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(377, 191)
+
+[node name="Kelp5" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(-308, 206)
+
+[node name="Kelp6" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(527, 68)
+
+[node name="Kelp7" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(97, 252)
+
+[node name="Kelp8" parent="Environment" instance=ExtResource("40_n24vg")]
+position = Vector2(-499, 68)
 
 [node name="Water" type="Sprite2D" parent="."]
 visible = false

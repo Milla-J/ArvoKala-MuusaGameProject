@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmnf3a7lqb08g"]
+
+[ext_resource type="Texture2D" uid="uid://dt2d2ltd2tyht" path="res://Assets/Art/kelp/top/00.png" id="1_el88h"]
+[ext_resource type="Texture2D" uid="uid://dubu2x2komkrf" path="res://Assets/Art/kelp/middle/00.png" id="1_y2jnb"]
+[ext_resource type="Texture2D" uid="uid://niqdw3nidox1" path="res://Assets/Art/kelp/middle/01.png" id="2_8aotf"]
+[ext_resource type="Texture2D" uid="uid://by2vo8la0naw" path="res://Assets/Art/kelp/top/01.png" id="2_822hv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2beym"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_el88h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_822hv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_el88h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y2jnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8aotf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[node name="Kelp" type="Node2D"]
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_2beym")
+autoplay = "default"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 64)
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 96)
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 128)
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 160)
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 192)
+sprite_frames = SubResource("SpriteFrames_el88h")
+autoplay = "default"
