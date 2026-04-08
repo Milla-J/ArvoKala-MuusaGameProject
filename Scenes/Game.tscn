@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
 [ext_resource type="PackedScene" uid="uid://dk1ctjt2gpxpn" path="res://Scenes/Game-objects/Fish/Ahkeruus.tscn" id="2_18uti"]
-[ext_resource type="Texture2D" uid="uid://7vm2o8r7cold" path="res://Assets/Art/Placeholders/Primitive-shapes/Circle.png" id="2_gl6un"]
 [ext_resource type="PackedScene" uid="uid://5y0s4pdogdoq" path="res://Scenes/Game-objects/Fish/Hyvaksynta.tscn" id="3_3cx6b"]
 [ext_resource type="PackedScene" uid="uid://c7ilfv7c7ab7s" path="res://Scenes/Game-objects/Fish/Anteeksiantavuus.tscn" id="4_khy6b"]
 [ext_resource type="Texture2D" uid="uid://cdegkouy7rsu5" path="res://Assets/Art/Placeholders/Primitive-shapes/Square.png" id="4_kldst"]
@@ -59,6 +58,7 @@
 [ext_resource type="Script" uid="uid://cmqme7lixdwxs" path="res://Scripts/UI/PromptPlayerInput.cs" id="45_t2joc"]
 [ext_resource type="Texture2D" uid="uid://bwla8qchnuegb" path="res://Assets/Art/Placeholders/BG test/water5.png" id="46_nojon"]
 [ext_resource type="Texture2D" uid="uid://benbmnyw2qp0h" path="res://Assets/Art/Minigame frame.png" id="52_ym08v"]
+[ext_resource type="Texture2D" uid="uid://dxw2oir6vx24y" path="res://Assets/Art/ValueCloud.png" id="55_ym08v"]
 [ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="58_n2ugt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkuj1"]
@@ -721,21 +721,19 @@ libraries = {
 }
 
 [node name="Cloud" type="TextureRect" parent="CanvasLayer2" node_paths=PackedStringArray("_valueDiscription")]
-visible = false
-self_modulate = Color(1, 1, 1, 0.5372549)
 z_index = -5
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -150.0
-offset_right = 200.0
-offset_bottom = 100.0
+offset_left = -60.0
+offset_top = -242.0
+offset_right = 490.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_gl6un")
+texture = ExtResource("55_ym08v")
 script = ExtResource("10_dahhg")
 _valueDiscription = NodePath("Label")
 
@@ -747,9 +745,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -128.0
-offset_top = -121.0
+offset_top = -97.0
 offset_right = 128.0
-offset_bottom = 135.0
+offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -761,9 +759,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -197.0
-offset_top = 82.5
+offset_top = 161.5
 offset_right = -77.0
-offset_bottom = 113.5
+offset_bottom = 192.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "VERYIMPORTANT"
@@ -777,9 +775,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -74.0
-offset_top = 82.5
+offset_top = 161.5
 offset_right = 75.0
-offset_bottom = 113.5
+offset_bottom = 192.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "SOMEWHATIMPORTANT"
@@ -793,9 +791,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 78.0
-offset_top = 82.5
+offset_top = 161.5
 offset_right = 190.0
-offset_bottom = 113.5
+offset_bottom = 192.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "NOTIMPORTANT"
@@ -810,9 +808,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -86.5
+offset_top = -76.5
 offset_right = 150.0
-offset_bottom = -63.5
+offset_bottom = -59.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Something went wrong"
