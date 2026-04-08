@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=85 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://c10l6bxfajaqa" path="res://Assets/Art/Placeholders/BG test/water4.png" id="45_dwhu0"]
 [ext_resource type="Script" uid="uid://cmqme7lixdwxs" path="res://Scripts/UI/PromptPlayerInput.cs" id="45_t2joc"]
 [ext_resource type="Texture2D" uid="uid://bwla8qchnuegb" path="res://Assets/Art/Placeholders/BG test/water5.png" id="46_nojon"]
+[ext_resource type="Texture2D" uid="uid://benbmnyw2qp0h" path="res://Assets/Art/Minigame frame.png" id="52_ym08v"]
 [ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="58_n2ugt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkuj1"]
@@ -314,10 +315,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cx6b"]
-size = Vector2(33.879166, 133.33334)
+size = Vector2(33.879166, 206.66684)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dahhg"]
-size = Vector2(6, 20)
+size = Vector2(6, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3so38"]
 size = Vector2(2.258628, 220.00003)
@@ -512,7 +513,7 @@ libraries = {
 
 [node name="Minigame" type="Node2D" parent="." node_paths=PackedStringArray("_gameController", "_safeArea", "_indicator", "_tutorial")]
 visible = false
-position = Vector2(0, -167)
+position = Vector2(0, -150)
 script = ExtResource("5_b2bpf")
 _gameController = NodePath("..")
 _safeArea = NodePath("SafeArea")
@@ -527,8 +528,8 @@ _safeAreaMovementSpeed = 70.0
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
 z_index = 2
-position = Vector2(0.03201294, -2.861023e-06)
-scale = Vector2(5.313, 0.15624996)
+position = Vector2(-2.3841858e-07, 0.49999285)
+scale = Vector2(5.367188, 0.24218766)
 texture = ExtResource("4_kldst")
 
 [node name="SafeArea" type="Area2D" parent="Minigame"]
@@ -540,12 +541,12 @@ collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Minigame/SafeArea"]
 self_modulate = Color(0.49433446, 0.8282563, 0.548639, 1)
-position = Vector2(-0.006025672, -1.0609627e-05)
-scale = Vector2(0.25879917, 1.0416669)
+position = Vector2(-0.006025672, 3.3333435)
+scale = Vector2(0.25879917, 1.614584)
 texture = ExtResource("4_kldst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame/SafeArea"]
-position = Vector2(-0.0060253986, 0)
+position = Vector2(-0.0060253986, 3.33313)
 shape = SubResource("RectangleShape2D_3cx6b")
 
 [node name="Indicator" type="RigidBody2D" parent="Minigame" groups=["MinigameIndicator"]]
@@ -559,8 +560,8 @@ script = ExtResource("10_3so38")
 
 [node name="Sprite2D" type="Sprite2D" parent="Minigame/Indicator"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(1.7881393e-07, 2.026558e-06)
-scale = Vector2(0.046875, 0.15625001)
+position = Vector2(1.7881393e-07, 0.49999928)
+scale = Vector2(0.046875, 0.24218747)
 texture = ExtResource("4_kldst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame/Indicator"]
@@ -583,6 +584,31 @@ shape = SubResource("RectangleShape2D_3so38")
 position = Vector2(65.12329, 0)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_3so38")
+
+[node name="Frame" type="Control" parent="Minigame"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -375.0
+offset_top = -25.0
+offset_right = 375.0
+offset_bottom = 25.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Minigame/Frame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -37.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("52_ym08v")
+region_rect = Rect2(0, 0, 256, 128)
+patch_margin_left = 81
+patch_margin_top = 73
+patch_margin_right = 124
+patch_margin_bottom = 52
 
 [node name="World boundaries" type="StaticBody2D" parent="."]
 collision_layer = 3
