@@ -75,3 +75,10 @@ VASTUULLISUUS_00;Vastuullisuus eng name;Vastuullisuus
 VASTUULLISUUS_01;Vastuullisuus eng text;Kannan vastuun omista tekemisistäni
 YSTAVALLISYYS_00;Ystävällisyys eng name;Ystävällisyys
 YSTAVALLISYYS_01;Ystävällisyys eng text;Olen ystävällinen, inhimillinen, huomaavainen ja välittävä itseäni ja muita kohtaan
+TUTORIAL_00;Tutorial time!;Tutoriaalin aika!
+TUTORIAL_01;This is you. You are a very very hungry cat.\nYou must now fish to satiate your hunger, and perhaps do some self-reflection while you're at it;Olet erittäin nälkäinen kissa.\nSinun täytyy kalastaa täyttääksesi vatsasi, ja mahdollisesti itsereflektioida siinä samalla
+TUTORIAL_02;Click on the screen to cast your line and wait for a fish to bite. Be patent, fish can be a bit slow sometimes;Aloita onkiminen painamalla näyttöä ja odota että kala nappaa. Ole kärsivällinen, kaloilla kestää joskus hetken
+TUTORIAL_03;When a fish bites, you'll enter a minigame;Kun kala nappaa, siirryt minipeliin
+TUTORIAL_04;You control this\n\nTilt your phone side to side and stay within the green area to win;Sinä kontrolloit tätä\n\nKääntele puhelina edes takas ja pysy vihreällä alueella voittaksesi
+NEXT;Next;Seuraava
+GOTIT;Got it;Asia selvä
