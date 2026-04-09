@@ -127,6 +127,7 @@ public partial class GameController : Node
         _minigame.StartMinigame();
 
         GetNode<AudioManager>("/root/AudioManager").PlayReelingAndSplashing();
+        Input.VibrateHandheld(500);
 	}
 
     public void WinMinigame()

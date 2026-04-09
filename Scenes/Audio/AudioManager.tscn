@@ -71,7 +71,7 @@ bus = &"SFX"
 
 [node name="WinMiniGame" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("9_v1hhk")
-volume_db = -1.908
+volume_db = -3.817
 bus = &"SFX"
 
 [node name="LoseMiniGame" type="AudioStreamPlayer" parent="SFX"]
@@ -82,3 +82,4 @@ bus = &"SFX"
 [node name="CloudPop" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_hs5kb")
 volume_db = -5.725
+bus = &"SFX"
