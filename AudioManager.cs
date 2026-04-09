@@ -8,6 +8,9 @@ public partial class AudioManager : Node
 	[Export] private AudioStreamPlayer _castLine;
 	[Export] private AudioStreamPlayer _reelingAndSplashing;
 	[Export] private AudioStreamPlayer _startGame;
+	[Export] private AudioStreamPlayer _winMiniGame;
+	[Export] private AudioStreamPlayer _loseMiniGame;
+
 
 	private int _musicBus;
 	private int _sfxBus;
@@ -82,6 +85,17 @@ public partial class AudioManager : Node
 	{
 		_startGame.Play();
 	}
+
+	public void WinMiniGame()
+	{
+		_winMiniGame.Play();
+	}
+
+	public void LoseMiniGame()
+	{
+		_loseMiniGame.Play();
+	}
+
 
 	public void SetPausedAudio(bool paused)
 	{

@@ -150,6 +150,7 @@ public partial class GameController : Node
         _gameGoing = false;
 
         GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
+        GetNode<AudioManager>("/root/AudioManager").WinMiniGame();
     }
 
     public void LoseMinigame()
@@ -165,6 +166,7 @@ public partial class GameController : Node
         _gameGoing = false;
 
         GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
+        GetNode<AudioManager>("/root/AudioManager").LoseMiniGame();
     }
 
     public void SpawnFish(int fishAmount)
