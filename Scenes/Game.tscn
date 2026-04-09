@@ -473,7 +473,7 @@ autoplay = "default"
 speed_scale = 0.5
 
 [node name="Bucket" type="Sprite2D" parent="Environment"]
-position = Vector2(-266, -150)
+position = Vector2(-266, -147)
 texture = ExtResource("39_dwhu0")
 
 [node name="Cat" type="Sprite2D" parent="Environment"]
