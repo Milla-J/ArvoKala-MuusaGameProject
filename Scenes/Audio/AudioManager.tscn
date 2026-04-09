@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=13 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://djk5oftc8t4mr" path="res://Audio/main menu music v7.wav" id="2_b5goh"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://d6u7s1eini6y" path="res://Audio/StartGame.wav" id="8_b5goh"]
 [ext_resource type="AudioStream" uid="uid://ch1ucsgdpyuq7" path="res://Audio/WinMiniGame.wav" id="9_v1hhk"]
 [ext_resource type="AudioStream" uid="uid://du44yvwqpopiu" path="res://Audio/LoseMiniGame.wav" id="10_hs5kb"]
+[ext_resource type="AudioStream" uid="uid://whhobygnwr6c" path="res://Audio/CloudPop.wav" id="11_hs5kb"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_paayw"]
 stream_count = 2
@@ -18,7 +19,7 @@ stream_0/volume = 0.0
 stream_1/stream = ExtResource("4_kcgc6")
 stream_1/volume = -31.19
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame", "_cloudPop")]
 process_mode = 3
 script = ExtResource("1_whaik")
 _menuMusic = NodePath("Music/MenuMusic")
@@ -28,6 +29,7 @@ _reelingAndSplashing = NodePath("SFX/ReelingAndSplashing")
 _startGame = NodePath("SFX/StartGame")
 _winMiniGame = NodePath("SFX/WinMiniGame")
 _loseMiniGame = NodePath("SFX/LoseMiniGame")
+_cloudPop = NodePath("SFX/CloudPop")
 
 [node name="Music" type="Node" parent="."]
 
@@ -70,7 +72,13 @@ bus = &"SFX"
 [node name="WinMiniGame" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("9_v1hhk")
 volume_db = -1.908
+bus = &"SFX"
 
 [node name="LoseMiniGame" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("10_hs5kb")
 volume_db = -1.908
+bus = &"SFX"
+
+[node name="CloudPop" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("11_hs5kb")
+volume_db = -5.725

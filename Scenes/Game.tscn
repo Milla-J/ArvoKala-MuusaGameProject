@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://bkniaxmxe3cus" path="res://Assets/Art/ampari.png" id="39_dwhu0"]
 [ext_resource type="Texture2D" uid="uid://dvffarqpq3bfj" path="res://Assets/Art/player/playercat.png" id="39_n2ugt"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="40_7av8l"]
-[ext_resource type="PackedScene" path="res://Scenes/Game-objects/kelp.tscn" id="40_n24vg"]
+[ext_resource type="PackedScene" uid="uid://bmnf3a7lqb08g" path="res://Scenes/Game-objects/kelp.tscn" id="40_n24vg"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
 [ext_resource type="Texture2D" uid="uid://btrqshuu2m7v1" path="res://Assets/Art/Placeholders/BG test/water0.png" id="41_n2ugt"]
 [ext_resource type="Texture2D" uid="uid://c5v4yuikrsis1" path="res://Assets/Art/Placeholders/BG test/water1.png" id="42_n24vg"]

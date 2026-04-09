@@ -10,6 +10,7 @@ public partial class AudioManager : Node
 	[Export] private AudioStreamPlayer _startGame;
 	[Export] private AudioStreamPlayer _winMiniGame;
 	[Export] private AudioStreamPlayer _loseMiniGame;
+	[Export] private AudioStreamPlayer _cloudPop;
 
 
 	private int _musicBus;
@@ -94,6 +95,11 @@ public partial class AudioManager : Node
 	public void LoseMiniGame()
 	{
 		_loseMiniGame.Play();
+	}
+
+	public void CloudPop()
+	{
+		_cloudPop.Play();
 	}
 
 

@@ -12,6 +12,7 @@ public partial class ValueCloud : TextureRect
 
     public void HideCloud()
     {
+        GetNode<AudioManager>("/root/AudioManager").CloudPop();
         Visible = false;
     }
 }
