@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7gdt7f870u5r"]
 
 [ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_37m6e"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_dfb5g"]
+[ext_resource type="Texture2D" uid="uid://bfapp6rkhpo4a" path="res://Assets/Art/fish/seksuaalisuuskala.png" id="2_37m6e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-radius = 17.0
-height = 66.0
+radius = 18.0
+height = 76.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
@@ -18,7 +18,7 @@ ValueDescription = "SEKSUAALISUUS_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dfb5g")
+texture = ExtResource("2_37m6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7ilfv7c7ab7s"]
 
 [ext_resource type="Script" uid="uid://pf4iwycow3oy" path="res://Scripts/Fish/Fish.cs" id="1_uxsw3"]
-[ext_resource type="Texture2D" uid="uid://bykjcboqa7qa5" path="res://Assets/Art/Placeholders/Placeholder_Fish.png" id="2_jr4gw"]
+[ext_resource type="Texture2D" uid="uid://b0dq407x70u1v" path="res://Assets/Art/fish/anteeksiantavaisuuskala.png" id="2_uxsw3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6orkv"]
-radius = 17.0
-height = 66.0
+radius = 14.0
+height = 60.0
 
 [node name="Fish" type="RigidBody2D" node_paths=PackedStringArray("_sprite")]
 collision_mask = 2
@@ -18,7 +18,7 @@ ValueDescription = "ANTEEKSIANTAVUUS_01"
 _sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jr4gw")
+texture = ExtResource("2_uxsw3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
