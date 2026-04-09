@@ -7,7 +7,6 @@ public partial class Minigame : Node2D
     [Export] private GameController _gameController;
     [Export] private Area2D _safeArea;
     [Export] private MinigameIndicator _indicator;
-    [Export] private Control _tutorial;
 
 
     [ExportCategory("Minigame veriables")]
@@ -33,17 +32,6 @@ public partial class Minigame : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        if (_waitForPlayerInput)
-        {
-            if (Input.GetAccelerometer().X > _tiltThreshold ||
-                Input.GetAccelerometer().X < (0 -_tiltThreshold))
-            {
-                _waitForPlayerInput = false;
-                _tutorial.Visible = false;
-                _minigameGoing = true;
-            }
-        }
-
         if (!_minigameGoing)
         {
             return;
@@ -84,17 +72,8 @@ public partial class Minigame : Node2D
         Visible = true;
         _pointCounter = _winningPointAmount / 2f;
         GD.Print(_pointCounter);
-        if (_firstMinigame)
-        {
-            _tutorial.Visible = true;
-            _waitForPlayerInput = true;
-            _firstMinigame = false;
-        }
-        else
-        {
-            _minigameGoing = true;
-            GD.Print("Game started");
-        }
+        _minigameGoing = true;
+        GD.Print("Game started");
 	}
 
     private void OnSafeAreaEntered(Node2D body)
