@@ -118,10 +118,11 @@ public partial class GameController : Node
 
 	public void StartMinigame()
 	{
+        Node2D bobber = _hook.GetParent<Node2D>();
         _spawnedFish[_currentFishIndex].LinearVelocity = new Vector2();
         RemoveChild(_spawnedFish[_currentFishIndex]);
-        _hook.AddChild(_spawnedFish[_currentFishIndex]);
-        _spawnedFish[_currentFishIndex].SetPositioAndRotation(new Vector2(), 30f, true);
+        bobber.AddChild(_spawnedFish[_currentFishIndex]);
+        _spawnedFish[_currentFishIndex].SetPositioAndRotation(_hook.Position, 30f, true);
         _animPlayer.Play("Battle");
 
         _minigame.StartMinigame();
@@ -156,7 +157,8 @@ public partial class GameController : Node
 
     public void LoseMinigame()
     {
-        _hook.RemoveChild(_spawnedFish[_currentFishIndex]);
+        Node2D bobber = _hook.GetParent<Node2D>();
+        bobber.RemoveChild(_spawnedFish[_currentFishIndex]);
         AddChild(_spawnedFish[_currentFishIndex]);
         _spawnedFish[_currentFishIndex].SetPositioAndRotation(0);
 

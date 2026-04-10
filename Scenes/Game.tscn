@@ -145,7 +145,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -456,7 +456,8 @@ _UIFishCounter = NodePath("CanvasLayer2/CaughtFishText")
 _fishPool = [ExtResource("2_18uti"), ExtResource("2_3so38"), ExtResource("4_khy6b"), ExtResource("5_pti6k"), ExtResource("3_3cx6b"), ExtResource("4_wxwew"), ExtResource("8_lmarx"), ExtResource("9_7av8l"), ExtResource("10_dctr5"), ExtResource("11_mi7vx"), ExtResource("12_t2joc"), ExtResource("13_audqb"), ExtResource("14_7w24h"), ExtResource("15_6okg5"), ExtResource("16_e2w45"), ExtResource("17_oo65k"), ExtResource("18_smnwb"), ExtResource("19_lkuj1"), ExtResource("20_lklsk"), ExtResource("21_34hf4"), ExtResource("5_acvyw"), ExtResource("23_jamva"), ExtResource("24_m15vq"), ExtResource("25_a05uw"), ExtResource("26_n2ugt"), ExtResource("27_n24vg"), ExtResource("28_ym08v"), ExtResource("29_8ekww"), ExtResource("30_dwhu0"), ExtResource("31_nojon")]
 _pauseMenu = NodePath("CanvasLayer2/PauseMenu")
 _pauseButton = NodePath("CanvasLayer2/Pause")
-_startingFishAmount = 3
+_amountOfFishInGame = 15
+_startingFishAmount = 8
 _delayBetweenFish = 1.5
 _fishSpot = NodePath("CanvasLayer2/Cloud/FishSpot")
 
