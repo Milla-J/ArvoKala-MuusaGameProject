@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjf7t58cbvg6j"]
+[gd_scene load_steps=8 format=3 uid="uid://cjf7t58cbvg6j"]
 
 [ext_resource type="Script" uid="uid://nv8fy2b78b38" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_gus5t"]
 [ext_resource type="Texture2D" uid="uid://cr65wkg8emrwm" path="res://Assets/UI/ON-Button.png" id="2_vrd41"]
 [ext_resource type="Texture2D" uid="uid://bx28wfaybxo7" path="res://Assets/UI/OFF-Button.png" id="3_ynxh7"]
+[ext_resource type="PackedScene" uid="uid://ljb8hnfkixfd" path="res://Scenes/UI/BlurredBackground.tscn" id="4_ynxh7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gus5t"]
 texture = ExtResource("2_gus5t")
@@ -31,6 +32,9 @@ _muteMusic = NodePath("CenterContainer/SettingsMenu/MusicOnOff/MuteMusic")
 _muteSFX = NodePath("CenterContainer/SettingsMenu/SFXOnOff/MuteSFX")
 _onTexture = ExtResource("2_vrd41")
 _offTexture = ExtResource("3_ynxh7")
+
+[node name="BlurredBackground" parent="." instance=ExtResource("4_ynxh7")]
+layout_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

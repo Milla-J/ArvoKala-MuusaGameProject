@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://6lhw8uwis3tm"]
+[gd_scene load_steps=8 format=3 uid="uid://6lhw8uwis3tm"]
 
 [ext_resource type="Script" uid="uid://42s8dopbhcms" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_i2xx2"]
 [ext_resource type="FontFile" uid="uid://bjli0c5ipdxuf" path="res://Assets/UI/edit-undo.brk.ttf" id="2_o14dv"]
+[ext_resource type="PackedScene" uid="uid://ljb8hnfkixfd" path="res://Scenes/UI/BlurredBackground.tscn" id="2_u7lva"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7lva"]
 texture = ExtResource("2_i2xx2")
@@ -34,6 +35,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5wsvm")
+
+[node name="BlurredBackground" parent="." instance=ExtResource("2_u7lva")]
+layout_mode = 1
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
