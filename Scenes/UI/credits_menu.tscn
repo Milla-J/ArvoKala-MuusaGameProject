@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxfib502uuamt"]
+[gd_scene load_steps=8 format=3 uid="uid://cxfib502uuamt"]
 
 [ext_resource type="Script" uid="uid://246fielq7bcc" path="res://Scripts/UI/CreditsMenu.cs" id="1_j0wxj"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_kd2x0"]
 [ext_resource type="PackedScene" uid="uid://ljb8hnfkixfd" path="res://Scenes/UI/BlurredBackground.tscn" id="2_mgje6"]
+[ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="4_6xbts"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mgje6"]
 texture = ExtResource("2_kd2x0")
 region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ll0m3"]
+texture = ExtResource("4_6xbts")
+region_rect = Rect2(472, 343, 216, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1j7i"]
+texture = ExtResource("4_6xbts")
+region_rect = Rect2(472, 343, 216, 78)
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -75,6 +84,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_mgje6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ll0m3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_b1j7i")
 text = "BACK"
 
 [connection signal="pressed" from="CenterContainer/CreditsMenu/Back" to="." method="OnBackPressed"]

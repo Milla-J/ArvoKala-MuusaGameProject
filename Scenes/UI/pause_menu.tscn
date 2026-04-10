@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cndxerx4vvy4a"]
+[gd_scene load_steps=14 format=3 uid="uid://cndxerx4vvy4a"]
 
 [ext_resource type="Script" uid="uid://b3pj3n5gvxmmw" path="res://Scripts/UI/PauseMenu.cs" id="1_rrvs5"]
 [ext_resource type="Shader" uid="uid://wxnupkpm1ey5" path="res://Scenes/UI/Blur.gdshader" id="2_8rf44"]
@@ -26,6 +26,14 @@ region_rect = Rect2(293, 147, 82, 82)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23me3"]
 texture = ExtResource("5_qyryt")
 region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yq7um"]
+texture = ExtResource("5_702e2")
+region_rect = Rect2(472, 343, 216, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nqqw2"]
+texture = ExtResource("5_702e2")
+region_rect = Rect2(472, 343, 216, 78)
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
 process_mode = 2
@@ -144,6 +152,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxTexture_23me3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yq7um")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nqqw2")
 text = "QUITTOMENU"
 autowrap_mode = 2
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjf7t58cbvg6j"]
+[gd_scene load_steps=13 format=3 uid="uid://cjf7t58cbvg6j"]
 
 [ext_resource type="Script" uid="uid://nv8fy2b78b38" path="res://Scripts/UI/SettingsMenu.cs" id="1_kfh4b"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_gus5t"]
 [ext_resource type="Texture2D" uid="uid://cr65wkg8emrwm" path="res://Assets/UI/ON-Button.png" id="2_vrd41"]
 [ext_resource type="Texture2D" uid="uid://bx28wfaybxo7" path="res://Assets/UI/OFF-Button.png" id="3_ynxh7"]
 [ext_resource type="PackedScene" uid="uid://ljb8hnfkixfd" path="res://Scenes/UI/BlurredBackground.tscn" id="4_ynxh7"]
+[ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="6_n6o6n"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gus5t"]
 texture = ExtResource("2_gus5t")
@@ -14,9 +15,25 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 region_rect = Rect2(476, 235, 212, 74)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cs2gm"]
+texture = ExtResource("6_n6o6n")
+region_rect = Rect2(472, 343, 216, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oadur"]
+texture = ExtResource("6_n6o6n")
+region_rect = Rect2(472, 343, 216, 78)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqryc"]
 texture = ExtResource("2_gus5t")
 region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sv08j"]
+texture = ExtResource("6_n6o6n")
+region_rect = Rect2(472, 343, 216, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0jc6"]
+texture = ExtResource("6_n6o6n")
+region_rect = Rect2(472, 343, 216, 78)
 
 [node name="SettingsMenu" type="Control" node_paths=PackedStringArray("_muteMusic", "_muteSFX")]
 layout_mode = 3
@@ -63,6 +80,8 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_gus5t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cs2gm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oadur")
 text = "SUOMI"
 
 [node name="EnButton" type="Button" parent="CenterContainer/SettingsMenu/VBoxContainer"]
@@ -70,6 +89,8 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_gus5t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cs2gm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oadur")
 text = "ENGLISH"
 
 [node name="MusicOnOff" type="HBoxContainer" parent="CenterContainer/SettingsMenu"]
@@ -111,6 +132,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_lqryc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_sv08j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_w0jc6")
 text = "BACK"
 
 [node name="Title" type="Label" parent="."]
