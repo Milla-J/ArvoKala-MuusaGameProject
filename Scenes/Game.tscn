@@ -681,7 +681,6 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_3cx6b")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="InputArea" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
