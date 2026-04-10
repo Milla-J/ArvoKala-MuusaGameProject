@@ -482,29 +482,50 @@ texture = ExtResource("39_dwhu0")
 position = Vector2(-169, -163)
 texture = ExtResource("39_n2ugt")
 
-[node name="Kelp" parent="Environment" instance=ExtResource("40_n24vg")]
-position = Vector2(-259, 75)
+[node name="KelpParent" type="Node2D" parent="Environment"]
 
-[node name="Kelp2" parent="Environment" instance=ExtResource("40_n24vg")]
-position = Vector2(-355, 107)
+[node name="Kelp" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+position = Vector2(-263, 170)
 
-[node name="Kelp3" parent="Environment" instance=ExtResource("40_n24vg")]
-position = Vector2(339, 118)
+[node name="Kelp2" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.78039217)
+position = Vector2(-335, 108)
 
-[node name="Kelp4" parent="Environment" instance=ExtResource("40_n24vg")]
-position = Vector2(377, 191)
+[node name="Kelp3" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+position = Vector2(405, 140)
 
-[node name="Kelp5" parent="Environment" instance=ExtResource("40_n24vg")]
-position = Vector2(-308, 206)
+[node name="Kelp4" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+position = Vector2(377, 212)
 
-[node name="Kelp6" parent="Environment" instance=ExtResource("40_n24vg")]
-position = Vector2(527, 68)
+[node name="Kelp5" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.4)
+position = Vector2(-367, 232)
 
-[node name="Kelp7" parent="Environment" instance=ExtResource("40_n24vg")]
+[node name="Kelp6" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.76862746)
+position = Vector2(529, 99)
+
+[node name="Kelp7" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
 position = Vector2(97, 252)
 
-[node name="Kelp8" parent="Environment" instance=ExtResource("40_n24vg")]
+[node name="Kelp8" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
 position = Vector2(-499, 68)
+
+[node name="Kelp9" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(127, 71)
+
+[node name="Kelp10" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.63529414)
+position = Vector2(45, 170)
+
+[node name="Kelp11" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.6156863)
+position = Vector2(-117, 211)
+
+[node name="Kelp12" parent="Environment/KelpParent" instance=ExtResource("40_n24vg")]
+modulate = Color(1, 1, 1, 0.67058825)
+position = Vector2(-530, 147)
 
 [node name="Water" type="Sprite2D" parent="."]
 visible = false
@@ -660,6 +681,7 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_3cx6b")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="InputArea" type="Control" parent="CanvasLayer2"]
 layout_mode = 3
