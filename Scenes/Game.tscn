@@ -866,7 +866,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_7av8l")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dctr5")
 
 [node name="Tutorial" type="Control" parent="CanvasLayer2" node_paths=PackedStringArray("_page1", "_page2")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
