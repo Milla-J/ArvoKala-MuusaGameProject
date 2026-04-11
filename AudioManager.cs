@@ -50,6 +50,19 @@ public partial class AudioManager : Node
         	_menuMusic.Play();
 	}
 
+	public async void StopMenuMusic()
+	{
+		if (_menuMusic.Playing)
+		{
+			var tween = CreateTween();
+			tween.TweenProperty(_menuMusic, "volume_db", -30.0f, 1.0f);
+			await ToSignal(tween, Tween.SignalName.Finished);
+
+			_menuMusic.Stop();
+			_menuMusic.VolumeDb = -4.8f; // reset for next time
+		}	
+	}
+
 	public void PlayGameMusic()
 	{
 		if (_menuMusic.Playing)
@@ -60,17 +73,26 @@ public partial class AudioManager : Node
 
 		SetTensionAmount(0f);
 	}
+	public async void StopGameMusic()
+	{
+		var tween = CreateTween();
+			tween.TweenProperty(_mainGameMusic, "volume_db", -30.0f, 1.0f);
+			await ToSignal(tween, Tween.SignalName.Finished);
+
+			_mainGameMusic.Stop();
+			_mainGameMusic.VolumeDb = -5.0f; // reset for next time
+	}
 	
 	public async void PlayValueProfileMusic()
 	{
 		if (_mainGameMusic.Playing)
 		{
 			var tween = CreateTween();
-			tween.TweenProperty(_mainGameMusic, "volume_db", -40.0f, 1.0f);
+			tween.TweenProperty(_mainGameMusic, "volume_db", -30.0f, 1.0f);
 			await ToSignal(tween, Tween.SignalName.Finished);
 
 			_mainGameMusic.Stop();
-			_mainGameMusic.VolumeDb = 0.0f; // reset for next time
+			_mainGameMusic.VolumeDb = -5.0f; // reset for next time
 		}
 
 		if (!_valueProfileMusic.Playing)
@@ -79,11 +101,21 @@ public partial class AudioManager : Node
 			_valueProfileMusic.Play();
 
 			var tween = CreateTween();
-			tween.TweenProperty(_valueProfileMusic, "volume_db", 0.0f, 0.5f);
+			tween.TweenProperty(_valueProfileMusic, "volume_db", -2.0f, 0.5f);
 		}
+	}
 
-		if (_menuMusic.Playing)
-        	_valueProfileMusic.Stop();
+	public async void StopValueProfileMusic()
+	{
+		if (_valueProfileMusic.Playing)
+		{
+			var tween = CreateTween();
+			tween.TweenProperty(_valueProfileMusic, "volume_db", -20.0f, 0.7f);
+			await ToSignal(tween, Tween.SignalName.Finished);
+
+			_valueProfileMusic.Stop();
+			_valueProfileMusic.VolumeDb = 0.0f; // reset for next time
+		}	
 	}
 
 	public void PlayCastLine()

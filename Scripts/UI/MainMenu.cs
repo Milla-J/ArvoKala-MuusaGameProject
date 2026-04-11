@@ -13,6 +13,7 @@ public partial class MainMenu : Control
 	{
 		GD.Print("Play pressed");
 
+		GetNode<AudioManager>("/root/AudioManager").StopMenuMusic();
 		GetNode<AudioManager>("/root/AudioManager").PlayStartGame();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlackLong2();

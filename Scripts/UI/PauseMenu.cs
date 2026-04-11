@@ -92,6 +92,7 @@ public partial class PauseMenu : Control
 		GD.Print("Quit pressed");
 		GetTree().Paused = false;
 		GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(false);
+		GetNode<AudioManager>("/root/AudioManager").StopGameMusic();
 
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();

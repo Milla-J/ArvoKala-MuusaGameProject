@@ -54,8 +54,9 @@ public partial class ValueProfile : Node2D
 
     private async void OnExitPressed()
     {
+        GetNode<AudioManager>("/root/AudioManager").StopValueProfileMusic();
         var transition = GetNode<SceneTransition>("/root/SceneTransition");
-    	await transition.FadeToBlack();
+    	await transition.FadeToBlackLong2();
 
         GetTree().ChangeSceneToFile("res://Scenes/UI/main_menu.tscn");
 
