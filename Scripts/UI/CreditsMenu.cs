@@ -7,7 +7,8 @@ public partial class CreditsMenu : Control
 	private async void OnBackPressed()
 	{
 		GD.Print("Back Pressed");
-
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 

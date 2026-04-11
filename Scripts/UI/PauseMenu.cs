@@ -38,6 +38,9 @@ public partial class PauseMenu : Control
 	private void OnResumePressed()
 	{
 		GD.Print("Resume pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
+
 		GetTree().Paused = false;
 		Visible = false;
 		_pauseButton.Visible = true;
@@ -48,6 +51,7 @@ public partial class PauseMenu : Control
 	private void OnMuteMusicPressed()
 	{
 		GD.Print("Mute music Pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
 		var _musicBus = AudioServer.GetBusIndex("Music");
 		AudioServer.SetBusMute(_musicBus, !AudioServer.IsBusMute(_musicBus));
 
@@ -64,6 +68,7 @@ public partial class PauseMenu : Control
 	private void OnMuteSFXPressed()
 	{
 		GD.Print("Mute music Pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
 		var _sfxBus = AudioServer.GetBusIndex("SFX");
 		AudioServer.SetBusMute(_sfxBus, !AudioServer.IsBusMute(_sfxBus));
 
@@ -90,6 +95,8 @@ public partial class PauseMenu : Control
 	private async void OnQuitPressed()
 	{
 		GD.Print("Quit pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
 		GetTree().Paused = false;
 		GetNode<AudioManager>("/root/AudioManager").SetPausedAudio(false);
 		GetNode<AudioManager>("/root/AudioManager").StopGameMusic();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=16 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://djk5oftc8t4mr" path="res://Audio/main menu music v7.wav" id="2_b5goh"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://ch1ucsgdpyuq7" path="res://Audio/WinMiniGame.wav" id="9_v1hhk"]
 [ext_resource type="AudioStream" uid="uid://du44yvwqpopiu" path="res://Audio/LoseMiniGame.wav" id="10_hs5kb"]
 [ext_resource type="AudioStream" uid="uid://whhobygnwr6c" path="res://Audio/CloudPop.wav" id="11_hs5kb"]
+[ext_resource type="AudioStream" uid="uid://ctah8nbuwenc5" path="res://Audio/UIButton.wav" id="13_h1w61"]
+[ext_resource type="AudioStream" uid="uid://cig8nnlbpeh5e" path="res://Audio/Transition.wav" id="14_y62ln"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_paayw"]
 stream_count = 2
@@ -20,7 +22,7 @@ stream_0/volume = 0.0
 stream_1/stream = ExtResource("4_kcgc6")
 stream_1/volume = -31.19
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_valueProfileMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame", "_cloudPop")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_valueProfileMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame", "_cloudPop", "_uiButton", "_uiButton2", "_transition")]
 process_mode = 3
 script = ExtResource("1_whaik")
 _menuMusic = NodePath("Music/MenuMusic")
@@ -32,6 +34,9 @@ _startGame = NodePath("SFX/StartGame")
 _winMiniGame = NodePath("SFX/WinMiniGame")
 _loseMiniGame = NodePath("SFX/LoseMiniGame")
 _cloudPop = NodePath("SFX/CloudPop")
+_uiButton = NodePath("SFX/UIButton")
+_uiButton2 = NodePath("SFX/UIButton2")
+_transition = NodePath("SFX/Transition")
 
 [node name="Music" type="Node" parent="."]
 
@@ -88,4 +93,18 @@ bus = &"SFX"
 [node name="CloudPop" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_hs5kb")
 volume_db = -5.725
+bus = &"SFX"
+
+[node name="UIButton" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_h1w61")
+volume_db = -13.211
+bus = &"SFX"
+
+[node name="UIButton2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_h1w61")
+volume_db = -13.211
+
+[node name="Transition" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("14_y62ln")
+volume_db = -4.771
 bus = &"SFX"

@@ -8,12 +8,14 @@ public partial class Tutorial : Control
 
     private void NextTutorialPage()
     {
+        GetNode<AudioManager>("/root/AudioManager").UIButton();
         _page1.Visible = false;
         _page2.Visible = true;
     }
 
     private void HideTutorial()
     {
+        GetNode<AudioManager>("/root/AudioManager").UIButton();
         Visible = false;
     }
 }

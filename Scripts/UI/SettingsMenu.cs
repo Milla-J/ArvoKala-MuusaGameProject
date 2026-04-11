@@ -37,6 +37,7 @@ public partial class SettingsMenu : Control
 	private void OnMuteMusicPressed()
 	{
 		GD.Print("Mute music Pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
 		var _musicBus = AudioServer.GetBusIndex("Music");
 		AudioServer.SetBusMute(_musicBus, !AudioServer.IsBusMute(_musicBus));
 
@@ -53,6 +54,7 @@ public partial class SettingsMenu : Control
 	private void OnMuteSFXPressed()
 	{
 		GD.Print("Mute music Pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
 		var _sfxBus = AudioServer.GetBusIndex("SFX");
 		AudioServer.SetBusMute(_sfxBus, !AudioServer.IsBusMute(_sfxBus));
 
@@ -69,11 +71,13 @@ public partial class SettingsMenu : Control
     private void OnFiPressed()
     {
         TranslationServer.SetLocale("fi");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
     }
 
     private void OnEnPressed()
     {
         TranslationServer.SetLocale("en");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
     }
 
 
@@ -81,6 +85,8 @@ public partial class SettingsMenu : Control
 	private async void OnBackPressed()
 	{
 		GD.Print("Back Pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 

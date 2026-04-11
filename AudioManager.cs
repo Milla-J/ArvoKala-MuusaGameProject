@@ -12,6 +12,10 @@ public partial class AudioManager : Node
 	[Export] private AudioStreamPlayer _winMiniGame;
 	[Export] private AudioStreamPlayer _loseMiniGame;
 	[Export] private AudioStreamPlayer _cloudPop;
+	[Export] private AudioStreamPlayer _uiButton;
+	[Export] private AudioStreamPlayer _uiButton2;
+	[Export] private AudioStreamPlayer _transition;
+
 
 
 	private int _musicBus;
@@ -158,6 +162,21 @@ public partial class AudioManager : Node
 	public void CloudPop()
 	{
 		_cloudPop.Play();
+	}
+
+	public void UIButton()
+	{
+		_uiButton.Play();
+	}
+
+	public void UIButton2()
+	{
+		_uiButton2.Play();
+	}
+
+	public void Transition()
+	{
+		_transition.Play();
 	}
 
 

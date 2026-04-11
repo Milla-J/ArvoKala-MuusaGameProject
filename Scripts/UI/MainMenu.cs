@@ -12,6 +12,7 @@ public partial class MainMenu : Control
 	private async void OnPlayPressed()
 	{
 		GD.Print("Play pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
 
 		GetNode<AudioManager>("/root/AudioManager").StopMenuMusic();
 		GetNode<AudioManager>("/root/AudioManager").PlayStartGame();
@@ -27,6 +28,8 @@ public partial class MainMenu : Control
 	private async void OnSettingsPressed()
 	{
 		GD.Print("Settings pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 
@@ -39,6 +42,8 @@ public partial class MainMenu : Control
 	private async void OnCreditsPressed()
 	{
 		GD.Print("Credits pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 
@@ -51,6 +56,8 @@ public partial class MainMenu : Control
 	private async void OnQuitPressed()
 	{
 		GD.Print("Quit pressed");
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
+		GetNode<AudioManager>("/root/AudioManager").Transition();
 		var transition = GetNode<SceneTransition>("/root/SceneTransition");
     	await transition.FadeToBlack();
 
@@ -59,11 +66,13 @@ public partial class MainMenu : Control
 
 	private void OnFiPressed()
     {
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
         TranslationServer.SetLocale("fi");
     }
 
     private void OnEnPressed()
     {
+		GetNode<AudioManager>("/root/AudioManager").UIButton();
         TranslationServer.SetLocale("en");
     }
 }

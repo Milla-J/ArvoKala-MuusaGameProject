@@ -283,6 +283,8 @@ public partial class GameController : Node
     private void OnPausePressed()
 	{
 		GD.Print("Pause pressed");
+        GetNode<AudioManager>("/root/AudioManager").UIButton();
+        GetNode<AudioManager>("/root/AudioManager").Transition();
         _pauseMenu.Visible = true;
         _pauseButton.Visible = false;
 		GetTree().Paused = true;
