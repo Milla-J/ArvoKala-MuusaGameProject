@@ -58,7 +58,7 @@ public partial class GameController : Node
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public async override void _Process(double delta)
+	public override void _Process(double delta)
     {
         if (!_gameGoing
             && Input.IsActionPressed("CastLine")
@@ -78,13 +78,8 @@ public partial class GameController : Node
 
         if (_caughtFishCount == _amountOfFishInGame && _gameGoing)
         {
-            //Scene transition
-            var transition = GetNode<SceneTransition>("/root/SceneTransition");
-    	    await transition.FadeToBlackLong();
-            //PrintOutFish();
-            GetTree().ChangeSceneToFile("Scenes/ValueProfile.tscn");
-            //Scene transition
-            await transition.FadeToNormalLong();
+            GoToValueProfile();
+            return;
         }
 
         if(!_fishTargetingActive && _gameGoing && !_cloud.Visible)
@@ -170,6 +165,27 @@ public partial class GameController : Node
 
         GetNode<AudioManager>("/root/AudioManager").StopReelingAndSplashing();
         GetNode<AudioManager>("/root/AudioManager").LoseMiniGame();
+    }
+
+    private bool _isTransitioningToValueProfile = false;
+
+    private async void GoToValueProfile()
+    {
+        if (_isTransitioningToValueProfile)
+            return;
+
+        _isTransitioningToValueProfile = true;
+        _gameGoing = false;
+        _fishTargetingActive = false;
+
+        GetNode<AudioManager>("/root/AudioManager").PlayValueProfileMusic();
+
+        var transition = GetNode<SceneTransition>("/root/SceneTransition");
+        await transition.FadeToBlackLong();
+
+        GetTree().ChangeSceneToFile("res://Scenes/ValueProfile.tscn");
+
+        await transition.FadeToNormalLong();
     }
 
     public void SpawnFish(int fishAmount)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=14 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://djk5oftc8t4mr" path="res://Audio/main menu music v7.wav" id="2_b5goh"]
 [ext_resource type="AudioStream" uid="uid://b0ito15xyfenx" path="res://Audio/Game music main.wav" id="3_r1463"]
 [ext_resource type="AudioStream" uid="uid://dsxjep8l3o1cm" path="res://Audio/game music tension.wav" id="4_kcgc6"]
 [ext_resource type="AudioStream" uid="uid://dyku1xwseabr7" path="res://Audio/nature ambience.wav" id="5_kcgc6"]
+[ext_resource type="AudioStream" uid="uid://pxc64v8pfryg" path="res://Audio/ValueProfieMusic.wav" id="5_us8kf"]
 [ext_resource type="AudioStream" uid="uid://db7pouilkrp47" path="res://Audio/CastLine.wav" id="6_paayw"]
 [ext_resource type="AudioStream" uid="uid://c4sjquubft3eu" path="res://Audio/Splashing.wav" id="7_b5goh"]
 [ext_resource type="AudioStream" uid="uid://d6u7s1eini6y" path="res://Audio/StartGame.wav" id="8_b5goh"]
@@ -19,11 +20,12 @@ stream_0/volume = 0.0
 stream_1/stream = ExtResource("4_kcgc6")
 stream_1/volume = -31.19
 
-[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame", "_cloudPop")]
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_valueProfileMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame", "_cloudPop")]
 process_mode = 3
 script = ExtResource("1_whaik")
 _menuMusic = NodePath("Music/MenuMusic")
 _mainGameMusic = NodePath("Music/MainGameMusic")
+_valueProfileMusic = NodePath("Music/ValueProfielMusic")
 _castLine = NodePath("SFX/CastLine")
 _reelingAndSplashing = NodePath("SFX/ReelingAndSplashing")
 _startGame = NodePath("SFX/StartGame")
@@ -42,6 +44,10 @@ bus = &"Music"
 stream = SubResource("AudioStreamSynchronized_paayw")
 volume_db = -5.049
 bus = &"Music"
+
+[node name="ValueProfielMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("5_us8kf")
+volume_db = -1.908
 
 [node name="Ambience" type="Node" parent="."]
 

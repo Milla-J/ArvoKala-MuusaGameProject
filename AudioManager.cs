@@ -5,6 +5,7 @@ public partial class AudioManager : Node
 {
 	[Export] private AudioStreamPlayer _menuMusic;
 	[Export] private AudioStreamPlayer _mainGameMusic;
+	[Export] private AudioStreamPlayer _valueProfileMusic;
 	[Export] private AudioStreamPlayer _castLine;
 	[Export] private AudioStreamPlayer _reelingAndSplashing;
 	[Export] private AudioStreamPlayer _startGame;
@@ -58,6 +59,31 @@ public partial class AudioManager : Node
 			_mainGameMusic.Play();
 
 		SetTensionAmount(0f);
+	}
+	
+	public async void PlayValueProfileMusic()
+	{
+		if (_mainGameMusic.Playing)
+		{
+			var tween = CreateTween();
+			tween.TweenProperty(_mainGameMusic, "volume_db", -40.0f, 1.0f);
+			await ToSignal(tween, Tween.SignalName.Finished);
+
+			_mainGameMusic.Stop();
+			_mainGameMusic.VolumeDb = 0.0f; // reset for next time
+		}
+
+		if (!_valueProfileMusic.Playing)
+		{
+			_valueProfileMusic.VolumeDb = -20.0f;
+			_valueProfileMusic.Play();
+
+			var tween = CreateTween();
+			tween.TweenProperty(_valueProfileMusic, "volume_db", 0.0f, 0.5f);
+		}
+
+		if (_menuMusic.Playing)
+        	_valueProfileMusic.Stop();
 	}
 
 	public void PlayCastLine()
