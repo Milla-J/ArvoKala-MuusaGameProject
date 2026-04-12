@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=17 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://djk5oftc8t4mr" path="res://Audio/main menu music v7.wav" id="2_b5goh"]
@@ -21,6 +21,11 @@ stream_0/stream = ExtResource("3_r1463")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("4_kcgc6")
 stream_1/volume = -31.19
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y62ln"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("13_h1w61")
 
 [node name="AudioManager" type="Node" node_paths=PackedStringArray("_menuMusic", "_mainGameMusic", "_valueProfileMusic", "_castLine", "_reelingAndSplashing", "_startGame", "_winMiniGame", "_loseMiniGame", "_cloudPop", "_uiButton", "_uiButton2", "_transition")]
 process_mode = 3
@@ -96,8 +101,9 @@ volume_db = -5.725
 bus = &"SFX"
 
 [node name="UIButton" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("13_h1w61")
-volume_db = -13.211
+stream = SubResource("AudioStreamRandomizer_y62ln")
+volume_db = -7.486
+pitch_scale = 2.57
 bus = &"SFX"
 
 [node name="UIButton2" type="AudioStreamPlayer" parent="SFX"]
@@ -106,5 +112,5 @@ volume_db = -13.211
 
 [node name="Transition" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("14_y62ln")
-volume_db = -4.771
+volume_db = -0.954
 bus = &"SFX"
