@@ -600,7 +600,7 @@ _tiltThreshold = 3.5
 _indicatorSpeedMultiplier = 65
 _indicatorMaxVelocity = 200.0
 _winningPointAmount = 12
-_safeAreaMovementSpeed = 1.0
+_safeAreaMovementSpeed = 70.0
 
 [node name="MinigameGrayArea" type="Sprite2D" parent="Minigame"]
 self_modulate = Color(0.6378432, 0.6378432, 0.63784313, 1)
