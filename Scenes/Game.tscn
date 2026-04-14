@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://7og14qr88huk"]
+[gd_scene load_steps=104 format=3 uid="uid://7og14qr88huk"]
 
 [ext_resource type="Script" uid="uid://cduwb3b7d0d2u" path="res://Scripts/GameController.cs" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://nm6vtl42yfbw" path="res://Scenes/Game-objects/Fish/Aitous.tscn" id="2_3so38"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://bmnf3a7lqb08g" path="res://Scenes/Game-objects/kelp.tscn" id="40_n24vg"]
 [ext_resource type="Texture2D" uid="uid://bfxe8rx45dvup" path="res://Assets/Art/Placeholders/HandsHoldingPhone.png" id="41_dctr5"]
 [ext_resource type="Texture2D" uid="uid://btrqshuu2m7v1" path="res://Assets/Art/Placeholders/BG test/water0.png" id="41_n2ugt"]
+[ext_resource type="Texture2D" uid="uid://scd3ohmkdgbm" path="res://Assets/Art/player/FishingRod.png" id="41_w61tf"]
 [ext_resource type="Texture2D" uid="uid://c5v4yuikrsis1" path="res://Assets/Art/Placeholders/BG test/water1.png" id="42_n24vg"]
 [ext_resource type="Texture2D" uid="uid://ijp75pd0mxy1" path="res://Assets/Art/Placeholders/BG test/water2.png" id="43_ym08v"]
 [ext_resource type="Texture2D" uid="uid://dkr5kaq54s3y6" path="res://Assets/Art/Placeholders/BG test/water3.png" id="44_8ekww"]
@@ -511,6 +512,10 @@ texture = ExtResource("39_dwhu0")
 [node name="Cat" type="Sprite2D" parent="Environment"]
 position = Vector2(-169, -163)
 texture = ExtResource("39_n2ugt")
+
+[node name="FishingRod" type="Sprite2D" parent="Environment/Cat"]
+position = Vector2(53, 0)
+texture = ExtResource("41_w61tf")
 
 [node name="KelpParent" type="Node2D" parent="Environment"]
 
