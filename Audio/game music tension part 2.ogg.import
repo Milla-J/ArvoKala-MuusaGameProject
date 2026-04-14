@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6mffpsr4r207"
+path="res://.godot/imported/game music tension part 2.ogg-283aa3efaad46702535a968eb215e3db.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/game music tension part 2.ogg"
+dest_files=["res://.godot/imported/game music tension part 2.ogg-283aa3efaad46702535a968eb215e3db.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=150.0
+beat_count=160
+bar_beats=4

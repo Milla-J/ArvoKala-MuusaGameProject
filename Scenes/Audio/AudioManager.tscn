@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvrfy1pi3n4wr"]
+[gd_scene load_steps=21 format=3 uid="uid://cvrfy1pi3n4wr"]
 
 [ext_resource type="Script" uid="uid://q6yksywqevad" path="res://AudioManager.cs" id="1_whaik"]
 [ext_resource type="AudioStream" uid="uid://djk5oftc8t4mr" path="res://Audio/main menu music v7.wav" id="2_b5goh"]
-[ext_resource type="AudioStream" uid="uid://b0ito15xyfenx" path="res://Audio/Game music main.wav" id="3_r1463"]
-[ext_resource type="AudioStream" uid="uid://dsxjep8l3o1cm" path="res://Audio/game music tension.wav" id="4_kcgc6"]
+[ext_resource type="AudioStream" uid="uid://cdyq345vklx74" path="res://Audio/game music main part 1.ogg" id="3_xl4i1"]
+[ext_resource type="AudioStream" uid="uid://kd47brnhcp14" path="res://Audio/game music main part 2.ogg" id="4_ohn7x"]
 [ext_resource type="AudioStream" uid="uid://dyku1xwseabr7" path="res://Audio/nature ambience.wav" id="5_kcgc6"]
+[ext_resource type="AudioStream" uid="uid://citjlp5xr181i" path="res://Audio/game music tension part 1.ogg" id="5_ohn7x"]
 [ext_resource type="AudioStream" uid="uid://pxc64v8pfryg" path="res://Audio/ValueProfieMusic.wav" id="5_us8kf"]
+[ext_resource type="AudioStream" uid="uid://6mffpsr4r207" path="res://Audio/game music tension part 2.ogg" id="6_c5ii8"]
 [ext_resource type="AudioStream" uid="uid://db7pouilkrp47" path="res://Audio/CastLine.wav" id="6_paayw"]
 [ext_resource type="AudioStream" uid="uid://c4sjquubft3eu" path="res://Audio/Splashing.wav" id="7_b5goh"]
 [ext_resource type="AudioStream" uid="uid://d6u7s1eini6y" path="res://Audio/StartGame.wav" id="8_b5goh"]
@@ -15,12 +17,54 @@
 [ext_resource type="AudioStream" uid="uid://ctah8nbuwenc5" path="res://Audio/UIButton.wav" id="13_h1w61"]
 [ext_resource type="AudioStream" uid="uid://cig8nnlbpeh5e" path="res://Audio/Transition.wav" id="14_y62ln"]
 
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_y62ln"]
+clip_count = 2
+clip_0/name = &"part 1"
+clip_0/stream = ExtResource("3_xl4i1")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"part 2"
+clip_1/stream = ExtResource("4_ohn7x")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 0): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 0
+}
+}
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_b4lxb"]
+clip_count = 2
+clip_0/name = &"Game Music Tension Part 1"
+clip_0/stream = ExtResource("5_ohn7x")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"Game Music Tension Part 2"
+clip_1/stream = ExtResource("6_c5ii8")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(0, 0): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
+
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_paayw"]
 stream_count = 2
-stream_0/stream = ExtResource("3_r1463")
+stream_0/stream = SubResource("AudioStreamInteractive_y62ln")
 stream_0/volume = 0.0
-stream_1/stream = ExtResource("4_kcgc6")
-stream_1/volume = -31.19
+stream_1/stream = SubResource("AudioStreamInteractive_b4lxb")
+stream_1/volume = -40.35
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y62ln"]
 random_pitch = 1.1
