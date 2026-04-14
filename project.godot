@@ -13,7 +13,7 @@ config_version=5
 config/name="Fishing Filosofy"
 run/main_scene="uid://6lhw8uwis3tm"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
-config/icon="uid://c0mxxfb5jefcu"
+config/icon="uid://cldouppvnfruk"
 
 [autoload]
 

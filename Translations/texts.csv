@@ -5,8 +5,10 @@ MUSIC;music;musiikki
 SOUNDEFFECTS;sound effects; ääniefektit
 QUIT;quit;poistu
 BACK;back;palaa
+EXIT;exit;poistu
 CREDITS;credits;tekijät
 CREDITS_00;Programmers:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nArt:\nLaura Soppi, Tiia Korkalainen\n\nMusic & audio:\nKalle Karhu\n;Ohjelmoijat:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nGrafiikka:\nLaura Soppi, Tiia Korkalainen\n\nMusiikki & audio:\nKalle Karhu\n
+VALUEPROFILE;Valueprofile;Arvoprofiili
 PAUSED;Game paused;Peli pysäytetty
 QUITTOMENU;Quit to main menu;Poistu päävalikkoon
 PRESSTOSTART;Press anywere to start game;Paina näyttöä aloittaaksesi pelin
@@ -15,66 +17,66 @@ CAUGHTFISH;Caught fish: {0};Pyydystetyt kalat: {0}
 VERYIMPORTANT;Strongly agree;Vahvasti samaa mieltä
 SOMEWHATIMPORTANT;Somewhat agree;Jonkin verran samaa mieltä
 NOTIMPORTANT;Disagree;Eri mieltä
-AHKERUUS_00;Ahkeruus eng name;Ahkeruus
-AHKERUUS_01;Ahkeruus eng text;Olen työteliäs, ahkera, uutterasti työskentelevä ja sitoutunut
-AIOTUS_00;Aiotus eng name;Aiotus
-AIOTUS_01;Aioutus eng text;Olen oma itseni esittämättä mitään, olen rehellinen itselleni
-ANTEEKSIANTAVUUS_00;Anteeksiantavuus eng name;Anteeksiantavuus
-ANTEEKSIANTAVUUS_01;Anteeksiantavuus eng text;Annan anteeksi niin itselleni kuin muille
-HAUSKANPITOJAHUUMORI_00;Hauskanpito ja huumori eng name;Hauskanpito ja huumori
-HAUSKANPITOJAHUUMORI_01;Hauskanpito ja huumori eng text;Hauskuuttelen ja keskityn sellaiseen tekemiseen, mikä on hauskaa
-HYVAKSYNTA_00;Hyväksyntä eng name;Hyväksyntä
-HYVAKSYNTA_01;Hyväksyntä eng text;Olen avoin ja hyväksyvä itseäni, muita ja elämää kohtaan
-JAMAKKYYS_00;Jämäkkyys eng name;Jämäkkyys
-JAMAKKYYS_01;Jämäkkyys eng text;Kunnioitan ja puolustan omia oikeuksiani: kieltäydyn ja teen pyyntöjä
-JARJESTYS_00;Järjestys eng name;Järjestys
-JARJESTYS_01;Järjestys eng text;Pidän yllä järjestystä ja selkeyttä
-JOUSTAVUUS_00;Joustavuus eng name;Joustavuus
-JOUSTAVUUS_01;Joustavuus eng text;Toimin joustavasti muuttuvissa ja yllättävissäkin tilanteissa
-KUNNIOITUS_00;Kunnioitus eng name;Kunnioutus
-KUNNIOITUS_01;Kunnioitus eng text;Kohtelen itseäni ja muita kunnioittavasti, olen kohtelias ja osoitan arvostavaa huomiota
-KUNNONYLLAPITO_00;Kunnon ylläpito eng name;Kunnon ylläpito
-KUNNONYLLAPITO_01;Kunnon ylläpito eng text;Pidän yllä ja vaalin hyvää fyysistä ja psyykkistä kuntoa
-LAHEISYYS_00;Läheisyys eng name;Läheisyys
-LAHEISYYS_01;Läheisyys eng text;Olen läheinen psyykkisesti ja fyysisesti, paljastan sisintäni läheisessä ihmissuhteessa
-LASNAOLO_00;Läsnäolo eng name;Läsnäolo
-LASNAOLO_01;Läsnäolo eng text;Olen tietoinen, huomaan omat tässä ja nyt -kokemukseni avoimesti ja läsnäolevasti
-LUOTTAMUS_00;Luottamus eng name;Luottamus
-LUOTTAMUS_01;Luottamus eng text;Olen luotettava, lojaali, uskollinen, rehellinen ja uskottava
-LUOVUUS_00;Luovuus eng name;Luovuus
-LUOVUUS_01;Luovuus eng text;Vaalin luovuutta tai kekseliäisyyttä eri tilanteissa
-MYOTATUNTO_00;Myötätunto eng name;Myötätunto
-MYOTATUNTO_01;Myötätunto eng text;Toimin myötätuntoisesti sellaisia kohtaan, jotka kärsivät, myös itseäni kohtaan
-OIKEUDENMUKAISUUS_00;Oikeudenmukaisuus eng name;Oikeudenmukaisuus
-OIKEUDENMUKAISUUS_01;Oikeudenmukaisuus eng text;Kohtelen itseäni ja muita reilusti ja oikeudenmukaisesti
-RAKKAUS_00;Rakkaus eng name;Rakkaus
-RAKKAUS_01;Rakkaus eng text;Kohtelen itseäni ja muita rakastavasti ja lempeästi
-REHELLISYYS_00;Reellisyys eng name;Rehellisyys
-REHELLISYYS_01;Rehellisyys eng text;Olen rehellinen ja luotettava niin itseäni kuin muita kohtaan
-ROHKAISEVUUS_00;Rohkaisevuus eng name;Rohkaisevuus
-ROHKAISEVUUS_01;Rohkaisevuus eng text;Rohkaisen ja kannustan arvojen mukaisiin tekoihin niin itseäni kuin muita ihmisiä
-ROHKEUS_00;Rohkeus eng name;Rohkeus
-ROHKEUS_01;Rohkeus eng text;Olen rohkea ja urhea, pysyn oikeassa suunnassa peloista ja vaikeuksista huolimatta
-SEIKKAILUNHALU_00;Seikkailunhalu eng name;Seikkailunhalu
-SEIKKAILUNHALU_01;Seikkailunhalu eng text;Etsin aktiivisesti uusia elämyksiä ja jännittäviä kokemuksia
-SEKSUAALISUUS_00;Seksuaalisuus eng name;Seksuaalisuus
-SEKSUAALISUUS_01;SEksuaalisuus eng text;Ilmaisen ja vaalin omaa seksuaalisuuttani
-SINNIKKYYS_00;Sinnikkyys eng name;Sinnikkyys
-SINNIKKYYS_01;Sinnikkyys eng text;Jatkan sitkeästi, vaikka kohtaisin vastoinkäymisiä
-TAIDOKKUUS_00;Taidokkuus eng name;Taidokkuus
-TAIDOKKUUS_01;Taidokkuus eng text;Pyrin kehittämään ja ylläpitämään taitojani ja käyttämään niitä
-TUKEMINEN_00;Tukeminen eng name;Tukeminen
-TUKEMINEN_01;Tukeminen eng text;Olen tukea-antava, avulias, rohkaiseva ja autan itseäni ja muita
-TURVALLISUUS_00;Turvallisuus eng name;Turvallisuus
-TURVALLISUUS_01;Turvallisuus eng text;Varmistan, suojelen ja turvaan omaa ja muiden turvallisuutta
-UTELIAISUUS_00;Uteliaisuus eng name;Uteliaisuus
-UTELIAISUUS_01;Uteliaisuus eng text;Olen utelias, avoin uudelle ja kiinnostunut uusista asioista
-VAPAUSJARIIPPUMATTOMUUS_00;Vapaus ja riippumattomuus eng name;Vapaus ja riippumattomuus
-VAPAUSJARIIPPUMATTOMUUS_01;Vapaus ja riippumattomuus eng text;Elän vapaasti ja valitsen itse, mitä teen, ja kannustan muitakin tekemään niin
-VASTUULLISUUS_00;Vastuullisuus eng name;Vastuullisuus
-VASTUULLISUUS_01;Vastuullisuus eng text;Kannan vastuun omista tekemisistäni
-YSTAVALLISYYS_00;Ystävällisyys eng name;Ystävällisyys
-YSTAVALLISYYS_01;Ystävällisyys eng text;Olen ystävällinen, inhimillinen, huomaavainen ja välittävä itseäni ja muita kohtaan
+AHKERUUS_00;Diligence;Ahkeruus
+AHKERUUS_01;I am hard-working, diligent and committed;Olen työteliäs, ahkera, uutterasti työskentelevä ja sitoutunut
+AIOTUS_00;Authenticity;Aitous
+AIOTUS_01;I am myself without pretending, I am honest to myself;Olen oma itseni esittämättä mitään, olen rehellinen itselleni
+ANTEEKSIANTAVUUS_00;Forgiveness;Anteeksiantavuus
+ANTEEKSIANTAVUUS_01;I forgive myself and others;Annan anteeksi niin itselleni kuin muille
+HAUSKANPITOJAHUUMORI_00;Humour and fun;Hauskanpito ja huumori
+HAUSKANPITOJAHUUMORI_01;I have fun and focus on doing  things that are fun;Hauskuuttelen ja keskityn sellaiseen tekemiseen, mikä on hauskaa
+HYVAKSYNTA_00;Acceptance;Hyväksyntä
+HYVAKSYNTA_01;I am open and accepting towards myself, others and life;Olen avoin ja hyväksyvä itseäni, muita ja elämää kohtaan
+JAMAKKYYS_00;Determination;Jämäkkyys
+JAMAKKYYS_01;I respect and defend my own rights. I refuse and make requests;Kunnioitan ja puolustan omia oikeuksiani. Kieltäydyn ja teen pyyntöjä
+JARJESTYS_00;Order;Järjestys
+JARJESTYS_01;I upkeep order and clarity;Pidän yllä järjestystä ja selkeyttä
+JOUSTAVUUS_00;Flexibility;Joustavuus
+JOUSTAVUUS_01;I am flexible in changing and surprising situations;Toimin joustavasti muuttuvissa ja yllättävissäkin tilanteissa
+KUNNIOITUS_00;Respect;Kunnioutus
+KUNNIOITUS_01;I treat myself and others with respect. I am polite and show appreciative attention;Kohtelen itseäni ja muita kunnioittavasti, olen kohtelias ja osoitan arvostavaa huomiota
+KUNNONYLLAPITO_00;Wellness;Kunnon ylläpito
+KUNNONYLLAPITO_01;I maintain good physical and mental health;Pidän yllä ja vaalin hyvää fyysistä ja psyykkistä kuntoa
+LAHEISYYS_00;Closeness;Läheisyys
+LAHEISYYS_01;I am close mentally and physically. I reveal my inner self in a close relationship;Olen läheinen psyykkisesti ja fyysisesti, paljastan sisintäni läheisessä ihmissuhteessa
+LASNAOLO_00;Presence;Läsnäolo
+LASNAOLO_01;I am aware and notice my own here and now -experiences openly and presently;Olen tietoinen, huomaan omat tässä ja nyt -kokemukseni avoimesti ja läsnäolevasti
+LUOTTAMUS_00;Trust;Luottamus
+LUOTTAMUS_01;I am trustworthy, loyal, dependable, honest and credible;Olen luotettava, lojaali, uskollinen, rehellinen ja uskottava
+LUOVUUS_00;Creativity;Luovuus
+LUOVUUS_01;I cherish creativity or ingenuity in different situations;Vaalin luovuutta tai kekseliäisyyttä eri tilanteissa
+MYOTATUNTO_00;Compassion;Myötätunto
+MYOTATUNTO_01;I am compassionate towards those who suffer, even myself;Toimin myötätuntoisesti sellaisia kohtaan, jotka kärsivät, myös itseäni kohtaan
+OIKEUDENMUKAISUUS_00;Fairness;Oikeudenmukaisuus
+OIKEUDENMUKAISUUS_01;I treat myself and others fairly;Kohtelen itseäni ja muita reilusti ja oikeudenmukaisesti
+RAKKAUS_00;Love;Rakkaus
+RAKKAUS_01;I treat myself and others lovingly and gently;Kohtelen itseäni ja muita rakastavasti ja lempeästi
+REHELLISYYS_00;Honesty;Rehellisyys
+REHELLISYYS_01;I am honest and dependable towards myself and others;Olen rehellinen ja luotettava niin itseäni kuin muita kohtaan
+ROHKAISEVUUS_00;Encouragement;Rohkaisevuus
+ROHKAISEVUUS_01;I encourage myself and others to act according to their values;Rohkaisen ja kannustan arvojen mukaisiin tekoihin niin itseäni kuin muita ihmisiä
+ROHKEUS_00;Bravery;Rohkeus
+ROHKEUS_01;I am brave and courageous. I stay on the right path despite the fears and hardships;Olen rohkea ja urhea, pysyn oikeassa suunnassa peloista ja vaikeuksista huolimatta
+SEIKKAILUNHALU_00;Adventurousness;Seikkailunhalu
+SEIKKAILUNHALU_01;I actively seek out new and exciting experiences;Etsin aktiivisesti uusia elämyksiä ja jännittäviä kokemuksia
+SEKSUAALISUUS_00;Sexuality;Seksuaalisuus
+SEKSUAALISUUS_01;I express and cherish my own sexuality;Ilmaisen ja vaalin omaa seksuaalisuuttani
+SINNIKKYYS_00;Perseverance;Sinnikkyys
+SINNIKKYYS_01;I will persevere even if I face adversity;Jatkan sitkeästi, vaikka kohtaisin vastoinkäymisiä
+TAIDOKKUUS_00;Skills;Taidokkuus
+TAIDOKKUUS_01;I strive to develop, upkeep and use my skills;Pyrin kehittämään ja ylläpitämään taitojani ja käyttämään niitä
+TUKEMINEN_00;Support;Tukeminen
+TUKEMINEN_01;I am supportive, helpful and encouraging. I help myself and others;Olen tukea-antava, avulias, rohkaiseva ja autan itseäni ja muita
+TURVALLISUUS_00;Safety;Turvallisuus
+TURVALLISUUS_01;I will ensure, protect and safeguard the safety of myself and others;Varmistan, suojelen ja turvaan omaa ja muiden turvallisuutta
+UTELIAISUUS_00;Curiosity;Uteliaisuus
+UTELIAISUUS_01;I am curious, open to and interested in new things;Olen utelias, avoin uudelle ja kiinnostunut uusista asioista
+VAPAUSJARIIPPUMATTOMUUS_00;Freedom and independence;Vapaus ja riippumattomuus
+VAPAUSJARIIPPUMATTOMUUS_01;I live freely and choose what I do and I encourage others to do so;Elän vapaasti ja valitsen itse, mitä teen, ja kannustan muitakin tekemään niin
+VASTUULLISUUS_00;Responsibility;Vastuullisuus
+VASTUULLISUUS_01;I carry responsibility for my own actions;Kannan vastuun omista tekemisistäni
+YSTAVALLISYYS_00;Friendliness;Ystävällisyys
+YSTAVALLISYYS_01;I am kind, humane, considerate, and caring towards myself and others;Olen ystävällinen, inhimillinen, huomaavainen ja välittävä itseäni ja muita kohtaan
 TUTORIAL_00;Tutorial time!;Tutoriaalin aika!
 TUTORIAL_01;This is you. You are a very very hungry cat.\nYou must now fish to satiate your hunger, and perhaps do some self-reflection while you're at it;Olet erittäin nälkäinen kissa.\nSinun täytyy kalastaa täyttääksesi vatsasi, ja mahdollisesti itsereflektioida siinä samalla
 TUTORIAL_02;Click on the screen to cast your line and wait for a fish to bite. Be patent, fish can be a bit slow sometimes;Aloita onkiminen painamalla näyttöä ja odota että kala nappaa. Ole kärsivällinen, kaloilla kestää joskus hetken
