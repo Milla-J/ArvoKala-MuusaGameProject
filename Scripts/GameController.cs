@@ -251,12 +251,13 @@ public partial class GameController : Node
         _fishPool = tempArray;
     }
 
-    private void SaveFishToValues()
+    private void SaveFishToValues(bool veryImportant)
     {
         _importantValueCount++;
         _config.SetValue("Fish" + _importantValueCount, "ValueName", _spawnedFish[_currentFishIndex].ValueName);
         _config.SetValue("Fish" + _importantValueCount, "ValueDescription", _spawnedFish[_currentFishIndex].ValueDescription);
         _config.SetValue("Fish" + _importantValueCount, "FishTexture", _spawnedFish[_currentFishIndex].GetChild<Sprite2D>(0).Texture);
+        _config.SetValue("Fish" + _importantValueCount, "IsVeryImportant", veryImportant);
         _config.Save("user://valueFish.cfg");
 
         DespawnFish();

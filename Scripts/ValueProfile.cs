@@ -42,13 +42,32 @@ public partial class ValueProfile : Node2D
             return;
         }
 
+        // instantiate all value fish the player chose "strongly agree" on
         foreach (String fish in _config.GetSections())
         {
-            Control valueFish = _valueFishScene.Instantiate<Control>();
-            valueFish.GetChild<Label>(0).Text = (String)_config.GetValue(fish, "ValueName");
-            valueFish.GetChild<TextureRect>(1).Texture = (Texture2D)_config.GetValue(fish, "FishTexture");
-            valueFish.GetChild<Label>(2).Text = (String)_config.GetValue(fish, "ValueDescription");
-            _parent.AddChild(valueFish);
+            bool fishIsVeryImportant = (bool)_config.GetValue(fish, "IsVeryImportant");
+            if (fishIsVeryImportant)
+            {
+                Control valueFish = _valueFishScene.Instantiate<Control>();
+                valueFish.GetChild<Label>(0).Text = (String)_config.GetValue(fish, "ValueName");
+                valueFish.GetChild<TextureRect>(1).Texture = (Texture2D)_config.GetValue(fish, "FishTexture");
+                valueFish.GetChild<Label>(2).Text = (String)_config.GetValue(fish, "ValueDescription");
+                _parent.AddChild(valueFish);
+            }
+        }
+
+        // instantiate all value fish the player chose "somewhat agree" on
+        foreach (String fish in _config.GetSections())
+        {
+            bool fishIsVeryImportant = (bool)_config.GetValue(fish, "IsVeryImportant");
+            if (!fishIsVeryImportant)
+            {
+                Control valueFish = _valueFishScene.Instantiate<Control>();
+                valueFish.GetChild<Label>(0).Text = (String)_config.GetValue(fish, "ValueName");
+                valueFish.GetChild<TextureRect>(1).Texture = (Texture2D)_config.GetValue(fish, "FishTexture");
+                valueFish.GetChild<Label>(2).Text = (String)_config.GetValue(fish, "ValueDescription");
+                _parent.AddChild(valueFish);
+            }
         }
     }
 
