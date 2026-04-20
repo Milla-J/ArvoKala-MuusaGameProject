@@ -8,6 +8,7 @@ BACK;back;palaa
 EXIT;exit;poistu
 CREDITS;credits;tekijät
 CREDITS_00;Programmers:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nArt:\nLaura Soppi, Tiia Korkalainen\n\nMusic & audio:\nKalle Karhu\n;Ohjelmoijat:\nMilla Jerohin, Kalle Karhu, Janika Viitanen\n\nGrafiikka:\nLaura Soppi, Tiia Korkalainen\n\nMusiikki & audio:\nKalle Karhu\n
+CREDITS_01;Instructor:\nOuti Tuisku\n\nProgramming teacher:\nSami Kojo;Valmentaja:\nOuti Tuisku\n\nOhjelmoinnin opettaja:\nSami Kojo
 VALUEPROFILE;Valueprofile;Arvoprofiili
 PAUSED;Game paused;Peli pysäytetty
 QUITTOMENU;Quit to main menu;Poistu päävalikkoon

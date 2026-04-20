@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://6lhw8uwis3tm"]
+[gd_scene load_steps=15 format=3 uid="uid://6lhw8uwis3tm"]
 
 [ext_resource type="Script" uid="uid://42s8dopbhcms" path="res://Scripts/UI/MainMenu.cs" id="1_5wsvm"]
 [ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="2_i2xx2"]
 [ext_resource type="FontFile" uid="uid://bjli0c5ipdxuf" path="res://Assets/UI/edit-undo.brk.ttf" id="2_o14dv"]
 [ext_resource type="PackedScene" uid="uid://ljb8hnfkixfd" path="res://Scenes/UI/BlurredBackground.tscn" id="2_u7lva"]
 [ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="5_mrfpk"]
+[ext_resource type="Texture2D" uid="uid://c7iijsnhog2p" path="res://Assets/UI/Logos/MUUSA logo neliö iso.png" id="6_4pqbp"]
+[ext_resource type="Texture2D" uid="uid://i0ia0jn08oob" path="res://Assets/UI/Logos/FI_co-funded by VERTICAL RGB_POS.png" id="7_gih0s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u7lva"]
 texture = ExtResource("2_i2xx2")
@@ -82,25 +84,15 @@ text = "Fishing Filosofy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -119.0
-offset_top = -103.5
-offset_right = 119.0
-offset_bottom = 243.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -106.0
+offset_top = -84.5
+offset_right = 106.0
+offset_bottom = 223.5
 theme_override_constants/separation = 4
 
-[node name="Play" type="Button" parent="CenterContainer/MainButtons"]
+[node name="Play" type="Button" parent="MainButtons"]
 custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
@@ -110,7 +102,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_4pqbp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gih0s")
 text = "PLAY"
 
-[node name="Settings" type="Button" parent="CenterContainer/MainButtons"]
+[node name="Settings" type="Button" parent="MainButtons"]
 custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
@@ -120,7 +112,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_4pqbp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gih0s")
 text = "SETTINGS"
 
-[node name="Credits" type="Button" parent="CenterContainer/MainButtons"]
+[node name="Credits" type="Button" parent="MainButtons"]
 custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
@@ -130,7 +122,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_4pqbp")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gih0s")
 text = "CREDITS"
 
-[node name="Quit" type="Button" parent="CenterContainer/MainButtons"]
+[node name="Quit" type="Button" parent="MainButtons"]
 custom_minimum_size = Vector2(212, 74)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_o14dv")
@@ -166,9 +158,36 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_k33u3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lrjdf")
 text = "ENGLISH"
 
-[connection signal="pressed" from="CenterContainer/MainButtons/Play" to="." method="OnPlayPressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/Settings" to="." method="OnSettingsPressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/Credits" to="." method="OnCreditsPressed"]
-[connection signal="pressed" from="CenterContainer/MainButtons/Quit" to="." method="OnQuitPressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EuropeLogo" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = -108.727264
+offset_right = 239.0
+offset_bottom = 1.2727356
+grow_vertical = 0
+texture = ExtResource("7_gih0s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MuusaLogo" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -102.0
+offset_right = 130.0
+offset_bottom = -2.0
+grow_vertical = 0
+texture = ExtResource("6_4pqbp")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="MainButtons/Play" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="MainButtons/Settings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="MainButtons/Credits" to="." method="OnCreditsPressed"]
+[connection signal="pressed" from="MainButtons/Quit" to="." method="OnQuitPressed"]
 [connection signal="pressed" from="FiButton" to="." method="OnFiPressed"]
 [connection signal="pressed" from="EnButton" to="." method="OnEnPressed"]
