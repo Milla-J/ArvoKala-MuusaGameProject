@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh27ymi56t35e"]
+[gd_scene load_steps=10 format=3 uid="uid://dh27ymi56t35e"]
 
 [ext_resource type="Script" uid="uid://cm1rfs7xufinb" path="res://Scripts/ValueProfile.cs" id="1_o1ktb"]
 [ext_resource type="PackedScene" uid="uid://cmk42ypqqeguo" path="res://Scenes/Game-objects/value_fish.tscn" id="2_eakbh"]
 [ext_resource type="Texture2D" uid="uid://brpx6b5xlwv3x" path="res://Assets/Art/Arvolaituri.png" id="3_m68tu"]
+[ext_resource type="FontFile" uid="uid://bjli0c5ipdxuf" path="res://Assets/UI/edit-undo.brk.ttf" id="4_w1uhb"]
+[ext_resource type="Texture2D" uid="uid://dvdnmna67n3ic" path="res://Assets/UI/UI-Assets.png" id="5_8y00j"]
+[ext_resource type="Texture2D" uid="uid://5n6q4c1wohlt" path="res://Assets/UI/UI-Assets2.png" id="6_c6bpn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwexw"]
+texture = ExtResource("5_8y00j")
+region_rect = Rect2(476, 235, 212, 74)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q5bp7"]
+texture = ExtResource("6_c6bpn")
+region_rect = Rect2(472, 343, 216, 78)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn53i"]
+texture = ExtResource("6_c6bpn")
+region_rect = Rect2(472, 343, 216, 78)
 
 [node name="ValueProfile" type="Node2D" node_paths=PackedStringArray("_parent")]
 script = ExtResource("1_o1ktb")
@@ -12,13 +27,15 @@ _parent = NodePath("CanvasLayer/ScrollContainer/HBoxContainer")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -105.0
-offset_top = -18.0
-offset_right = 105.0
-offset_bottom = 27.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -265.5
+offset_right = 600.0
+offset_bottom = 274.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_m68tu")
@@ -60,11 +77,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Exit" type="Button" parent="CanvasLayer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 134.0
-offset_bottom = 72.0
-theme_override_font_sizes/font_size = 33
+offset_left = 26.0
+offset_top = 23.0
+offset_right = 191.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("4_w1uhb")
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxTexture_cwexw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q5bp7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pn53i")
 text = "EXIT"
 
 [connection signal="pressed" from="CanvasLayer/Exit" to="." method="OnExitPressed"]
